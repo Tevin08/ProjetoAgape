@@ -1,0 +1,10 @@
+
+
+
+           <img src="./imagens/imgcoraao.png" id="imgcor" alt="dwf" />
+          <p>
+            O Projeto Ágape foi desenvolvido visando facilitar e automatizar o
+            processo de doação para ONG’s, onde você, doador, poderá visualizar
+            o perfil de cada organização para qual gostaria de doar.
+          </p>
+

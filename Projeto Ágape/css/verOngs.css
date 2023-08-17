@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Jaldi&display=swap");
+
+/* ver ongs*/
+* {
+  margin: 0%;
+  padding: 0%;
+  font-family: jaldi;
+}
+
+#nav-ongs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #beaeff;
+  margin-bottom: 3%;
+}
+
+.-nav {
+  margin-right: 100px;
+}
+
+.btn-perfil,
+.btn-visualizar-ongs {
+  padding: 10px 0 10px 0;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: Jaldi;
+  border: 2px solid #ffffff;
+  font-weight: 700;
+}
+
+.btn-perfil {
+  width: 7em;
+  background-color: #beaeff;
+
+  border-radius: 24px;
+  text-align: center;
+}
+.btn-visualizar-ongs {
+  width: 13em;
+
+  background-color: #6640ee77;
+  border-radius: 40px;
+}
+
+.input-nav {
+  display: flex;
+  gap: 15%;
+}
+
+#logo {
+  transform: translateX(-100%);
+}
+
+.nav-ongs img {
+  margin-bottom: 1%;
+  margin-top: 1%;
+  margin-left: 4%;
+}
+
+.banners {
+  /* background-color: gray; */
+  display: grid;
+  grid-template-columns: repeat(4, 20em);
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+.banner-0 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  width: 30%;
+  height: 10em;
+  padding: 4em;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.11);
+  margin: 4em 10em 4em 2em;
+}
+
+.test {
+  display: flex;
+  justify-content: center;
+  animation: bug 3s infinite alternate;
+  background-color: #5a78ff;
+  width: 100%;
+}
+
+.banner-0 h1 {
+  font-size: 20px;
+  text-align: center;
+  width: 200px;
+}
+.banner-0:hover {
+  transition: 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+  scale: 105%;
+  background-color: #beaeff;
+}
+
+h1 {
+  text-align: center;
+}
+footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.24);
+}
+
+/* imagens logo-ongs */
+.logo-ong {
+  background-color: #ffffff;
+  box-shadow: 0 0 1.5px 1.5px rgba(0, 0, 0, 0.11);
+  padding: 70px;
+  border-radius: 140px;
+  margin-bottom: 20px;
+}
+#ong-logo-tamanho{
+ scale: 2;
+}
+
+.img-back-2{
+  background-image:url(../imagens/renanfurry.jpg);
+  background-size: contain;
+}
+.img-back-1{
+  background-image: url(../imagens/logo.png);
+  background-size: contain;
+}
+.img-back-3{
+  background-image: url(../imagens/vitoriaaçai.jpg);
+  background-size: contain;
+}
+
+
+@keyframes bug {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translatex(-50%);
+  }
+}
+/* media resposividade  */
+@media (max-width: 1350px) {
+  .banners {
+    grid-template-columns: repeat(3, 20em);
+  }
+}
+
+@media (max-width: 1000px) {
+  .banners {
+    grid-template-columns: repeat(2, 20em);
+  }
+}
+
+@media (max-width: 720px) {
+  .banners {
+    grid-template-columns: repeat(1, 20em);
+  }
+}
