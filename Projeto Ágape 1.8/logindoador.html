@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/cadastro.css" />
+    <title>Login Doador</title>
+  </head>
+  <body>
+    <div class="logo-2  center_content">
+      <div class="campos">
+        <div class="div-forms forms-login">
+          <button class="btn-voltar" onclick="location.href='index.html'">
+            <img width="35px" src="./imagens/arrow.png" alt="ff" />
+          </button>
+          <h1 style="font-weight: 700">Bem-Vindo ao Projeto Ágape</h1>
+          <h3>Preencha os dados a seguir</h3>
+
+          <div class="cadas">
+            <form action="" class="frmcad-1">
+              <div class="cad-1">
+                <label for="CPF/CNPJ">Digite seu CPF/CNPJ</label>
+                <input
+                  type="number"
+                  placeholder="CPF/CNPJ"
+                  name="CPF/CNPJ"
+                  id="CPF-CNPJ"
+                  maxlength="10"
+                />
+                <label for="">Digite seu email</label>
+                <input
+                  type="text"
+                  placeholder="email"
+                  name="email2"
+                  id="emailO"
+                />
+                <label for="">Digite sua senha</label>
+                <input
+                  type="password"
+                  placeholder="senha"
+                  name="Nome"
+                  id="senha"
+                />
+              </div>
+            </form>
+          </div>
+
+          <div class="ls">
+            <input type="checkbox" name="lembrarsenha" id="lembrarsenha" />
+
+            <label id="lbl_ls" for="lembrarsenha">lembrar minha senha </label>
+          </div>
+          <a href="Redefinirsenha.html">Esqueceu sua senha?</a>
+          <button id="btn-doadorC" onclick="location.href='verOngs.html'">
+            Acessar
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
