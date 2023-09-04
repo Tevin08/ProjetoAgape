@@ -6,12 +6,12 @@
     <title>Cadastro Doador</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/cadastro.css" />
-    <script src="js/script.js "defer></script>
+    <script src="js/script.js " defer></script>
   </head>
   <body>
     <div class="logo-2 center_content">
       <div class="campos">
-        <div class="div-forms ">
+        <div class="div-forms">
           <button class="btn-voltar" onclick="location.href='index.html'">
             <img width="35px" src="./imagens/arrow.png" alt="ff" />
           </button>
@@ -19,27 +19,27 @@
           <h3>Preencha os dados a seguir</h3>
 
           <div class="cadas">
-            <form action="" class="frmcad-1">
+            <form action="cadastroD.php" class="frmcad-1">
               <div class="cad-1">
                 <label for="nome-C">Digite seu nome completo</label>
                 <input
                   type="text"
-                  name="Nome"
+                  name="nome-completo"
                   placeholder="Nome Completo"
                   id="nome-C"
                 />
-                <label for="CPF/CNPJ">Digite seu CPF/CNPJ</label>
+                <label for="CPF-CNPJ">Digite seu CPF/CNPJ</label>
                 <input
                   type="number"
                   placeholder="CPF/CNPJ"
-                  name="CPF/CNPJ"
+                  name="documento"
                   maxlength="11"
                   id="CPF-CNPJ"
                 />
                 <label for="">Digite seu email</label>
                 <input
                   type="text"
-                  placeholder="email"
+                  placeholder="Email"
                   name="email"
                   id="email"
                 />
@@ -49,22 +49,22 @@
                 <label for="">Digite seu nome de usuário</label>
                 <input
                   type="text"
-                  placeholder="Nome de usuário"
-                  name="Nome"
+                  placeholder="Nome de Usuário"
+                  name="nomeusuario"
                   id="NomeUsuario"
                 />
                 <label for="">Crie uma senha</label>
                 <input
                   type="password"
-                  placeholder="senha"
-                  name="Nome"
+                  placeholder="Senha"
+                  name="senha"
                   id="senha"
                 />
                 <label for="">Confirme sua senha</label>
                 <input
                   type="password"
-                  placeholder="Confirmar senha"
-                  name="Nome"
+                  placeholder="Confirmar Senha"
+                  name="senha-confirmar"
                   id="Csenha"
                 />
               </div>
@@ -85,7 +85,5 @@
         </div>
       </div>
     </div>
-
-   
   </body>
 </html>
