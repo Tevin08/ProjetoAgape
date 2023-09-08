@@ -56,13 +56,21 @@
   gap: 20px;
 }
 
-#contato {
+#contatos {
   display: flex;
   flex-direction: column;
   color: #777777;
   font-size: 27px;
   font-family: "Open Sans", sans-serif;
   margin-left: 400px;
+}
+#contato {
+  display: flex;
+  flex-direction: column;
+  color: #777777;
+  font-size: 27px;
+  font-family: "Open Sans", sans-serif;
+  
 }
 
 .zap, .insta, .twiter{
