@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Jaldi&display=swap");
+
+/* ver ongs*/
+* {
+  margin: 0%;
+  padding: 0%;
+  font-family: jaldi;
+}
+/*variavel*/
+:root{
+  --primary-color: rgba(190, 174, 255, 0.719);
+}
+/* nav */
+#nav-ongs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #beaeff;
+  margin-bottom: 3%;
+  box-shadow: 0 0 25px 10px var(--primary-color);
+}
+#nav-ongs button {
+  outline: none;
+}
+
+.btn-perfil,
+.btn-visualizar-ongs {
+  padding: 10px 0 10px 0;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: Jaldi;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.075);
+  cursor: pointer;
+}
+
+.btn-perfil {
+  width: 7em;
+  background-color: #6640ee77;
+  border-radius: 40px;
+  text-align: center;
+}
+.btn-visualizar-ongs {
+  width: 13em;
+  background-color: #4f20fac5;
+  border-radius: 40px;
+}
+
+.input-nav {
+  display: flex;
+  gap: 3rem;
+}
+
+#logo {
+  transform: translateX(-30%);
+  margin: 1rem;
+}
+
+#title {
+  font-weight: 600;
+  color: #75748a;
+}
+
+#search {
+  border-radius: 30px;
+  padding: 1px 2px 0px 48px;
+  border: 2px solid #ffffff;
+  background-color: #beaeff;
+  font-size: 22px;
+  color: #ffffff;
+  outline: 0;
+  width: 130%;
+}
+#search::placeholder {
+  font-size: 110%;
+  text-align: left;
+  font-family: jaldi;
+  color: #ffffff;
+  font-weight: 700;
+  word-spacing: 5px;
+}
+
+/* Target the clear button inside the input field */
+#search::-webkit-search-cancel-button {
+  /* Your styling here */
+  display: none; /* Change this to the desired color */
+}
+
+#lupa {
+  position: absolute;
+  translate: 15px -33px;
+}
+
+.nav-ongs img {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 4rem;
+}
+/* conteudo */
+
+.banners {
+  /* background-color: gray; */
+  display: grid;
+  grid-template-columns: repeat(4, 20em);
+  justify-content: center;
+  justify-items: center;
+  margin: 2rem 0;
+  gap: 44px;
+}
+
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.banner-0 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  width: 30%;
+  height: 10em;
+  padding: 4em;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.075);
+  cursor: pointer;
+}
+
+.banner-0 h1 {
+  font-size: 20px;
+  text-align: center;
+  width: 200px;
+  color: #fff;
+}
+.banner-0:hover {
+  transition: 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+  scale: 105%;
+  /* background-color: #e5e2f3; */
+}
+
+footer {
+  width: 100%;
+  height: 150px;
+  background: #d9d9d9;
+}
+
+/* imagens logos*/
+.logos {
+  background-color: #ffffff;
+  box-shadow: 0 0 1.5px 1.5px rgba(0, 0, 0, 0.11);
+  padding: 70px;
+  border-radius: 140px;
+  margin-bottom: 20px;
+}
+
+
+.img-back-1 {
+  background-image: url(../imagens/renanfurry.jpg);
+  background-size: cover;
+}
+.img-back-2 {
+  background-image: url(../imagens/logoMedico.jpg);
+  background-size: cover;
+  
+}
+
+@keyframes bug {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translatex(-50%);
+  }
+}
+/* media resposividade  */
+@media (max-width: 1350px) {
+  .banners {
+    grid-template-columns: repeat(3, 20em);
+  }
+}
+
+@media (max-width: 1000px) {
+  .banners {
+    grid-template-columns: repeat(2, 20em);
+  }
+}
+
+@media (max-width: 720px) {
+  .banners {
+    grid-template-columns: repeat(1, 20em);
+  }
+}
+
+.position_1 {
+  background: #6640ee;
+  transition: all 1s;
+}
+.position_1:hover {
+  background: rgba(102, 64, 238, 0.863);
+  /* rotate: -2deg; */
+  scale: 1.09;
+}
+.position_2 {
+  background: #9869f4;
+  transition: all 1s;
+}
+.position_2:hover {
+  background: #6640ee;
+  /* rotate: 2deg; */
+  scale: 1.09;
+}
+.position_3 {
+  background: #ca91f9;
+  transition: all 1s;
+}
+.position_3:hover {
+  background: #9869f4;
+  /* rotate: 2deg; */
+  scale: 1.09;
+
+}
+.position_4 {
+  background: #f4acf5;
+  transition: all 1s;
+  
+}
+.position_4:hover {
+  background: #f883fa;
+  /* rotate: -2deg; */
+  scale: 1.09;
+}
