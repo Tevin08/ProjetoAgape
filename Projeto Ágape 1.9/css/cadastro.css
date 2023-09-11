@@ -90,15 +90,21 @@ input::-webkit-inner-spin-button {
 
 .cadas{
     display: flex;
-   justify-content: center;
+   flex-direction: column;
     align-items: center;
     gap: 90px;
    
-}   
+}
+
+.cadins {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
 
 .frmcad-1 {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;   
     gap: 20px;
     
