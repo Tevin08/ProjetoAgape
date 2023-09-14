@@ -19,8 +19,8 @@ function createElement() {
     elemment.insertAdjacentHTML(
       "beforeend",
       `
-      <div class="banner-0  position_${count}"  >
-        <div class="logos img-back-2"></div>
+      <div class="banner-0  position_${count}  " onclick="location.href='PerfilOngs.html' " "  >
+        <div class="logos img-back-2" ></div>
         <h1>Médicos sem fronteiras</h1>
       </div>
     `
