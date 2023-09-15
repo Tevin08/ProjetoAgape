@@ -4,6 +4,11 @@
   padding: 0;
   /* height: 200vh; */
   font-family: Jaldi;
+  cursor: default;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 body {
@@ -17,21 +22,35 @@ body {
   position: absolute;
   inset: 0;
 }
-#btn-inicio {
+.btn-inicio,#btn-entrar {
   position: absolute;
   right: 80%;
   top: 60%;
+
+}
+
+
+.btn-index-style{
   border-style: none;
   background-color: #5a78ff;
-  
   border-radius: 45px;
   font-size: 30px;
   width: 220px;
   color: #ffffffe8;
   transition: all 1s;
+
 }
 
-#btn-inicio:hover {
+.btn-entrar{
+  position: absolute;
+  right: 66%;
+  top: 60%;
+}
+
+.btn-inicio:hover,
+.btn-entrar:hover {
+  background-color: #768efa;
+  color: #ffffff;
   scale: 1.1;
 }
 
@@ -54,14 +73,6 @@ button {
   background: #5a78ff;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #5a78ff;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #5a77f8d2;
-}
 
 .nav-ongs {
   display: flex;
@@ -177,7 +188,7 @@ button {
 
 #pp {
   font-size: 56px;
-  font-weight: 400;
+
   color: #fff;
 }
 
