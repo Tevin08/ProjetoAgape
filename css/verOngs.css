@@ -38,13 +38,19 @@
 #btn-entrar{
   text-align: center;
   border-style: none;
-  background-color: #5a78ff;
+  background-color: #6640ee77;
+  border: 2px solid #ffffff;
   border-radius: 45px;
-  font-size: 30px;
-  width: 220px;
+  font-size: 20px;
+  width: 180px;
   color: #ffffffe8;
-  transition: all 1s;
+  transition: all 0.4s;
 
+}
+
+#btn-entrar:hover{
+  background-color: #fff;
+  color: #beaeff;
 }
 
 .btn-perfil {
@@ -88,7 +94,7 @@
   border-radius: 30px;
   padding: 1px 2px 0px 48px;
   border: 2px solid #ffffff;
-  background-color: #beaeff;
+  background-color: #7b5aff;
   font-size: 22px;
   color: #ffffff;
   outline: 0;
@@ -101,6 +107,10 @@
   color: #ffffff;
   font-weight: 700;
   word-spacing: 5px;
+}
+
+#search:focus::placeholder{
+  visibility: hidden;
 }
 
 /* Target the clear button inside the input field */
