@@ -207,7 +207,8 @@ button {
   padding: 30px;
   background-color: #fff;
   border-radius: 30px;
-  border: 2px solid #C79DFF;
+  border: 2px solid #f088c7;
+  
 }
 
 .ong p,
@@ -232,8 +233,9 @@ button {
 }
 
 #btn-doadorC {
-  background: #f088c7;
+  background: #C79DFF;
   color: #fff;
+  border: none;
 }
 
 #btn-ongA,
@@ -242,8 +244,8 @@ button {
   width: 200px;
   height: 44px;
   border-radius: 30px;
-  border: 2px solid #f088c7;
-  background: #f088c7;
+border: none;
+  background:#C79DFF;
   font-size: 25px;
   color: #fff;
   
@@ -251,7 +253,10 @@ button {
 #btn-ongA {
   background: #ffffff;
   color: #f088c7;
+  border: 2px solid #f088c7;
 }
+
+
 
 
 footer {

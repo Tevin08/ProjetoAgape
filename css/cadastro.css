@@ -171,5 +171,6 @@ input::-webkit-inner-spin-button {
 
 a{
     text-decoration: none;
+    cursor: pointer;
 }
  

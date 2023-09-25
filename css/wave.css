@@ -1,5 +1,83 @@
+
 .modal{
-    background-color: black;
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 300px;
+    width: 700px;
+    z-index: 9999;
+    border-radius: 8px;
+    padding: 1rem;
+     
+   
+
 }
-  
+/* 
+.modal::backdrop{
+backdrop-filter: blur(5px);
+
+} */
+
+/* .div-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+} */
+
+.container-modal{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0 ,0.55 );
+    height: 100%;
+    width: 100%;
+    z-index: 200;
+    transition: all 0.3s linear;  
+}
+
+.modal-btns{
+    height: 20%;
+ align-self: flex-end;
+ justify-self: flex-end;
+
+}
+
+#btn-modal-avancar,#btn-modal-cancel{
+    border: none;
+    padding: 0.8rem;
+    width: 7rem;
+    font-family: "Open sans",sans-serif;
+    transition: all 0.5s;
+    border-radius: 4px;
+}
+
+
+
+#btn-modal-cancel{
+    background-color: rgb(236, 89, 89);
+    color: #fff;
+}
+
+#btn-modal-cancel:hover{
+    background-color: rgb(240, 40, 40);
+}
+
+#btn-modal-avancar{
+    /* background-color: rgb(52, 52, 243); */
+    color: #fff;
+    background-color: #C79DFF;
+}
+
+#btn-modal-avancar:hover{
+    /* background-color: rgb(108, 108, 241); */
+    background-color: #a561fd;
+}
+
+.content-modal{
+    position: absolute;
+}

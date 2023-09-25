@@ -1,11 +1,12 @@
-function RedefinirSenha (){
-    const modal = document.querySelector(".modal");
+function modalShow (){
+    const modal = document.querySelector(".container-modal");
     
-    if(modal.open == true){
-        modal.open = false;
-    }
-    else{
-        modal.open = true
-    }
+    modal.style.display = "flex"
     
+  }
+
+  function modalClose() {
+    const modal = document.querySelector(".container-modal");
+    
+    modal.style.display = "none"
   }
