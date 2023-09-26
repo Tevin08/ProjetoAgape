@@ -134,12 +134,16 @@ input::-webkit-inner-spin-button {
 }
 
 
-
-
- 
 #lembrarsenha:checked{
-    accent-color:hotpink;
+   color: #fff;
+    }  
+
+
+#lembrarsenha{
+    cursor: pointer;
+    accent-color: #C79DFF;
      unicode-bidi: bidi-override;
+    
     }  
 
     
