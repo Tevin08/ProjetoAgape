@@ -17,16 +17,18 @@
   <body>
     <div class="container-modal">
       <div class="modal">
-        <div class="content-modal">
+        <form action="POST">
           <h1>Digite seu email</h1>
-          <form action="POST">
+          <div class="content-modal">
             <input type="text" name="" id="email" />
-          </form>
-        </div>
-        <div class="modal-btns">
-          <button id="btn-modal-cancel" onclick="modalClose()">Cancelar</button>
-          <button id="btn-modal-avancar">Avançar</button>
-        </div>
+            <div class="modal-btns">
+              <button type="button" id="btn-modal-cancel" onclick="modalClose()">
+                Cancelar
+              </button>
+              <button id="btn-modal-avancar">Avançar</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
 

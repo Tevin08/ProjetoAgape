@@ -87,3 +87,34 @@ backdrop-filter: blur(5px);
 .content-modal{
     margin-bottom: -20PX;
 }
+
+
+/* Redefinir senha */
+
+#input-senha-redefinir{
+    border: none;
+    padding: 0.8rem;
+    width: 7rem;
+    font-family: "Open sans",sans-serif;
+    transition: all 1s;
+    border-radius: 40px;
+    background-color: #d6d6d6;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    background-color: #C79DFF;
+    width: 50%;
+    height: 300px;
+  
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
