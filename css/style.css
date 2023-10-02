@@ -25,8 +25,8 @@ body {
 }
 .btn-inicio,#btn-entrar {
   position: absolute;
-  right: 80%;
-  top: 60%;
+  right: 78rem;
+  top: 29rem;
   margin: 0 25px 0 25px;
 }
 
@@ -44,8 +44,8 @@ body {
 
 .btn-entrar{
   position: absolute;
-  right: 66%;
-  top: 60%;
+  right: 60rem;
+  top: 29rem;
 }
 
 .btn-inicio:hover,

@@ -1,17 +1,3 @@
-<?php
-
-include "./php/banco.php";
-
-session_start();
-
-$nome = usuarios($conexao);
-function usuarios($conexao)
-{
-    $sqlBusca = 'SELECT NM_USER FROM tb_doador WHERE CPF = "48619729810";';
-    $resultado = mysqli_query($conexao, $sqlBusca);
-    return $resultado;
-}
-?>
 <!DOCTYPE html>
 <html lang="pt">
   <head>
@@ -73,14 +59,7 @@ function usuarios($conexao)
         <div class="info">
           
           <div id="nome">
-            <p>
-              <?php
-              while ($dados = $nome->fetch_assoc()) {
-                echo $dados['NM_USER'];
-              }
-                
-              ?>
-            </p>
+            <p>Victor Raphael (tom)</p>
           </div>
 
           <div id="contato">

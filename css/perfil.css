@@ -1,5 +1,9 @@
 * {
   font-family: "Open Sans", sans-serif;
+  
+}
+body{
+  overflow-x: hidden;
 }
 
 .img-perfil-doador {
@@ -12,14 +16,14 @@
   border: 3px solid rgb(215, 206, 252);
 }
 
-.img-perfil-ong{
+.img-perfil-ong {
   background-image: url(../imagens/logoMedico.jpg);
   background-size: cover;
   width: 100%;
   height: 100%;
   border-radius: 50%;
   box-shadow: 0 0 25px 1px rgba(215, 206, 252, 0.5);
-    border: 3px solid rgb(215, 206, 252);
+  border: 3px solid rgb(215, 206, 252);
 }
 
 .btn-perfil {
@@ -50,7 +54,7 @@
 }
 
 .perfil {
-  display: flex; 
+  display: flex;
   align-items: center;
   gap: 20px;
   margin-right: -12rem;
@@ -70,10 +74,11 @@
   color: #777777;
   font-size: 27px;
   font-family: "Open Sans", sans-serif;
-  
 }
 
-.zap, .insta, .twiter{
+.zap,
+.insta,
+.twiter {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -87,21 +92,19 @@
   border-radius: 20px;
   padding: 70px;
   height: 270px;
-  
 }
 
-.section-sobre{
+.section-sobre {
   display: flex;
   justify-content: center;
 }
 
-#Sobre{
+#Sobre {
   margin: 2rem 0;
   width: 720px;
   scale: 1.1;
   color: #777777;
   font-family: "Open Sans", sans-serif;
-  
 }
 
 .section-center {
@@ -129,10 +132,9 @@
   text-align: right;
   padding: 10px 30px 10px 0px;
   color: #fff;
-  
 }
 
-.font{
+.font {
   font-size: 20px;
 }
 
@@ -152,24 +154,6 @@
   justify-items: center;
   margin: 2rem 0;
   padding: 20px;
-}
-
-.container-Comentarios {
-  display: grid;
-  grid-template-columns: repeat(4, 20em);
-  justify-content: center;
-  justify-items: center;
-  margin: 2rem 0;
-  padding: 20px;
-}
-
-.comentarios {
-  width: 80%;
-  height: 90%;
-  background-color: #fff;
-  border: 2px solid #bdbdbd;
-  border-radius: 15px;
-  transition: all 1s;
 }
 
 .comentarios:hover,
@@ -225,3 +209,83 @@
   word-break: break-all;
   width: 190px;
 }
+
+/* comentário-content */
+
+.container-Comentarios {
+  display: grid;
+  grid-template-columns: repeat(4, 20em);
+  justify-content: center;
+  justify-items: center;
+  margin: 2rem 0;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.comentarios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 75%;
+  background-color: #fff;
+  border: 2px solid #bdbdbd;
+  border-radius: 15px;
+  transition: all 1s;
+}
+
+.comentario-text {
+  width: 80%;
+  height: 40%;
+  background-color: #d6d6d6;
+  padding: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.foto-user-comentario {
+  display: flex;
+  align-self: flex-start;
+  width: 50px;
+  margin-left: -32px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #d6d6d6;
+  background-size: contain;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="13" fill="%23B8B8B8"/><path d="M9.53987 9.54163C9.53987 7.69135 11.0404 6.19141 12.8914 6.19141C14.7423 6.19141 16.2428 7.69135 16.2428 9.54163C16.2428 11.3919 14.7423 12.8918 12.8914 12.8918C12.0025 12.8918 11.15 12.5389 10.5215 11.9106C9.89297 11.2823 9.53987 10.4302 9.53987 9.54163ZM19.5022 18.3778L18.2956 15.9573C17.8693 15.1037 16.9962 14.5651 16.0418 14.567H9.74096C8.78654 14.5651 7.91339 15.1037 7.48708 15.9573L6.28055 18.3778C6.14987 18.6371 6.16279 18.9455 6.3147 19.1929C6.46662 19.4403 6.73585 19.5914 7.02626 19.5923H18.7565C19.0469 19.5914 19.3161 19.4403 19.468 19.1929C19.6199 18.9455 19.6328 18.6371 19.5022 18.3778Z" fill="white"/></svg>');
+}
+
+
+.reactions-button-group{
+display: flex;
+align-self: flex-start;
+margin-left: 20px;
+gap: 10px;
+}
+
+
+#like-Button,#dislike-button{
+  border: none;
+  transition: all 0.5s;
+  background-color: #fff;
+}
+
+.top-comets-content{
+  display:flex ;
+  align-items: center;
+  gap: 20px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+
+/* #like-Button {
+  animation: liked 0.5s  linear infinite;
+}
+
+@keyframes liked {
+  100%{
+    rotate: -25deg;
+  }
+} */
