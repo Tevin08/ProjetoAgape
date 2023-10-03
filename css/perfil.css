@@ -214,8 +214,8 @@ body{
 
 .container-Comentarios {
   display: grid;
-  grid-template-columns: repeat(4, 20em);
-  justify-content: center;
+  grid-template-columns: repeat(9, 20em);
+  justify-content:repeat(9, 20em);
   justify-items: center;
   margin: 2rem 0;
   padding: 20px;
