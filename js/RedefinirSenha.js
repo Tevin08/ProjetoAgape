@@ -17,8 +17,8 @@ function animationbtn() {
   btn.style.borderRadius = "50%";
   btn.textContent = "\u2713";
   setInterval(() => {
-
     btn.type = "submit";
+
   }, 30);
   
 }
