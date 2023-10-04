@@ -160,6 +160,10 @@ input::-webkit-inner-spin-button {
    
 }
 
+.btn-voltar img{
+    cursor: pointer;
+}
+
 /* #lembrarsenha:checked::before {
    background-color: #f088c7;
     display: block;

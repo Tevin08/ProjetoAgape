@@ -6,6 +6,7 @@
    
     <link rel="stylesheet" href="css/verOngs.css" />
     <link rel="stylesheet" href="css/perfil.css" />
+    <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon" />
     <title>Home Ong</title>
 </head>
 <body>
@@ -14,12 +15,12 @@
     <img src="imagens/logo.png" alt="logtipo" width="7%" id="logo" />
     <div class="input-nav">
       <button
-        onclick="location.href='verOngs.html'"
+        onclick="location.href='verOngs.php'"
         class="btn-visualizar-ongs"
       >
         Vizualizar ONG'S
       </button>
-      <button class="btn-perfil" onclick="location.href='PerfilDoador.html'">
+      <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
         Seu Perfil
       </button>
     </div>

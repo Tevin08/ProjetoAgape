@@ -148,4 +148,7 @@ backdrop-filter: blur(5px);
     margin: 20px;
 }
 
+#btn-modal-confirm-2{
+    visibility: hidden;
+}
 

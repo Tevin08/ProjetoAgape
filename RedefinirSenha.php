@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/wave.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon" />
     <script src="./js/RedefinirSenha.js"></script>
-    <title>Document</title>
+    <title>Redefinir Senha</title>
 </head>
 <body id="cor-fundo">
     
@@ -22,6 +23,7 @@
             <button id="btn-modal-confirm" onclick="animationbtn ()" type="button">
                 Confirmar
             </button>
+          
         </form>
     </div>
 </body>

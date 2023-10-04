@@ -22,7 +22,7 @@
       <img src="imagens/logo.png" alt="logtipo" width="7%" id="logo" />
       <div class="input-nav">
         <button
-          onclick="location.href='verOngs.html'"
+          onclick="location.href='verOngs.php'"
           class="btn-visualizar-ongs"
         >
           Vizualizar ONG'S
