@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+<?php
+
+include "./php/banco.php";
+
+session_start();
+
+$users = usuarios($conexao);
+function usuarios($conexao)
+{
+  $cnpj = $_POST['documento'];
+  $sqlBusca = "SELECT * FROM tb_doador WHERE DOCUMENTO = '$cnpj'";
+  $resultado = mysqli_query($conexao, $sqlBusca);
+  return $resultado;
+}
+?>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -12,9 +27,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <?php
-    $nome="EStevaos"
-    ?>
   </head>
   <body>
     <nav id="nav-ongs">
@@ -62,11 +74,22 @@
         <div class="info">
           
           <div id="nome">
-            <p>Victor Raphael (tom)</p>
+            <p>
+              <?php
+                while ($dados = $users->fetch_assoc()) {
+                  echo $dados['nm_doador'];
+                
+              ?>
+            </p>
           </div>
-
           <div id="contato">
-            <span>VICtinhopRafinha@email.com</span>
+            <span>
+              <?php
+                  echo $dados['email'];
+
+              ?>
+            </span>
+            <?php } ?>
           </div>
 
         </div> 

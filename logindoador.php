@@ -45,7 +45,7 @@
           <h3>Preencha os dados a seguir</h3>
 
           <div class="cadas">
-            <form action="./php/loginDoador.php" method="post" class="frmcad-1">
+            <form action="./PerfilDoador.php" method="post" class="frmcad-1">
               <div class="cad-1">
                 <label for="CPF/CNPJ">Digite seu CPF/CNPJ</label>
                 <input

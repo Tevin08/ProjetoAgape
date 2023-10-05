@@ -59,7 +59,7 @@ function gravar($conexao)
 }
 
 if (gravar($conexao)) {
-    header('location: ../loginOngs.html');
+    header('location: ../loginOngs.php');
 } else {
     echo 'Erro na gravação';
 }

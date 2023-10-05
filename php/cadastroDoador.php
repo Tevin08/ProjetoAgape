@@ -44,7 +44,7 @@ function gravar($conexao)
 {
     $passHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $sql = "insert into tb_doador
-        (nm_doador, nm_user, email, senha, cpf)
+        (nm_doador, nm_user, email, senha, documento)
         values
         (
             '{$_POST['nome-completo']}',
@@ -57,7 +57,7 @@ function gravar($conexao)
 }
 
 if (gravar($conexao)) {
-    header('location: ../logindoador.html');
+    header('location: ../logindoador.php');
 } else {
     echo 'Erro na gravação';
 }
