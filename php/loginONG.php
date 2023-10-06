@@ -15,6 +15,9 @@ function usuarios($conexao)
 $error = "CNPJ ou senha inválidos";
 while ($dados = $users->fetch_assoc()) {
     if (($_POST['CNPJ'] === $dados['cnpj']) && password_verify($_POST['senha'], $dados['senha'])) {
+        $_SESSION['nm_ong'] = $dados['nm_ong'];
+        $_SESSION['cnpj'] = $dados['cnpj'];
+        $_SESSION['email'] = $dados['email'];
         header('location: ../PerfilOngs.php');
     } else {
         echo $error;

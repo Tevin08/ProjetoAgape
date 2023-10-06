@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+
+session_start();
+
+if (!isset($_SESSION['cnpj'])) {
+  header('./PerfilDoador.php');
+}
+
+?>
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
@@ -60,8 +69,21 @@
         </div>
         <div class="info">
           <div id="nome">
-            <p>Médicos sem Fronteiras</p>
+            <p>
+            <?php
+
+              echo $_SESSION['nm_ong'];
+
+            ?>
+          </p>
           </div>
+          <div id="contato">
+          <span>
+            <?php
+            echo $_SESSION['email'];
+            ?>
+          </span>
+        </div>
         </div>
         <div class="icon-verificado">
           <img src="./imagens/icon-verificado.png" alt="">
