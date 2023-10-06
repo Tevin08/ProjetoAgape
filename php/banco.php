@@ -3,7 +3,7 @@
     $user = "root";
     $senha = "root";
     $banco = "ptcc";
-    $port = "3306";
+    $port = "3307";
     $conexao = mysqli_connect($server, $user, $senha, $banco, $port);
 
     if (!$conexao) {

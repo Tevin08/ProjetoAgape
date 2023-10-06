@@ -1,5 +1,5 @@
 -- Salvando no padrão PTCC 02052023 1400
--- drop database PTCC; 
+#drop database PTCC; 
 
 CREATE DATABASE PTCC;
 
@@ -30,8 +30,7 @@ cd_doador INT auto_increment,
 cd_ong INT ,
 nm_doador VARCHAR(80),
 nm_user VARCHAR(80),
-cpf CHAR(11),
-cnpj char(14),
+documento char(19),
 senha varchar(60),
 email VARCHAR(90),
 CONSTRAINT PK_DOADOR
@@ -88,12 +87,3 @@ CONSTRAINT PK_reacao
     CONSTRAINT FK_postagem FOREIGN KEY (cd_post) REFERENCES TB_POST (cd_post)
 )
 engine InnoDB;
-
-
-
-
-
-
-
-
-
