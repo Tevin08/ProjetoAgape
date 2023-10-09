@@ -24,3 +24,15 @@ function createElement() {
   }
 }
 
+function Seguindo () {
+  const btnSeguir = document.querySelector("#btn-seguir")
+
+  btnSeguir.style.background = "#C79DFF"
+  btnSeguir.style.color = "#fFF"
+
+  setTimeout(() => {
+    
+    btnSeguir.textContent = "Seguindo"
+  }, 700);
+}
+

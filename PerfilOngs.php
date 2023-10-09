@@ -71,18 +71,33 @@ if (!isset($_SESSION['cnpj'])) {
           <div id="nome">
             <p>
             <?php
+              if('nm_ong' ){
 
-              echo $_SESSION['nm_ong'];
-
+                echo "Médicos sem Fronteiras";
+              }
+              else{
+                echo $_SESSION['nm_ong'];
+                
+              }
             ?>
           </p>
+
           </div>
           <div id="contato">
           <span>
             <?php
-            echo $_SESSION['email'];
+            if('email'){
+              echo "msf@gmail.com";
+            }
+            else{
+
+              echo $_SESSION['email'];
+            }
             ?>
           </span>
+          <button onclick="Seguindo()" id="btn-seguir">
+            Seguir
+          </button>
         </div>
         </div>
         <div class="icon-verificado">
@@ -212,7 +227,12 @@ if (!isset($_SESSION['cnpj'])) {
         <h1>Avaliações</h1>
       </div>
       <div class="section-center">
+      <div id="adicionar-coments">
+              <button id="btn-add-coments"><img src="./imagens/plus-icon.png" alt=""></button>
+              <span>Adicionar Comentário</span>
+              </div>
         <div class="container-Comentarios ongs-ajudadas">
+       
           <div class="comentarios">
             <div class="top-comets-content">
               
@@ -229,6 +249,7 @@ if (!isset($_SESSION['cnpj'])) {
               </p>
             </div>
             <div class="reactions-button-group">
+             
               <button id="like-Button">
                 <svg
                   width="28"
@@ -258,6 +279,7 @@ if (!isset($_SESSION['cnpj'])) {
                 </svg>
               </button>
             </div>
+           
           </div>
           <div class="comentarios">
             <div class="top-comets-content">
@@ -488,6 +510,7 @@ if (!isset($_SESSION['cnpj'])) {
               </button>
             </div>
           </div>
+          
         </div>
       </div>
     </section>

@@ -54,15 +54,19 @@ if (!isset($_SESSION['documento'])) {
         <div id="nome">
           <p>
             <?php
-
+            if ('nome')
+            echo 'Victor Raphael';
+            else
             echo $_SESSION['nome'];
-
             ?>
           </p>
         </div>
         <div id="contato">
           <span>
             <?php
+            if('email')
+            echo 'VictorRapha@gmail.com';
+            else
             echo $_SESSION['email'];
             ?>
           </span>
