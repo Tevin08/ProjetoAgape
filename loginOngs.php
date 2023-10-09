@@ -73,7 +73,7 @@
                   >lembrar minha senha
                 </label>
               </div>
-              <a onclick="modalShow()">Esqueceu sua senha?</a>
+              <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
               <button id="btn-doadorC" type="submit">Acessar</button>
             </form>
           </div>

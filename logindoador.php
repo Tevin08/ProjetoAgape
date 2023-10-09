@@ -53,7 +53,7 @@ if (isset($_SESSION['documento'])) {
           <form action="./php/loginDoador.php" method="post" class="frmcad-1">
             <div class="cad-1">
               <label for="CPF/CNPJ">Digite seu CPF/CNPJ</label>
-              <input type="number" placeholder="CPF/CNPJ" name="documento" id="CPF-CNPJ" maxlength="14" />
+              <input type="text" placeholder="CPF/CNPJ" name="documento" id="CPF-CNPJ" maxlength="11" pattern="\d*" />
               <label for="">Digite seu email</label>
               <input type="text" placeholder="email" name="email2" id="emailO" />
 
@@ -66,7 +66,7 @@ if (isset($_SESSION['documento'])) {
               <label id="lbl_ls" for="lembrarsenha">lembrar minha senha
               </label>
             </div>
-            <a onclick="modalShow()">Esqueceu sua senha?</a>
+            <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
             <button id="btn-doadorC" type="submit">Acessar</button>
           </form>
         </div>
