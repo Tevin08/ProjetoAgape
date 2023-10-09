@@ -4,17 +4,15 @@
   padding: 0;
   /* height: 200vh; */
   font-family: Jaldi;
-  cursor: default;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
 }
-
 
 .center_content {
   display: flex;
@@ -23,15 +21,15 @@ body {
   position: absolute;
   inset: 0;
 }
-.btn-inicio,#btn-entrar {
-  position: absolute;
-  right: 78rem;
-  top: 29rem;
-  margin: 0 25px 0 25px;
+
+.index-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
 }
 
-
-.btn-index-style{
+.index-btns button {
   border-style: none;
   background-color: #5a78ff;
   border-radius: 45px;
@@ -39,13 +37,6 @@ body {
   width: 220px;
   color: #ffffffe8;
   transition: all 0.4s;
-
-}
-
-.btn-entrar{
-  position: absolute;
-  right: 60rem;
-  top: 29rem;
 }
 
 .btn-inicio:hover,
@@ -70,10 +61,9 @@ button {
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background: #5a78ff;
-}
-
+} */
 
 .nav-ongs {
   display: flex;
@@ -85,9 +75,16 @@ button {
 /* index */
 
 #nav-2 {
-  /* background-image: url(../imagens/pag1.png); */
-  background-size: 100%;
-  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  background-image: url(../imagens/pag1.png);
+  background-size: cover;
+  height: 100vh;
+}
+
+.main-logo {
+  display: flex;
+  flex-direction: column;
 }
 
 #img-principal {
@@ -176,7 +173,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 5em ;
+  margin-top: 5em;
   gap: 70px;
 }
 
@@ -185,12 +182,10 @@ button {
   color: black;
 }
 
-.icon-div-cad{
-  background-color: #C79DFF;
+.icon-div-cad {
+  background-color: #c79dff;
   border-radius: 70px;
 }
-
-
 
 .traco {
   height: 19rem;
@@ -208,7 +203,6 @@ button {
   background-color: #fff;
   border-radius: 30px;
   border: 2px solid #f088c7;
-  
 }
 
 .ong p,
@@ -217,7 +211,6 @@ button {
   font-weight: 400;
   color: #fff;
   text-align: center;
-  
 }
 
 #btn-doadorC,
@@ -233,7 +226,7 @@ button {
 }
 
 #btn-doadorC {
-  background: #C79DFF;
+  background: #c79dff;
   color: #fff;
   border: none;
 }
@@ -244,20 +237,16 @@ button {
   width: 200px;
   height: 44px;
   border-radius: 30px;
-border: none;
-  background:#C79DFF;
+  border: none;
+  background: #c79dff;
   font-size: 25px;
   color: #fff;
-  
 }
 #btn-ongA {
   background: #ffffff;
   color: #f088c7;
   border: 2px solid #f088c7;
 }
-
-
-
 
 footer {
   width: 100%;
@@ -273,7 +262,7 @@ footer {
   flex-direction: column;
   scale: 1.1;
   background-color: #fff;
-  border: 2px solid #C79DFF;
+  border: 2px solid #c79dff;
   border-radius: 30px;
 }
 .div-logo {
@@ -333,5 +322,3 @@ footer {
   bottom: 80px;
   right: -55px;
 }
-
-
