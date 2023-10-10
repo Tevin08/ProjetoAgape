@@ -60,12 +60,12 @@ if (isset($_SESSION['documento'])) {
               <label for="">Digite sua senha</label>
               <input type="password" placeholder="senha" name="senha" id="senha" />
             </div>
-            <div class="ls">
+            <!-- <div class="ls">
               <input type="checkbox" name="lembrarsenha" id="lembrarsenha" />
 
               <label id="lbl_ls" for="lembrarsenha">lembrar minha senha
               </label>
-            </div>
+            </div> -->
             <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
             <button id="btn-doadorC" type="submit">Acessar</button>
           </form>

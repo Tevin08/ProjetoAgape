@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.square-post{
+    display: flex;
+    flex-direction: column;
+    width: 70em;
+    background-color:#DCD3FF;
+    margin: auto;
+    border: 2px solid #bdbdbd;
+    padding: 2em;
+    gap: 2em;
+}
+
+.div-nome{
+    display: flex;
+    gap: 1em;
+    background-color: #DCD3FF;
+}
+
+.post-content{
+    display: flex;
+    gap: 3em;
+    /* word-break: break-all; */
+}
+
+.div-nome img{
+    width: 3em;
+    border-radius: 50%;
+}

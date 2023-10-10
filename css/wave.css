@@ -152,3 +152,10 @@ backdrop-filter: blur(5px);
     visibility: hidden;
 }
 
+.feed-location{
+    background-color: #6640ee77;
+}
+
+.feed-btn{
+    background-color: #4f20fac5;
+}

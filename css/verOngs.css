@@ -38,9 +38,11 @@
 #btn-entrar {
   text-align: center;
   border-style: none;
-  background-color: #6640ee77;
-  border: 2px solid #ffffff;
+  background-color: #6640ee;
+  padding: 10px;
   border-radius: 45px;
+  font-weight: 700;
+
   font-size: 20px;
   width: 180px;
   color: #ffffffe8;
@@ -48,8 +50,8 @@
 }
 
 #btn-entrar:hover {
-  background-color: #fff;
-  color: #beaeff;
+  background-color: #3a19b1;
+  color: #fff;
 }
 
 .btn-perfil {
@@ -260,8 +262,6 @@ footer {
   /* rotate: -2deg; */
   scale: 1.09;
 }
-
-/* foto perfil */
 
 .foto-doador {
   width: 5rem;

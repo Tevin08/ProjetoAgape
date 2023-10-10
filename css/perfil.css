@@ -1,9 +1,25 @@
 * {
   font-family: "Open Sans", sans-serif;
 }
-body{
+body {
   overflow-x: hidden;
 }
+
+/* width */
+body::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: #5a78ff;
+}
+
 
 .img-perfil-doador {
   background-image: url(../imagens/pfp.jpg);
@@ -225,7 +241,7 @@ body{
 
 .container-Comentarios::-webkit-scrollbar {
   height: 5px;
- 
+
 }
 
 .container-Comentarios::-webkit-inner-spin-button {
@@ -233,12 +249,10 @@ body{
 }
 
 .container-Comentarios::-webkit-scrollbar-thumb {
- 
   background-color: #705dbd;
   border-radius: 20px;
 }
 .container-Comentarios::-webkit-scrollbar-track {
-  
   background-color: #d6d6d6;
 }
 
@@ -313,6 +327,54 @@ body{
   margin-top: 5px;
   margin-bottom: 20px;
 }
+
+.btn-seguir{
+  font-family: 'Open Sans',sans-serif;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 1px solid #a6a6a6;
+  color: #a6a6a6;
+  width: 7rem;
+  transition: all 1s;
+  padding: 10px;
+  margin: 2rem;
+}
+
+.seguindo{
+  background-color: #C79DFF;
+  color: #fff;
+}
+
+
+
+#adicionar-coments{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 30px;
+  gap: 1em;
+}
+
+#btn-add-coments{
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #C79DFF;
+}
+
+#btn-add-coments span{
+  font-size: 30px;
+  color: #fff;
+}
+
+.fa-heart{
+  color: #fff ;
+  -webkit-text-stroke: 2px #C79DFF; /* width and color */
+  font-size: 2em;
+}
+
 
 
 /* #like-Button {

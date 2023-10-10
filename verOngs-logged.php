@@ -6,35 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/verOngs.css" />
     <script src="./js/script.js" defer></script>
+    <script src="./js/teste.js" defer></script>
     <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/wave.css">
     
-
-
     <title>Explorar ONG’s</title>
   </head>
-
   <body>
     <nav id="nav-ongs">
       <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
       <div class="input-nav">
         <button
-          onclick="location.href='verOngs.php'"
+        
           class="btn-visualizar-ongs"
         >
           Vizualizar ONG'S
         </button>
-        <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
-          Seu Perfil
-        </button>
+        <button class="btn-perfil" onclick="Rota2()" >
+       Feed
+      </button>
       </div>
-      <div class="foto-doador">
-        <div class=" img-perfil-doador"></div>
+      <div class="foto-doador"   onclick="location.href='PerfilDoador.php'" >
+        <div class=" img-perfil-doador"   onclick="location.href='PerfilDoador.php'"></div>
       </div>
     </nav>
     <main class="main">
       <div class="section-pesquisa">
-
         <h1 id="title">Organizações:</h1>
         <div class="pesquisar">
           <input
@@ -61,10 +58,8 @@
       </div>
       <div class="banners" ></div>
     </main>
-
     <script src="js/script.js" defer></script>
   </body>
   <footer>
-
   </footer>
 </html>
