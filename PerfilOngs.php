@@ -3,10 +3,6 @@
 
 session_start();
 
-if (!isset($_SESSION['cnpj'])) {
-  header('location: ./PerfilDoador.php');
-}
-
 ?>
 <html lang="pt">
 
