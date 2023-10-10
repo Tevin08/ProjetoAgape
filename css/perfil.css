@@ -1,7 +1,7 @@
 * {
   font-family: "Open Sans", sans-serif;
 }
-body {
+body{
   overflow-x: hidden;
 }
 
@@ -214,11 +214,18 @@ body {
 .container-Comentarios {
   display: flex;
   gap: 1em;
+  margin: 2rem;
   align-items: center;
   justify-items: center;
   padding: 20px;
   overflow: scroll;
   flex-flow: row nowrap;
+  overflow-y: hidden;
+}
+
+.container-Comentarios::-webkit-scrollbar {
+  height: 5px;
+ 
 }
 
 .container-Comentarios::-webkit-inner-spin-button {
@@ -226,12 +233,13 @@ body {
 }
 
 .container-Comentarios::-webkit-scrollbar-thumb {
-  width: 1em;
-  background-color: red;
+ 
+  background-color: #705dbd;
+  border-radius: 20px;
 }
 .container-Comentarios::-webkit-scrollbar-track {
-  width: 1em;
-  background-color: red;
+  
+  background-color: #d6d6d6;
 }
 
 .comentarios {
@@ -305,6 +313,7 @@ body {
   margin-top: 5px;
   margin-bottom: 20px;
 }
+
 
 /* #like-Button {
   animation: liked 0.5s  linear infinite;

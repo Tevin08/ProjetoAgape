@@ -260,3 +260,21 @@ footer {
   /* rotate: -2deg; */
   scale: 1.09;
 }
+
+/* foto perfil */
+
+.foto-doador {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.img-perfil-doador {
+  background-image: url(../imagens/pfp.jpg);
+  background-size: cover;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 25px 1px rgba(215, 206, 252, 0.5);
+  border: 3px solid rgb(215, 206, 252);
+}
