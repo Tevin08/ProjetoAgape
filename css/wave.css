@@ -37,21 +37,20 @@ backdrop-filter: blur(5px);
 
 .container-modal{
     display: none;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
     position: fixed;
     background-color: rgba(0, 0, 0 ,0.55 );
     height: 100%;
     width: 100%;
     z-index: 200;
-    transition: all 0.3s linear;  
+    transition: all 1s linear;  
 }
 
 .modal-btns{
     display: flex;
     height: 20%;
  align-self: flex-end;
- 
  margin-bottom: 20px;
  gap: 20px;
  

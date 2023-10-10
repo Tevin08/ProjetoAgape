@@ -3,9 +3,9 @@
 
 session_start();
 
-// if (!isset($_SESSION['documento'])) {
-//   header('location: ./logindoador.php');
-// }
+ if (!isset($_SESSION['documento'])) {
+   header('location: ./logindoador.php');
+ }
 
 ?>
 <html lang="pt-BR">

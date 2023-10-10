@@ -7,14 +7,31 @@
     <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="./css/verOngs.css">
     <link rel="stylesheet" href="./css/feed.css">
-
+    <script src="https://kit.fontawesome.com/3552f262a9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/wave.css">
+    <script src="./js/teste.js"></script>
 
     <script src="./js/script.js" defer></script>
-    <title>Seu Feed</title>
+    <title>Feed</title>
 </head>
 
 <body>
+<div class="container-modal">
+   
+    <div class="side-bar">
+        <button id="btn-fechar" onclick="modalClose()">
+         X
+        </button>   
+        <div class="top-sidebar">
+
+            <div class=" img-perfil-doador" ></div>
+        </div>
+        <button class="btn edit" onclick="location.href='perfildoador.php'">Editar perfil</button>
+        <button class="btn ver" onclick="location.href='perfildoador.php'">Ver perfil</button>
+        <!-- <button class="btn excluir">Excluir perfil</button> -->
+        <button class="btn sair" onclick="location.href='index.html'">Sair</button>
+    </div>
+  </div>
     <nav id="nav-ongs">
         <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
         <div class="input-nav">
@@ -27,8 +44,8 @@
             </button>
 
         </div>
-        <div class="foto-doador" onclick="location.href='PerfilDoador.php'">
-            <div class=" img-perfil-doador" onclick="location.href='PerfilDoador.php'"></div>
+        <div class="foto-doador" onclick="modalShow()" >
+            <div class=" img-perfil-doador" ></div>
         </div>
     </nav>
     <div class="square-post">
@@ -40,17 +57,264 @@
         </div>
         <div class="post-content">
 
-            <div class="post-img"><img src="./imagens/foto-victor.jpg" alt=""></div>
-            <div class="post-descricao">
-                Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, 
-                e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de 
-                tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, 
-                como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na 
-                década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou 
-                a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+            <div class="post-img"><img src="./imagens/palhaço.png" alt=""></div>
+            <div class="div-coments-description">
+
+                <div class="post-descricao">
+                    <p>
+
+                        Hoje foi um dia muito especial para as crianças do nosso projeto social. Recebemos a visita do palhaço Pitanguinha, que trouxe muita alegria, diversão e esperança para todos. Pitanguinha é um artista voluntário que faz parte da ONG [Palhaços Sem Fronteiras], uma organização que leva sorrisos e solidariedade para lugares onde há conflitos, violência e pobreza.
+    
+                        Pitanguinha chegou com seu nariz vermelho, sua roupa colorida e sua mala cheia de surpresas. Ele fez brincadeiras, contou piadas, cantou músicas e encantou as crianças com sua magia e seu carisma. Ele também distribuiu balões, doces e abraços para todos. Foi lindo ver o brilho nos olhos e o sorriso no rosto de cada criança que participou da atividade.
+    
+                        Agradecemos ao palhaço Pitanguinha por sua generosidade e seu talento. Ele nos mostrou que o humor é uma forma de resistir e de transformar a realidade. Esperamos que ele volte mais vezes para alegrar nossos dias. E você, quer conhecer mais sobre o trabalho da ONG Palhaços Sem Fronteiras? Acesse o site e saiba como apoiar essa causa. Juntos, podemos fazer a diferença na vida de muitas pessoas!
+                    </p>
+                </div>
+                <div class="post-coments">
+
+                    <div class="feed-comentarios">
+                        <div class="feed-top-comets-content">
+
+                            <div class="foto-user-comentario"></div>
+                            <h1>
+                                victor Raphael
+                            </h1>
+                        </div>
+
+                        <div class="comentario-text">
+                            <p>
+                                Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
+                            </p>
+
+                        </div>
+                        <div class="reactions-button-group">
+                            <button id="like-Button">
+                                <i class="fa-solid  fa-heart" onclick="love()"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="feed-comentarios">
+                        <div class="feed-top-comets-content">
+
+                            <div class="foto-user-comentario"></div>
+                            <h1>
+                                victor Raphael
+                            </h1>
+                        </div>
+
+                        <div class="comentario-text">
+                            <p>
+                                Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
+                            </p>
+                        </div>
+                        <div class="reactions-button-group">
+                            <button id="like-Button">
+                                <i class="fa-solid  fa-heart" onclick="love()"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="feed-comentarios">
+                        <div class="feed-top-comets-content">
+
+                            <div class="foto-user-comentario"></div>
+                            <h1>
+                                victor Raphael
+                            </h1>
+                        </div>
+
+                        <div class="comentario-text">
+                            <p>
+                                Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
+                            </p>
+                        </div>
+                        <div class="reactions-button-group">
+                            <button id="like-Button">
+                                <i class="fa-solid  fa-heart" onclick="love()"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="post-coments">
-              
+        </div>
+    </div>
+    <div class="square-post">
+        <div class="div-nome">
+            <img src="./imagens/pfp.jpg" alt="">
+            <h1>
+            ONG Conectando Sorrisos
+            </h1>
+        </div>
+        <div class="post-content">
+
+            <div class="post-img"><img src="./imagens/idosos.png" alt=""></div>
+            <div class="div-coments-description">
+
+                <div class="post-descricao">
+                    <p>
+
+                        Acolher e integrar crianças refugiadas por meio da arte é o objetivo do projeto Arte como Refúgio, em São Paulo. A iniciativa foi lançada em junho passado pela ONG Conectando sorrisos, em parceria com o Centro Universitário Belas Artes, e reúne jovens refugiados três vezes por mês em oficinas artísticas de dança, leitura e pintura. 
+             O projeto pretende reforçar os laços das crianças com sua cultura de origem e desenvolver seu lado emocional com ajuda da arte. 
+                    </p>
+                </div>
+                <div class="post-coments">
+
+                    <div class="feed-comentarios">
+                        <div class="feed-top-comets-content">
+
+                            <div class="foto-user-comentario"></div>
+                            <h1>
+                                victor Raphael
+                            </h1>
+                        </div>
+
+                        <div class="comentario-text">
+                            <p>
+                                Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
+                            </p>
+
+                        </div>
+                        <div class="reactions-button-group">
+                            <button id="like-Button">
+                                <i class="fa-solid  fa-heart" onclick="love()"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="feed-comentarios">
+                        <div class="feed-top-comets-content">
+
+                            <div class="foto-user-comentario"></div>
+                            <h1>
+                                victor Raphael
+                            </h1>
+                        </div>
+
+                        <div class="comentario-text">
+                            <p>
+                                Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
+                            </p>
+                        </div>
+                        <div class="reactions-button-group">
+                            <button id="like-Button">
+                                <i class="fa-solid  fa-heart" onclick="love()"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="feed-comentarios">
+                        <div class="feed-top-comets-content">
+
+                            <div class="foto-user-comentario"></div>
+                            <h1>
+                                victor Raphael
+                            </h1>
+                        </div>
+
+                        <div class="comentario-text">
+                            <p>
+                                Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
+                            </p>
+                        </div>
+                        <div class="reactions-button-group">
+                            <button id="like-Button">
+                                <i class="fa-solid  fa-heart" onclick="love()"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="square-post">
+        <div class="div-nome">
+            <img src="./imagens/pfp.jpg" alt="">
+            <h1>
+                IKMD - I Know my Directs
+            </h1>
+        </div>
+        <div class="post-content">
+
+            <div class="post-img"><img src="./imagens/palhaço.png" alt=""></div>
+            <div class="div-coments-description">
+
+                <div class="post-descricao">
+                    Hoje foi um dia muito especial para as crianças do nosso projeto social. Recebemos a visita do palhaço Pitanguinha, que trouxe muita alegria, diversão e esperança para todos. Pitanguinha é um artista voluntário que faz parte da ONG [Palhaços Sem Fronteiras], uma organização que leva sorrisos e solidariedade para lugares onde há conflitos, violência e pobreza.
+
+                    Pitanguinha chegou com seu nariz vermelho, sua roupa colorida e sua mala cheia de surpresas. Ele fez brincadeiras, contou piadas, cantou músicas e encantou as crianças com sua magia e seu carisma. Ele também distribuiu balões, doces e abraços para todos. Foi lindo ver o brilho nos olhos e o sorriso no rosto de cada criança que participou da atividade.
+
+                    Agradecemos ao palhaço Pitanguinha por sua generosidade e seu talento. Ele nos mostrou que o humor é uma forma de resistir e de transformar a realidade. Esperamos que ele volte mais vezes para alegrar nossos dias. E você, quer conhecer mais sobre o trabalho da ONG Palhaços Sem Fronteiras? Acesse o site e saiba como apoiar essa causa. Juntos, podemos fazer a diferença na vida de muitas pessoas!
+                </div>
+                <div class="post-coments">
+
+                    <div class="feed-comentarios">
+                        <div class="feed-top-comets-content">
+
+                            <div class="foto-user-comentario"></div>
+                            <h1>
+                                victor Raphael
+                            </h1>
+                        </div>
+
+                        <div class="comentario-text">
+                            <p>
+                                Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
+                            </p>
+
+                        </div>
+                        <div class="reactions-button-group">
+                            <button id="like-Button">
+                                <i class="fa-solid  fa-heart" onclick="love()"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="feed-comentarios">
+                        <div class="feed-top-comets-content">
+
+                            <div class="foto-user-comentario"></div>
+                            <h1>
+                                victor Raphael
+                            </h1>
+                        </div>
+
+                        <div class="comentario-text">
+                            <p>
+                                Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
+                            </p>
+                        </div>
+                        <div class="reactions-button-group">
+                            <button id="like-Button">
+                                <i class="fa-solid  fa-heart" onclick="love()"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="feed-comentarios">
+                        <div class="feed-top-comets-content">
+
+                            <div class="foto-user-comentario"></div>
+                            <h1>
+                                victor Raphael
+                            </h1>
+                        </div>
+
+                        <div class="comentario-text">
+                            <p>
+                                Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
+                            </p>
+                        </div>
+                        <div class="reactions-button-group">
+                            <button id="like-Button">
+                                <i class="fa-solid  fa-heart" onclick="love()"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
