@@ -1,9 +1,9 @@
 -- Salvando no padrão PTCC 02052023 1400
-#drop database PTCC; 
+#drop database AGAPE_DB; 
 
-CREATE DATABASE PTCC;
+CREATE DATABASE AGAPE_DB;
 
-USE PTCC;
+USE AGAPE_DB;
 
 CREATE TABLE if not exists TB_ONG (
 cd_ong int NOT NULL auto_increment,
@@ -11,7 +11,7 @@ nm_ong VARCHAR(30),
 nm_representante VARCHAR(80),
 email VARCHAR(90),
 cnpj char (14),
-senha varchar(20),
+senha varchar(128),
 CONSTRAINT PK_ONG PRIMARY KEY(cd_ong))
 engine InnoDB;
 
@@ -31,7 +31,7 @@ cd_ong INT ,
 nm_doador VARCHAR(80),
 nm_user VARCHAR(80),
 documento char(19),
-senha varchar(60),
+senha varchar(128),
 email VARCHAR(90),
 CONSTRAINT PK_DOADOR
 	PRIMARY KEY(cd_doador),
