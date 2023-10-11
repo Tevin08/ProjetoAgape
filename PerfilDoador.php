@@ -103,7 +103,7 @@ session_start();
           <div class="top-comets-content">
 
             <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nome'] ?></h1>
+            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
           </div>
 
           <div class="comentario-text">
@@ -122,7 +122,7 @@ session_start();
           <div class="top-comets-content">
 
             <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nome'] ?></h1>
+            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
           </div>
 
           <div class="comentario-text">
@@ -142,7 +142,7 @@ session_start();
           <div class="top-comets-content">
 
             <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nome'] ?></h1>
+            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
           </div>
 
           <div class="comentario-text">
@@ -161,7 +161,7 @@ session_start();
           <div class="top-comets-content">
 
             <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nome'] ?></h1>
+            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
           </div>
 
           <div class="comentario-text">
@@ -179,7 +179,7 @@ session_start();
           <div class="top-comets-content">
 
             <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nome'] ?></h1>
+            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
           </div>
 
           <div class="comentario-text">

@@ -30,8 +30,40 @@ function validaCPF($cpf) {
         }
     }
     return true;
-
 }
+
+function validar_cnpj($cnpj) {
+    // Verificar se foi informado
+  if(empty($cnpj))
+    return false;
+  // Remover caracteres especias
+  $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
+  // Verifica se o numero de digitos informados
+  if (strlen($cnpj) != 14)
+    return false;
+      // Verifica se todos os digitos são iguais
+  if (preg_match('/(\d)\1{13}/', $cnpj))
+    return false;
+  $b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    for ($i = 0, $n = 0; $i < 12; $n += $cnpj[$i] * $b[++$i]);
+    if ($cnpj[12] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
+        return false;
+    }
+    for ($i = 0, $n = 0; $i <= 12; $n += $cnpj[$i] * $b[$i++]);
+    if ($cnpj[13] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
+        return false;
+    }
+  return true;
+}
+
+//valida cpf
+if ((!validar_cnpj($_POST['documento']) or !validaCPF($_POST['documento']))) {
+    $error = "CPF ou CNPJ inválido";
+    $_SESSION['error'] = $error;
+    header("location: ../error.php");
+    exit;
+}
+
 
 $users = usuarios($conexao);
 function usuarios($conexao)
@@ -58,12 +90,6 @@ if (strlen($_POST['senha']) < 8) {
     exit;
 }
 
-if (!validaCPF($_POST['documento'])) {
-    echo "CPF inválido";
-    $_SESSION['error'] = "Error";
-    header("location: ../error.php");
-    exit;
-}
 // validar a existencia do usuario 
 while ($dados = $users->fetch_assoc()) {
     if ($_POST['documento'] == $dados['documento']) {

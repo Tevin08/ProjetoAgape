@@ -20,7 +20,9 @@ while ($dados = $users->fetch_assoc()) {
         $_SESSION['email_ong'] = $dados['email'];
         header('location: ../PerfilOngs.php');
     } else {
-        echo $error;
+        $error = "Documento ou senha inválidos";
+        $_SESSION['error'] = $error;
+        header("location: ../error.php");
         $error = "";
     }
 }

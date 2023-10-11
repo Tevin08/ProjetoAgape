@@ -32,10 +32,9 @@
                     id="NomeONG" />
                   <label for="CNPJ">Digite o CNPJ</label>
                   <input
-                    type="number"
                     placeholder="CNPJ"
                     name="CNPJ"
-                    maxlength="14"
+                    maxlength="20"
                     id="CNPJ" />
                   <label for="">Digite seu Email</label>
                   <input

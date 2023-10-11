@@ -36,7 +36,6 @@
                     id="nome-C" />
                   <label for="CPF-CNPJ">Digite seu CPF/CNPJ</label>
                   <input
-                    type="number"
                     placeholder="CPF/CNPJ"
                     name="documento"
                     maxlength="14"

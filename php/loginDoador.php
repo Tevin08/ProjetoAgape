@@ -21,7 +21,7 @@ while ($dados = $users->fetch_assoc()) {
         $_SESSION['nm_user'] = $dados['nm_user'];
         header('location: ../PerfilDoador.php');
     } else {
-        echo $error;
+        $error = "Documento ou senha inválidos";
         $_SESSION['error'] = $error;
         header("location: ../error.php");
         $error = "";
