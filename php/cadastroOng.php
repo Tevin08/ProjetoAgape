@@ -15,30 +15,40 @@ function usuarios($conexao)
 //Validar o campo do email
 $email = $_POST['email'];
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "Email inválido";
+    $error = "Email inválido";
+    $_SESSION['error'] = $error;
+    header("location: ../error.php");
     exit;
 }
 
 // Verificar se a senha tem menos de 8 caracteres
 if (strlen($_POST['senha']) < 8) {
-    echo "A senha deve conter pelo menos 8 caracteres";
+    $error = "A senha deve conter pelo menos 8 caracteres";
+    $_SESSION['error'] = $error;
+    header("location: ../error.php");
     exit;
 }
 
 // Verificar se as senhas são as mesmas
 if ($_POST['senha'] !== $_POST['senha2']) {
-    echo "As senhas não se coincidem";
+    $error = "As senhas não se coincidem";
+    $_SESSION['error'] = $error;
+    header("location: ../error.php");
     exit;
 }
 
 //validar a existencia do usuario
 while ($dados = $users->fetch_assoc()) {
     if ($_POST['CNPJ'] == $dados['cnpj']) {
-        echo "CNPJ já registrado.";
+        $error = "CNPJ já registrado.";
+        $_SESSION['error'] = $error;
+        header("location: ../error.php");
         exit;
     }
     if ($_POST['email'] == $dados['email']) {
-        echo "Email já está em uso";
+        $error = "Email já está em uso";
+        $_SESSION['error'] = $error;
+        header("location: ../error.php");
         exit;
     }
 }

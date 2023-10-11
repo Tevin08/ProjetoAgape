@@ -322,3 +322,8 @@ footer {
   bottom: 80px;
   right: -55px;
 }
+
+.fa-circle-exclamation {
+  font-size: 5em;
+  color: rgb(186, 22, 22);
+}

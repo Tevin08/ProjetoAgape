@@ -18,8 +18,9 @@
 .div-nome {
   display: flex;
   gap: 1em;
+  border-radius: 1em;
   background-color: #6640ee77;
-  padding: 5px;
+  padding: 1em;
   box-shadow: 0px 0px 30px #bdbdbd;
 }
 
@@ -27,10 +28,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 1em;
  padding: 2em;
   gap: 3em;
   /* word-break: break-all; */
-  box-shadow: 0px 0px 30px #949292;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.137);
 }
 
 .post-content img{

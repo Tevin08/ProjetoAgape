@@ -56,7 +56,7 @@ session_start();
           <p>
             <?php
 
-            echo $_SESSION['nome'];
+            echo $_SESSION['nm_doador'];
 
             ?>
           </p>
@@ -65,6 +65,13 @@ session_start();
           <span>
             <?php
             echo $_SESSION['email'];
+            ?>
+          </span>
+        </div>
+        <div id="contato">
+          <span>
+            <?php
+              echo "@".$_SESSION['nm_user'];
             ?>
           </span>
         </div>
