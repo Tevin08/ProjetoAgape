@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+<?php
+include "./php/banco.php";
+
+session_start();
+
+$users = usuarios($conexao);
+function usuarios($conexao)
+{
+  $sqlBusca = 'SELECT * FROM tb_ong';
+  $resultado = mysqli_query($conexao, $sqlBusca);
+  return $resultado;
+}
+
+?>
 <html lang="pt">
 
 <head>
@@ -11,24 +25,30 @@
   <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon">
   <title>Explorar ONG’s</title>
 </head>
+
 <body>
   <nav id="nav-ongs">
     <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
     <div class="input-nav">
-      <button "
-          class=" btn-visualizar-ongs">
+      <button class=" btn-visualizar-ongs">
         Vizualizar ONG'S
       </button>
       <button class="btn-perfil feed-btn" onclick="Rota2()">
         Feed
       </button>
     </div>
-    <button id="btn-entrar" onclick="location.href='index.html#div-cad' ">
-      Entrar
-    </button>
-    <button id="btn-entrar" onclick="location.href='./php/logout.php'">
-      Sair
-    </button>
+    <?php
+    if (!isset($_SESSION['documento'])) {
+      echo '<button id="btn-entrar" onclick="location.href=`index.html#div-cad`">';
+      echo 'Entrar';
+      echo '</button>';
+    } else {
+      echo '<button id="btn-sair" onclick="location.href=`./php/logout.php`">';
+      echo 'Sair';
+      echo '</button>';
+    }
+
+    ?>
   </nav>
   <main class="main">
     <div class="section-pesquisa">
@@ -40,11 +60,27 @@
         </svg>
       </div>
     </div>
-    <div class="banners"></div>
+    <form action="./php/image_upload.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="image" id="image">
+      <button>Enviar</button>
+    </form>
+    <div class="banners">
+      <?php
+      while ($dados = $users->fetch_assoc()) {
+        echo "<div class='banner-0' onclick='location.href=`PerfilOngs.php`'>";
+        echo "<img src=`` alt=``>";
+        echo "<div class='logos img-back-2'></div>";
+        echo "<h1>{$dados['nm_ong']}</h1>";
+        echo "</div>";
+      }
+      ?>
+    </div>
   </main>
+
   <script src="js/script.js" defer></script>
 </body>
 <footer>
 
 </footer>
+
 </html>

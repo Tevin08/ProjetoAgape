@@ -42,7 +42,6 @@
   padding: 10px;
   border-radius: 45px;
   font-weight: 700;
-
   font-size: 20px;
   width: 180px;
   color: #ffffffe8;
@@ -50,6 +49,24 @@
 }
 
 #btn-entrar:hover {
+  background-color: #3a19b1;
+  color: #fff;
+}
+
+#btn-sair {
+  text-align: center;
+  border-style: none;
+  background-color: #91553a;
+  padding: 10px 3em 10px 3em;
+  border-radius: 45px;
+  font-weight: 700;
+  font-size: 20px;
+  /* width: 180px; */
+  color: #ffffffe8;
+  transition: all 0.4s;
+}
+
+#btn-sair:hover {
   background-color: #3a19b1;
   color: #fff;
 }
@@ -226,6 +243,23 @@ footer {
   }
 }
 
+.banner-0:nth-child(1n) {
+  background: #6640ee;
+  transition: all 1s;
+}
+.banner-0:nth-child(2n) {
+  background: #9869f4;
+  transition: all 1s;
+}
+.banner-0:nth-child(3n) {
+  background: #ca91f9;
+  transition: all 1s;
+}
+.banner-0:nth-child(4n) {
+  background: #f4acf5;
+  transition: all 1s;
+}
+
 .position_1 {
   background: #6640ee;
   transition: all 1s;
@@ -277,4 +311,14 @@ footer {
   border-radius: 50%;
   box-shadow: 0 0 25px 1px rgba(215, 206, 252, 0.5);
   border: 3px solid rgb(215, 206, 252);
+}
+
+#ong-logo {
+  background-color: #ffffff;
+  box-shadow: 0 0 1em .5em rgba(0, 0, 0, 0.047);
+  /* padding: 3px; */
+  border-radius: 100%;
+  margin-bottom: 20px;
+  width: 100px;
+  height: 100px;
 }

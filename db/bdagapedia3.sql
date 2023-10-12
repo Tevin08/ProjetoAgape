@@ -1,5 +1,5 @@
 -- Salvando no padrão PTCC 02052023 1400
-#drop database AGAPE_DB; 
+drop database if exists AGAPE_DB; 
 
 CREATE DATABASE AGAPE_DB;
 
@@ -10,8 +10,13 @@ cd_ong int NOT NULL auto_increment,
 nm_ong VARCHAR(30),
 nm_representante VARCHAR(80),
 email VARCHAR(90),
-cnpj char (14),
+cnpj char (19),
 senha varchar(128),
+sobre varchar (512),
+pic longblob,
+insta VARCHAR(45),
+wpp VARCHAR(15),
+twitter VARCHAR(45),
 CONSTRAINT PK_ONG PRIMARY KEY(cd_ong))
 engine InnoDB;
 
@@ -38,8 +43,7 @@ CONSTRAINT PK_DOADOR
 CONSTRAINT FK_ONG_doador FOREIGN KEY (cd_ong) REFERENCES TB_ONG (cd_ong)
 ) 
 engine InnoDB;
-    
-		
+
 CREATE TABLE if not exists TB_CATEGORIA(
 CD_CATEGORIA INT NOT NULL,
 cd_ong int not null,
@@ -87,3 +91,8 @@ CONSTRAINT PK_reacao
     CONSTRAINT FK_postagem FOREIGN KEY (cd_post) REFERENCES TB_POST (cd_post)
 )
 engine InnoDB;
+
+INSERT INTO TB_ONG(nm_ong, nm_representante, email, cnpj, senha) VALUES("OMS", "Rogério", "renan@gmail.com", "59731766000199", "1q2w");
+INSERT INTO TB_ONG(nm_ong, nm_representante, email, cnpj, senha) VALUES("Red Cross", "Sarah", "sarah@email.com", "12345678901234", "pass123");
+INSERT INTO TB_ONG(nm_ong, nm_representante, email, cnpj, senha) VALUES("Save the Children", "Michael", "michael@example.com", "98765432109876", "childsave1");
+INSERT INTO TB_ONG(nm_ong, nm_representante, email, cnpj, senha) VALUES("UNICEF", "Emily", "emily@unicef.org", "11122333444555", "unicef123");

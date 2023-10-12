@@ -3,9 +3,9 @@
 
 session_start();
 
- if (!isset($_SESSION['documento'])) {
-   header('location: ./logindoador.php');
- }
+if (!isset($_SESSION['documento'])) {
+  header('location: ./logindoador.php');
+}
 
 ?>
 <html lang="pt-BR">
@@ -34,6 +34,9 @@ session_start();
       </button>
       <button class="btn-perfil" onclick="location.href='feed.php'">
         Feed
+      </button>
+      <button id="btn-sair" onclick="location.href='./php/logout.php'">
+        Sair
       </button>
     </div>
     <div class="pesquisar-2">
@@ -71,7 +74,7 @@ session_start();
         <div id="contato">
           <span>
             <?php
-              echo "@".$_SESSION['nm_user'];
+            echo "@" . $_SESSION['nm_user'];
             ?>
           </span>
         </div>
@@ -113,7 +116,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" ></i>
+              <i class="fa-solid  fa-heart"></i>
             </button>
 
           </div>
@@ -132,7 +135,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" onclick="love()"></i>
             </button>
 
           </div>
@@ -152,7 +155,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" onclick="love()"></i>
             </button>
 
           </div>
@@ -171,7 +174,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" onclick="love()"></i>
             </button>
           </div>
         </div>
@@ -189,7 +192,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" onclick="love()"></i>
             </button>
 
           </div>

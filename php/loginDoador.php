@@ -13,7 +13,7 @@ function usuarios($conexao)
 }
 
 while ($dados = $users->fetch_assoc()) {
-    if (($_POST['documento'] === $dados['documento'] || $_POST['documento'] === $dados['email']) && password_verify($_POST['senha'], $dados['senha'])) {
+    if (($_POST['documento'] === $dados['email']) && password_verify($_POST['senha'], $dados['senha'])) {
         $_SESSION['nm_doador'] = $dados['nm_doador'];
         $_SESSION['documento'] = $dados['documento'];
         $_SESSION['email'] = $dados['email'];
