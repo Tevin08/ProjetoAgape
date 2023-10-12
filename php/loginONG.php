@@ -12,7 +12,6 @@ function usuarios($conexao)
     return $resultado;
 }
 
-$error = "CNPJ ou senha inválidos";
 while ($dados = $users->fetch_assoc()) {
     if (($_POST['CNPJ'] === $dados['cnpj']) && password_verify($_POST['senha'], $dados['senha'])) {
         $_SESSION['nm_ong'] = $dados['nm_ong'];
@@ -23,6 +22,6 @@ while ($dados = $users->fetch_assoc()) {
         $error = "Documento ou senha inválidos";
         $_SESSION['error'] = $error;
         header("location: ../error.php");
-        $error = "";
+        $erro = "";
     }
 }

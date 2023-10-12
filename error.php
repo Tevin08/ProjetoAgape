@@ -23,7 +23,7 @@ session_start();
     <div class="logo-2 center_content">
         <div class="campos">
             <div class="div-forms forms-login">
-                <button class="btn-voltar" onclick="location.href='index.html#div-cad'">
+                <button class="btn-voltar" onclick="history.back()">
                     <img width="35px" src="./imagens/arrow.png" alt="ff" />
                 </button>
                 <h1 style="font-weight: 700; font-size: 30px; text-align: center"><?php echo $_SESSION['error'] ?></h1>

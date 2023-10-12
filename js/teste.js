@@ -36,7 +36,7 @@ function Seguindo () {
     btnSeguir.textContent = "Seguindo"
     
 
-  }, 300);
+  }, 30);
 }
 
 function Notfollow () {
@@ -50,7 +50,7 @@ function Notfollow () {
     btnSeguir.textContent = "Seguir"
     
 
-  }, 300);
+  }, 30);
 
   
 }

@@ -9,11 +9,8 @@
   <script src="./js/script.js" defer></script>
   <script src="./js/teste.js" defer></script>
   <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon">
-
-
   <title>Explorar ONG’s</title>
 </head>
-
 <body>
   <nav id="nav-ongs">
     <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
@@ -35,7 +32,6 @@
   </nav>
   <main class="main">
     <div class="section-pesquisa">
-
       <h1 id="title">Organizações:</h1>
       <div class="pesquisar">
         <input type="search" name="pesquisar" placeholder="Pesquise o nome de uma ONG" id="search" maxlength="20" />
@@ -46,11 +42,9 @@
     </div>
     <div class="banners"></div>
   </main>
-
   <script src="js/script.js" defer></script>
 </body>
 <footer>
 
 </footer>
-
 </html>

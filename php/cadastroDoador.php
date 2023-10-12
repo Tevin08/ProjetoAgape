@@ -57,7 +57,7 @@ function validar_cnpj($cnpj) {
 }
 
 //valida cpf
-if ((!validar_cnpj($_POST['documento']) or !validaCPF($_POST['documento']))) {
+if (!(validar_cnpj($_POST['documento']) || validaCPF($_POST['documento']))) {
     $error = "CPF ou CNPJ inválido";
     $_SESSION['error'] = $error;
     header("location: ../error.php");
@@ -76,16 +76,16 @@ function usuarios($conexao)
 //Validar o campo do email
 $email = $_POST['email'];
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "Email inválido";
-    $_SESSION['error'] = "Error";
+    $error = "Email inválido";
+    $_SESSION['error'] = $error;
     header("location: ../error.php");
     exit;
 }
 
 // Verificar se a senha tem menos de 8 caracteres
 if (strlen($_POST['senha']) < 8) {
-    echo "A senha deve conter pelo menos 8 caracteres";
-    $_SESSION['error'] = "Error";
+    $error = "A senha deve conter pelo menos 8 caracteres";
+    $_SESSION['error'] = $error;
     header("location: ../error.php");
     exit;
 }
@@ -93,22 +93,24 @@ if (strlen($_POST['senha']) < 8) {
 // validar a existencia do usuario 
 while ($dados = $users->fetch_assoc()) {
     if ($_POST['documento'] == $dados['documento']) {
-        echo "Documento já registrado";
-        $_SESSION['error'] = "Error";
+        $error = "Documento já registrado";
+        $_SESSION['error'] = $error;
     header("location: ../error.php");
         exit;
     }
+    
     if ($_POST['email'] == $dados['email']) {
-        echo "Email já está em uso";
-        $_SESSION['error'] = "Error";
+        $error = "Email já está em uso";
+        $_SESSION['error'] = $error;
     header("location: ../error.php");
         exit;
     }
 }
+
 // Verificar se as senhas são as mesmas
 if ($_POST['senha'] !== $_POST['senha-confirmar']) {
-    echo "As senhas não se coincidem";
-    $_SESSION['error'] = "Error";
+    $error = "As senhas não se coincidem";
+    $_SESSION['error'] = $error;
     header("location: ../error.php");
     exit;
 }
