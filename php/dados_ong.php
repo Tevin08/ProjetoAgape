@@ -1,16 +1,8 @@
 <?php
 
-include "./banco.php";
+include "banco.php";
 
 session_start();
-
-$users = usuarios($conexao);
-function usuarios($conexao)
-{
-    $sqlBusca = 'SELECT * FROM tb_ong';
-    $resultado = mysqli_query($conexao, $sqlBusca);
-    return $resultado;
-}
 
 function gravar($conexao)
 {
@@ -19,7 +11,7 @@ function gravar($conexao)
     sobre = '{$_POST['sobre_ong']}',
     insta = '{$_POST['insta']}',
     wpp = '{$_POST['wpp']}',
-    x = '{$_POST['x']}'
+    twitter = '{$_POST['x']}'
     where CNPJ = '{$_SESSION['cnpj']}'";
     return mysqli_query($conexao, $sql);
 }
@@ -50,7 +42,28 @@ if (gravar($conexao)) {
         echo "Please select an image to upload.";
         exit;
     }
-    header('location: ../MinhaOng.php');
 } else {
     echo 'Erro na gravação';
+    exit;
 }
+
+$users = usuarios($conexao);
+function usuarios($conexao)
+{
+    $sqlBusca = 'SELECT * FROM tb_ong';
+    $resultado = mysqli_query($conexao, $sqlBusca);
+    return $resultado;
+}
+
+while ($dados = $users->fetch_assoc()) {
+    $_SESSION['nm_ong'] = $dados['nm_ong'];
+    $_SESSION['cnpj'] = $dados['cnpj'];
+    $_SESSION['email_ong'] = $dados['email'];
+    $_SESSION['sobre'] = $dados['sobre'];
+    $_SESSION['insta'] = $dados['insta'];
+    $_SESSION['wpp'] = $dados['wpp'];
+    $_SESSION['x'] = $dados['twitter'];
+    $_SESSION['pic'] = $dados['pic'];
+}
+
+header('location: ../MinhaOng.php');

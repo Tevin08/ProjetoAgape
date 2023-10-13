@@ -38,7 +38,7 @@ function usuarios($conexao)
       </button>
     </div>
     <?php
-    if (!isset($_SESSION['documento'])) {
+    if (!(isset($_SESSION['documento']) || isset($_SESSION['cnpj']))) {
       echo '<button id="btn-entrar" onclick="location.href=`index.html#div-cad`">';
       echo 'Entrar';
       echo '</button>';
@@ -60,21 +60,26 @@ function usuarios($conexao)
         </svg>
       </div>
     </div>
-    <form action="./php/image_upload.php" method="post" enctype="multipart/form-data">
+    <!-- <form action="./php/image_upload.php" method="post" enctype="multipart/form-data">
       <label for="image" id="img_upload">
         <div class="upload_img">
           <img src="./imagens/img_upload.png" alt="" width="100px">
         </div>
       </label>
       <input type="file" name="image" id="image">
-    </form>
+    </form> -->
     <div class="banners">
       <?php
-      while ($dados = $users->fetch_assoc()) {
-        echo "<div class='banner-0' onclick='location.href=`PerfilOngs.php`'>";
-        echo '<img src="data:image/jpeg;base64,' . base64_encode($dados["pic"]) . '" id="ong-logo">';
-        echo "<h1>{$dados['nm_ong']}</h1>";
-        echo "</div>";
+      if ($users->num_rows > 0) {
+        while ($dados = $users->fetch_assoc()) {
+          echo "<div class='banner-0' onclick='location.href=`PerfilOngs.php`'>";
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($dados["pic"]) . '" id="ong-logo">';
+          echo "<h1>{$dados['nm_ong']}</h1>";
+          echo "</div>";
+        }
+      } 
+      else {
+        echo "Nenhuma ONG cadastrada";
       }
       // while ($dados = $users->fetch_assoc()) {
       //   echo "<div class='banner-0' onclick='location.href=`PerfilOngs.php`'>";

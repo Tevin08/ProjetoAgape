@@ -56,11 +56,11 @@
 #btn-sair {
   text-align: center;
   border-style: none;
-  background-color: #91553a;
+  background-color: #ad1b1b;
   padding: 10px 3em 10px 3em;
   border-radius: 45px;
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 1.2rem;
   /* width: 180px; */
   color: #ffffffe8;
   transition: all 0.4s;

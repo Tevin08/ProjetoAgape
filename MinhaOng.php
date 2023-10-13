@@ -3,6 +3,11 @@
 
 session_start();
 
+if (!isset($_SESSION['cnpj'])) {
+    header('location: ./loginOngs.php');
+    exit;
+}
+
 ?>
 <html lang="pt">
 
@@ -76,7 +81,7 @@ session_start();
                             }
                             ?>
                         </span>
-                        <img src="./imagens/icon-verificado.png" alt="" width="40px" >
+                        <img src="./imagens/icon-verificado.png" alt="" width="40px">
                     </div>
                     <button onclick="Seguindo()" class="btn-seguir ">
                         Seguir

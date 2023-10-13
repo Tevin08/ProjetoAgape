@@ -17,9 +17,7 @@ input{
     width: 500px;
     z-index: 9999;
     border-radius: 58px;
-    padding: 1rem;     
-   
-
+    padding: 1rem;
 }
 /* 
 .modal::backdrop{

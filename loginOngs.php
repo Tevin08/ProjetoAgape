@@ -43,20 +43,13 @@
           <div class="cadas">
             <form action="./php/loginONG.php" method="post" class="frmcad-1">
               <div class="cad-1">
-                <label for="CNPJ">Digite seu CNPJ</label>
+                <label for="CNPJ">Digite seu CNPJ/Email</label>
                 <input
                   type="text"
-                  placeholder="CNPJ"
-                  name="CNPJ"
+                  placeholder="CNPJ/Email"
+                  name="login"
                   id="CNPJ"
                   maxlength="19"
-                />
-                <label for="">Digite seu email</label>
-                <input
-                  type="text"
-                  placeholder="email"
-                  name="email"
-                  id="emailO"
                 />
                 <label for="">Digite sua senha</label>
                 <input

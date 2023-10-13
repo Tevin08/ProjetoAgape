@@ -50,9 +50,9 @@
               <label for="CNPJ">Fale sobre sua ONG:</label>
               <textarea name="sobre_ong" id="" maxlength="512"></textarea>
               <label for="">WhatsApp da ONG</label>
-              <input type="text" placeholder="Instagram" name="wpp" id="emailO" />
+              <input type="text" placeholder="WhatsApp" name="wpp" id="emailO" />
               <label for="">Instagram da ONG</label>
-              <input type="text" placeholder="WhatsApp" name="insta" id="emailO" />
+              <input type="text" placeholder="Instagram" name="insta" id="emailO" />
               <label for="">X da ONG</label>
               <input type="text" placeholder="X" name="x" id="emailO" />
             </div>

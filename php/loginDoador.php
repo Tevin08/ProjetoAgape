@@ -13,14 +13,14 @@ function usuarios($conexao)
 }
 
 while ($dados = $users->fetch_assoc()) {
-    if (($_POST['documento'] === $dados['email']) && password_verify($_POST['senha'], $dados['senha'])) {
+    if (($_POST['documento'] === $dados['email'] || $_POST['documento'] === $dados['documento']) && password_verify($_POST['senha'], $dados['senha'])) {
         $_SESSION['nm_doador'] = $dados['nm_doador'];
         $_SESSION['documento'] = $dados['documento'];
         $_SESSION['email'] = $dados['email'];
         $_SESSION['nm_user'] = $dados['nm_user'];
         header('location: ../PerfilDoador.php');
     } else {
-        $error = "Documento ou senha inválidos";
+        $error = "Login ou senha inválidos";
         $_SESSION['error'] = $error;
         header("location: ../error.php");
         $erro = "";

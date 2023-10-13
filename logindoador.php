@@ -53,7 +53,7 @@ if (isset($_SESSION['documento'])) {
           <form action="./php/loginDoador.php" method="post" class="frmcad-1">
             <div class="cad-1">
               <label for="CPF/CNPJ">Digite seu CPF/CNPJ/Email</label>
-              <input type="text" placeholder="CPF/CNPJ" name="documento" id="CPF-CNPJ" />
+              <input type="text" placeholder="CPF/CNPJ/Email" name="documento" id="CPF-CNPJ" />
               <!-- <label for="">Digite seu email</label>
               <input type="text" placeholder="email" name="email2" id="emailO" /> -->
               <label for="">Digite sua senha</label>
