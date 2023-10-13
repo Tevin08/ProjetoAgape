@@ -17,7 +17,12 @@ while ($dados = $users->fetch_assoc()) {
         $_SESSION['nm_ong'] = $dados['nm_ong'];
         $_SESSION['cnpj'] = $dados['cnpj'];
         $_SESSION['email_ong'] = $dados['email'];
-        header('location: ../PerfilOngs.php');
+        $_SESSION['sobre'] = $dados['sobre'];
+        $_SESSION['insta'] = $dados['insta'];
+        $_SESSION['wpp'] = $dados['wpp'];
+        $_SESSION['x'] = $dados['x'];
+        $_SESSION['pic'] = $dados['pic'];
+        header('location: ../MinhaOng.php');
     } else {
         $error = "Documento ou senha inválidos";
         $_SESSION['error'] = $error;

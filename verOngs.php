@@ -61,18 +61,28 @@ function usuarios($conexao)
       </div>
     </div>
     <form action="./php/image_upload.php" method="post" enctype="multipart/form-data">
+      <label for="image" id="img_upload">
+        <div class="upload_img">
+          <img src="./imagens/img_upload.png" alt="" width="100px">
+        </div>
+      </label>
       <input type="file" name="image" id="image">
-      <button>Enviar</button>
     </form>
     <div class="banners">
       <?php
       while ($dados = $users->fetch_assoc()) {
         echo "<div class='banner-0' onclick='location.href=`PerfilOngs.php`'>";
-        echo "<img src=`` alt=``>";
-        echo "<div class='logos img-back-2'></div>";
+        echo '<img src="data:image/jpeg;base64,' . base64_encode($dados["pic"]) . '" id="ong-logo">';
         echo "<h1>{$dados['nm_ong']}</h1>";
         echo "</div>";
       }
+      // while ($dados = $users->fetch_assoc()) {
+      //   echo "<div class='banner-0' onclick='location.href=`PerfilOngs.php`'>";
+      //   echo "<img src=`` alt=``>";
+      //   echo "<div class='logos img-back-2'></div>";
+      //   echo "<h1>{$dados['nm_ong']}</h1>";
+      //   echo "</div>";
+      // }
       ?>
     </div>
   </main>

@@ -13,7 +13,6 @@ if (!isset($_SESSION['documento'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="./css/verOngs.css" />
   <link rel="stylesheet" href="./css/perfil.css" />
   <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon">

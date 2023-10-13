@@ -32,8 +32,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .img-perfil-ong {
-  background-image: url(../imagens/hq.jpg);
-  background-size: cover;
+  /* background-image: url(../imagens/hq.jpg);
+  background-size: cover; */
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -86,9 +86,20 @@ body::-webkit-scrollbar-thumb {
 #contato {
   display: flex;
   flex-direction: column;
+  align-items: center;
   color: #777777;
   font-size: 27px;
   font-family: "Open Sans", sans-serif;
+}
+
+.contato-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contato-content img {
+  margin-left: 10px;
 }
 
 .zap,
@@ -99,28 +110,26 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 1rem;
 }
 
-#Sobre p {
-  display: flex;
-  align-items: center;
-  font-size: 22px;
-  border: 2px solid #bdbdbd;
-  border-radius: 20px;
-  padding: 70px;
-  height: 270px;
-}
-
 .section-sobre {
   display: flex;
   justify-content: center;
 }
 
 #Sobre {
-  margin: 2rem 0;
+  border: 2px solid #bdbdbd;
   width: 720px;
-  scale: 1.1;
+  overflow-wrap: break-word;
+  padding: 2em;
+  margin-top: 3em;
+  border-radius: 1em;
   color: #777777;
   font-family: "Open Sans", sans-serif;
 }
+
+#Sobre p {
+}
+
+
 
 .section-center {
   margin: 0 auto;

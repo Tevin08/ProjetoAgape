@@ -49,7 +49,7 @@
                   placeholder="CNPJ"
                   name="CNPJ"
                   id="CNPJ"
-                  maxlength="14"
+                  maxlength="19"
                 />
                 <label for="">Digite seu email</label>
                 <input

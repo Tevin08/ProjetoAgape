@@ -97,7 +97,8 @@ function gravar($conexao)
 }
 
 if (gravar($conexao)) {
-    header('location: ../loginOngs.php');
+    $_SESSION['cnpj'] = $_POST['CNPJ'];
+    header('location: ../dadosOngs.php');
 } else {
     echo 'Erro na gravação';
 }
