@@ -91,8 +91,3 @@ CONSTRAINT PK_reacao
     CONSTRAINT FK_postagem FOREIGN KEY (cd_post) REFERENCES TB_POST (cd_post)
 )
 engine InnoDB;
-
-INSERT INTO TB_ONG(nm_ong, nm_representante, email, cnpj, senha) VALUES("OMS", "Rogério", "renan@gmail.com", "59731766000199", "1q2w");
-INSERT INTO TB_ONG(nm_ong, nm_representante, email, cnpj, senha) VALUES("Red Cross", "Sarah", "sarah@email.com", "12345678901234", "pass123");
-INSERT INTO TB_ONG(nm_ong, nm_representante, email, cnpj, senha) VALUES("Save the Children", "Michael", "michael@example.com", "98765432109876", "childsave1");
-INSERT INTO TB_ONG(nm_ong, nm_representante, email, cnpj, senha) VALUES("UNICEF", "Emily", "emily@unicef.org", "11122333444555", "unicef123");
