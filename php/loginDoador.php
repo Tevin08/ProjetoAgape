@@ -7,18 +7,19 @@ session_start();
 $users = usuarios($conexao);
 function usuarios($conexao)
 {
-    $sqlBusca = 'SELECT * FROM tb_doador';
+    $sqlBusca = 'SELECT * FROM TB_USERS WHERE TIPO_USER = "Doador"';
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
 
 while ($dados = $users->fetch_assoc()) {
-    if (($_POST['documento'] === $dados['email'] || $_POST['documento'] === $dados['documento']) && password_verify($_POST['senha'], $dados['senha'])) {
-        $_SESSION['nm_doador'] = $dados['nm_doador'];
-        $_SESSION['documento'] = $dados['documento'];
-        $_SESSION['email'] = $dados['email'];
-        $_SESSION['nm_user'] = $dados['nm_user'];
+    if (($_POST['documento'] === $dados['LOGIN']) && password_verify($_POST['senha'], $dados['SENHA'])) {
+        // $_SESSION['nm_doador'] = $dados['nm_doador'];
+        $_SESSION['documento'] = $dados['LOGIN'];
+        $_SESSION['id'] = $dados['CD_USER'];
+        // $_SESSION['nm_user'] = $dados['nm_user'];
         header('location: ../PerfilDoador.php');
+        exit;
     } else {
         $error = "Login ou senha inválidos";
         $_SESSION['error'] = $error;

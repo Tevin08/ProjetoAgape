@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
@@ -49,7 +50,6 @@
                   placeholder="CNPJ/Email"
                   name="login"
                   id="CNPJ"
-                  maxlength="19"
                 />
                 <label for="">Digite sua senha</label>
                 <input

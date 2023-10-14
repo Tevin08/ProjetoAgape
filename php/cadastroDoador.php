@@ -4,11 +4,12 @@ include "banco.php";
 
 session_start();
 
-function validaCPF($cpf) {
- 
+function validaCPF($cpf)
+{
+
     // Extrai somente os números
-    $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
-     
+    $cpf = preg_replace('/[^0-9]/is', '', $cpf);
+
     // Verifica se foi informado todos os digitos corretamente
     if (strlen($cpf) != 11) {
         return false;
@@ -32,19 +33,20 @@ function validaCPF($cpf) {
     return true;
 }
 
-function validar_cnpj($cnpj) {
+function validar_cnpj($cnpj)
+{
     // Verificar se foi informado
-  if(empty($cnpj))
-    return false;
-  // Remover caracteres especias
-  $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
-  // Verifica se o numero de digitos informados
-  if (strlen($cnpj) != 14)
-    return false;
-      // Verifica se todos os digitos são iguais
-  if (preg_match('/(\d)\1{13}/', $cnpj))
-    return false;
-  $b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    if (empty($cnpj))
+        return false;
+    // Remover caracteres especias
+    $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
+    // Verifica se o numero de digitos informados
+    if (strlen($cnpj) != 14)
+        return false;
+    // Verifica se todos os digitos são iguais
+    if (preg_match('/(\d)\1{13}/', $cnpj))
+        return false;
+    $b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
     for ($i = 0, $n = 0; $i < 12; $n += $cnpj[$i] * $b[++$i]);
     if ($cnpj[12] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
         return false;
@@ -53,7 +55,7 @@ function validar_cnpj($cnpj) {
     if ($cnpj[13] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
         return false;
     }
-  return true;
+    return true;
 }
 
 //valida cpf
@@ -92,17 +94,17 @@ if (strlen($_POST['senha']) < 8) {
 
 // validar a existencia do usuario 
 while ($dados = $users->fetch_assoc()) {
-    if ($_POST['documento'] == $dados['documento']) {
+    if ($_POST['documento'] == $dados['DOCUMENTO']) {
         $error = "Documento já registrado";
         $_SESSION['error'] = $error;
-    header("location: ../error.php");
+        header("location: ../error.php");
         exit;
     }
-    
-    if ($_POST['email'] == $dados['email']) {
+
+    if ($_POST['email'] == $dados['EMAIL']) {
         $error = "Email já está em uso";
         $_SESSION['error'] = $error;
-    header("location: ../error.php");
+        header("location: ../error.php");
         exit;
     }
 }
@@ -116,22 +118,35 @@ if ($_POST['senha'] !== $_POST['senha-confirmar']) {
 }
 function gravar($conexao)
 {
-    $passHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $sql = "insert into tb_doador
-        (nm_doador, nm_user, email, senha, documento)
+        (nm_doador, nm_user, email, documento)
         values
         (
             '{$_POST['nome-completo']}',
             '{$_POST['nomeusuario']}',
             '{$_POST['email']}',
-            '{$passHash}',
             '{$_POST['documento']}'
+        )";
+    return mysqli_query($conexao, $sql);
+}
+function gravarUser($conexao)
+{
+    $passHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    $sql = "INSERT INTO TB_USERS
+        (TIPO_USER, LOGIN, SENHA)
+        VALUES
+        (
+            'Doador',
+            '{$_POST['documento']}',
+            '{$passHash}'
         )";
     return mysqli_query($conexao, $sql);
 }
 
 if (gravar($conexao)) {
-    header('location: ../logindoador.php');
+    if (gravarUser($conexao)) {
+        header('location: ../logindoador.php');
+    }
 } else {
     echo 'Erro na gravação';
 }

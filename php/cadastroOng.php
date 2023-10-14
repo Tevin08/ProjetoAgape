@@ -1,19 +1,20 @@
 <?php
 
 include "banco.php";
-function validar_cnpj($cnpj) {
+function validar_cnpj($cnpj)
+{
     // Verificar se foi informado
-  if(empty($cnpj))
-    return false;
-  // Remover caracteres especias
-  $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
-  // Verifica se o numero de digitos informados
-  if (strlen($cnpj) != 14)
-    return false;
-      // Verifica se todos os digitos são iguais
-  if (preg_match('/(\d)\1{13}/', $cnpj))
-    return false;
-  $b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    if (empty($cnpj))
+        return false;
+    // Remover caracteres especias
+    $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
+    // Verifica se o numero de digitos informados
+    if (strlen($cnpj) != 14)
+        return false;
+    // Verifica se todos os digitos são iguais
+    if (preg_match('/(\d)\1{13}/', $cnpj))
+        return false;
+    $b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
     for ($i = 0, $n = 0; $i < 12; $n += $cnpj[$i] * $b[++$i]);
     if ($cnpj[12] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
         return false;
@@ -22,7 +23,7 @@ function validar_cnpj($cnpj) {
     if ($cnpj[13] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
         return false;
     }
-  return true;
+    return true;
 }
 
 session_start();
@@ -34,7 +35,7 @@ function usuarios($conexao)
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
-if (!validar_cnpj($_POST['CNPJ']) ) {
+if (!validar_cnpj($_POST['CNPJ'])) {
     $error = "CNPJ inválido";
     $_SESSION['error'] = $error;
     header("location: ../error.php");
@@ -67,13 +68,13 @@ if ($_POST['senha'] !== $_POST['senha2']) {
 
 //validar a existencia do usuario
 while ($dados = $users->fetch_assoc()) {
-    if ($_POST['CNPJ'] == $dados['cnpj']) {
+    if ($_POST['CNPJ'] == $dados['CNPJ']) {
         $error = "CNPJ já registrado.";
         $_SESSION['error'] = $error;
         header("location: ../error.php");
         exit;
     }
-    if ($_POST['email'] == $dados['email']) {
+    if ($_POST['email'] == $dados['EMAIL']) {
         $error = "Email já está em uso";
         $_SESSION['error'] = $error;
         header("location: ../error.php");
@@ -83,22 +84,36 @@ while ($dados = $users->fetch_assoc()) {
 
 function gravar($conexao)
 {
-    $passHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $sql = "insert into tb_ong
-    (nm_ong, nm_representante, email, senha, cnpj) 
+    (nm_ong, nm_representante, email, cnpj) 
     values(
         '{$_POST['nome-ong']}',
         '{$_POST['nome-representante']}',
         '{$_POST['email']}',
-        '{$passHash}',
         '{$_POST['CNPJ']}'
     )";
     return mysqli_query($conexao, $sql);
 }
 
+function gravarUser($conexao)
+{
+    $passHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    $sql = "INSERT INTO TB_USERS
+        (TIPO_USER, LOGIN, SENHA)
+        VALUES
+        (
+            'ONG',
+            '{$_POST['CNPJ']}',
+            '{$passHash}'
+        )";
+    return mysqli_query($conexao, $sql);
+}
+
 if (gravar($conexao)) {
-    $_SESSION['cnpj'] = $_POST['CNPJ'];
-    header('location: ../dadosOngs.php');
+    if (gravarUser($conexao)) {
+        $_SESSION['cnpj'] = $_POST['CNPJ'];
+        header('location: ../dadosOngs.php');
+    }
 } else {
     echo 'Erro na gravação';
 }

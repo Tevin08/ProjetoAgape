@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <?php
 
-session_start();
+  include "./php/banco.php";
 
-if (!isset($_SESSION['documento'])) {
-  header('location: ./logindoador.php');
-}
+  session_start();
+
+  if (!isset($_SESSION['documento'])) {
+    header('location: ./logindoador.php');
+    exit;
+  }
+  $doadores = doadores($conexao);
+    function doadores($conexao)
+    {
+      $sqlBusca = "SELECT * FROM TB_DOADOR WHERE CD_DOADOR = {$_SESSION['id']}";
+      $resultado = mysqli_query($conexao, $sqlBusca);
+      return $resultado;
+    }
+  
+    while ($dados = $doadores->fetch_assoc()) {
+      $_SESSION['nm_doador'] = $dados['NM_DOADOR'];
+      $_SESSION['email'] = $dados['EMAIL'];
+      $_SESSION['nm_user'] = $dados['NM_USER'];
+      $_SESSION['documento'] = $dados['DOCUMENTO'];
+    }
 
 ?>
 <html lang="pt-BR">

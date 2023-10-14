@@ -56,14 +56,14 @@ function usuarios($conexao)
 }
 
 while ($dados = $users->fetch_assoc()) {
-    $_SESSION['nm_ong'] = $dados['nm_ong'];
-    $_SESSION['cnpj'] = $dados['cnpj'];
-    $_SESSION['email_ong'] = $dados['email'];
-    $_SESSION['sobre'] = $dados['sobre'];
-    $_SESSION['insta'] = $dados['insta'];
-    $_SESSION['wpp'] = $dados['wpp'];
-    $_SESSION['x'] = $dados['twitter'];
-    $_SESSION['pic'] = $dados['pic'];
+    $_SESSION['nm_ong'] = $dados['NM_ONG'];
+    $_SESSION['cnpj'] = $dados['CNPJ'];
+    $_SESSION['email_ong'] = $dados['EMAIL'];
+    $_SESSION['sobre'] = $dados['SOBRE'];
+    $_SESSION['insta'] = $dados['INSTA'];
+    $_SESSION['wpp'] = $dados['WPP'];
+    $_SESSION['x'] = $dados['TWITTER'];
+    $_SESSION['pic'] = $dados['PIC'];
 }
 
 header('location: ../MinhaOng.php');

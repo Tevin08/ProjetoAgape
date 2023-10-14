@@ -73,8 +73,8 @@ function usuarios($conexao)
       if ($users->num_rows > 0) {
         while ($dados = $users->fetch_assoc()) {
           echo "<div class='banner-0' onclick='location.href=`PerfilOngs.php`'>";
-          echo '<img src="data:image/jpeg;base64,' . base64_encode($dados["pic"]) . '" id="ong-logo">';
-          echo "<h1>{$dados['nm_ong']}</h1>";
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($dados["PIC"]) . '" id="ong-logo">';
+          echo "<h1>{$dados['NM_ONG']}</h1>";
           echo "</div>";
         }
       } 

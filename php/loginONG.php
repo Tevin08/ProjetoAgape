@@ -7,22 +7,23 @@ session_start();
 $users = usuarios($conexao);
 function usuarios($conexao)
 {
-    $sqlBusca = 'SELECT * FROM tb_ong';
+    $sqlBusca = 'SELECT * FROM TB_USERS WHERE TIPO_USER = "ONG"';
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
 
 while ($dados = $users->fetch_assoc()) {
-    if (($_POST['login'] === $dados['cnpj'] || $_POST['login'] === $dados['email']) && password_verify($_POST['senha'], $dados['senha'])) {
-        $_SESSION['nm_ong'] = $dados['nm_ong'];
-        $_SESSION['cnpj'] = $dados['cnpj'];
-        $_SESSION['email_ong'] = $dados['email'];
-        $_SESSION['sobre'] = $dados['sobre'];
-        $_SESSION['insta'] = $dados['insta'];
-        $_SESSION['wpp'] = $dados['wpp'];
-        $_SESSION['x'] = $dados['twitter'];
-        $_SESSION['pic'] = $dados['pic'];
+    if (($_POST['login'] === $dados['LOGIN'] || $_POST['login'] === $dados['LOGIN']) && password_verify($_POST['senha'], $dados['SENHA'])) {
+        $_SESSION['nm_ong'] = $dados['NM_ONG'];
+        $_SESSION['cnpj'] = $dados['CNPJ'];
+        $_SESSION['email_ong'] = $dados['EMAIL'];
+        $_SESSION['sobre'] = $dados['SOBRE'];
+        $_SESSION['insta'] = $dados['INSTA'];
+        $_SESSION['wpp'] = $dados['WPP'];
+        $_SESSION['x'] = $dados['TWITTER'];
+        $_SESSION['pic'] = $dados['PIC'];
         header('location: ../MinhaOng.php');
+        exit;
     } else {
         $error = "Login ou senha inválidos";
         $_SESSION['error'] = $error;
