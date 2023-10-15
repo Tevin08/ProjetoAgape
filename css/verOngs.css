@@ -172,9 +172,9 @@
   align-items: center;
   flex-direction: column;
   /* border: 1px solid red; */
-  width: 30%;
-  height: 10em;
-  padding: 4em;
+  min-width: 12rem;
+  height: 12em;
+  padding: 5em 2em 5em 2em;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.075);
@@ -182,9 +182,9 @@
 }
 
 .banner-0 h1 {
-  font-size: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
   text-align: center;
-  width: 200px;
   color: #fff;
 }
 .banner-0:hover {
@@ -260,43 +260,6 @@ footer {
   transition: all 1s;
 }
 
-.position_1 {
-  background: #6640ee;
-  transition: all 1s;
-}
-.position_1:hover {
-  background: rgba(102, 64, 238, 0.863);
-  /* rotate: -2deg; */
-  scale: 1.09;
-}
-.position_2 {
-  background: #9869f4;
-  transition: all 1s;
-}
-.position_2:hover {
-  background: #6640ee;
-  /* rotate: 2deg; */
-  scale: 1.09;
-}
-.position_3 {
-  background: #ca91f9;
-  transition: all 1s;
-}
-.position_3:hover {
-  background: #9869f4;
-  /* rotate: 2deg; */
-  scale: 1.09;
-}
-.position_4 {
-  background: #f4acf5;
-  transition: all 1s;
-}
-.position_4:hover {
-  background: #f883fa;
-  /* rotate: -2deg; */
-  scale: 1.09;
-}
-
 .foto-doador {
   width: 5em;
   height: 5em;
@@ -319,8 +282,8 @@ footer {
   /* padding: 3px; */
   border-radius: 100%;
   margin-bottom: 20px;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
 }
 
 #img_upload {

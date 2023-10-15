@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+
+  session_start();
+
+  if ($_SESSION['id']) {
+    # code...
+  }
+
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />

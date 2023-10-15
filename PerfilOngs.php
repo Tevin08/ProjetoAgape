@@ -1,7 +1,33 @@
 <!DOCTYPE html>
 <?php
 
+include "./php/banco.php";
+
 session_start();
+
+if (!isset($_GET['id']) || $_GET['id'] == "") {
+  header("location: ./verOngs.php");
+  exit;
+}
+
+$ongs = ongs($conexao);
+function ongs($conexao)
+{
+  $sqlBusca = "SELECT * FROM TB_ONG WHERE CD_ONG = {$_GET['id']}";
+  $resultado = mysqli_query($conexao, $sqlBusca);
+  return $resultado;
+}
+
+while ($dados = $ongs->fetch_assoc()) {
+  $_SESSION['nm_ong'] = $dados['NM_ONG'];
+  $_SESSION['cnpj'] = $dados['CNPJ'];
+  $_SESSION['email_ong'] = $dados['EMAIL'];
+  $_SESSION['sobre'] = $dados['SOBRE'];
+  $_SESSION['insta'] = $dados['INSTA'];
+  $_SESSION['wpp'] = $dados['WPP'];
+  $_SESSION['x'] = $dados['TWITTER'];
+  $_SESSION['pic'] = $dados['PIC'];
+}
 
 ?>
 <html lang="pt">
@@ -29,7 +55,7 @@ session_start();
         Vizualizar ONG'S
       </button>
       <button class="btn-perfil" onclick="location.href='feed.php'">
-       Feed
+        Feed
       </button>
     </div>
     <div class="pesquisar-2">
@@ -43,7 +69,14 @@ session_start();
     <div class="perfil">
 
       <div class="foto-doador">
-        <div class="img-perfil-ong"></div>
+        <?php
+        if (!isset($_SESSION['pic'])) {
+          echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
+        } else {
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pic']) . '" class="img-perfil-ong">';
+        }
+        ?>
+        <!-- <div class="img-perfil-ong"></div> -->
       </div>
       <div class="info">
         <div id="nome">
@@ -110,14 +143,9 @@ session_start();
 
       <div id="Sobre">
         <p>
-          Médicos Sem Fronteiras (MSF),é uma organização humanitária que leva
-          cuidados de saúde a pessoas que sofrem com crises humanitárias pelo
-          mundo. Ele explica como os MSF surgiram na França em 1971, quais são
-          os seus princípios e valores, quais foram alguns dos seus projetos
-          no Brasil e em outros países, e como as pessoas podem doar para
-          apoiar o seu trabalho. Ele tem o objetivo de convencer as pessoas a
-          contribuir com os MSF, mostrando a importância e o impacto da sua
-          atuação.
+          <?php
+            echo $_SESSION['sobre'];
+          ?>
         </p>
       </div>
 
@@ -128,8 +156,8 @@ session_start();
       <h1>Postagens</h1>
     </div>
     <div class="section-center">
-      
-      
+
+
       <div class="container-posts">
         <div class="posts">
           <div class="foto-post"></div>
@@ -174,11 +202,11 @@ session_start();
       <h1>Avaliações</h1>
     </div>
     <div class="section-center">
-    <div id="adicionar-coments">
-              <button id="btn-add-coments"><img src="./imagens/plus-icon.png" alt=""></button>
-              <span>Adicionar Comentário</span>
-              </div>
-              <div class="container-Comentarios ongs-ajudadas">
+      <div id="adicionar-coments">
+        <button id="btn-add-coments"><img src="./imagens/plus-icon.png" alt=""></button>
+        <span>Adicionar Comentário</span>
+      </div>
+      <div class="container-Comentarios ongs-ajudadas">
         <div class="comentarios">
           <div class="top-comets-content">
 
@@ -193,7 +221,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" onclick="love()"></i>
             </button>
 
           </div>
@@ -212,7 +240,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" onclick="love()"></i>
             </button>
 
           </div>
@@ -232,7 +260,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" onclick="love()"></i>
             </button>
 
           </div>
@@ -251,7 +279,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" onclick="love()"></i>
             </button>
           </div>
         </div>
@@ -269,7 +297,7 @@ session_start();
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-            <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" onclick="love()"></i>
             </button>
 
           </div>
