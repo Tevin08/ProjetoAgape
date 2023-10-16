@@ -20,6 +20,8 @@ function usuarios($conexao)
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./css/verOngs.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://kit.fontawesome.com/3552f262a9.js" crossorigin="anonymous"></script>
   <script src="./js/script.js" defer></script>
   <script src="./js/teste.js" defer></script>
   <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon">
@@ -77,8 +79,7 @@ function usuarios($conexao)
           echo "<h1>{$dados['NM_ONG']}</h1>";
           echo "</div>";
         }
-      } 
-      else {
+      } else {
         echo "Nenhuma ONG cadastrada";
       }
       // while ($dados = $users->fetch_assoc()) {
@@ -95,7 +96,15 @@ function usuarios($conexao)
   <script src="js/script.js" defer></script>
 </body>
 <footer>
-
+  <div class="footer-logo">
+    <img src="./imagens/logotipo.png" alt="logo" width="500px" />
+  </div>
+  <div class="footer-socials">
+    <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://x.com" target="_blank"><i class="fa-brands fa-x"></i></a>
+  </div>
 </footer>
 
 </html>

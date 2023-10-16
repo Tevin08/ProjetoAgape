@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['documento'])) {
+if (isset($_SESSION['id'])) {
   header('location: verOngs.php');
   exit();
 }

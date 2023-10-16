@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <?php
+session_start();
 
-  session_start();
-
-  if ($_SESSION['id']) {
-    # code...
-  }
-
+if (isset($_SESSION['id'])) {
+  header('location: verOngs.php');
+  exit();
+}
 ?>
 <html lang="en">
   <head>

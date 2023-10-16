@@ -76,6 +76,19 @@ body::-webkit-scrollbar-thumb {
   margin-right: -12rem;
 }
 
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  margin-top: .4em;
+}
+
+.socials div {
+  display: flex;
+  align-items: center;
+  gap: .4em;
+}
+
 #contatos {
   display: flex;
   flex-direction: column;
@@ -103,13 +116,13 @@ body::-webkit-scrollbar-thumb {
   margin-left: 10px;
 }
 
-.zap,
+/* .zap,
 .insta,
 .twiter {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-}
+} */
 
 .section-sobre {
   display: flex;

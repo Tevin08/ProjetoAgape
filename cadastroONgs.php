@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+
+if (isset($_SESSION['id'])) {
+  header('location: verOngs.php');
+  exit();
+}
+?>
 
 <head>
   <meta charset="UTF-8" />
@@ -27,7 +35,7 @@
                 <label for="nome-C">Digite o nome da ONG</label>
                 <input type="text" name="nome-ong" placeholder="Nome da ONG" id="NomeONG" />
                 <label for="CNPJ">Digite o CNPJ</label>
-                <input type="text" placeholder="CNPJ" name="CNPJ" maxlength="20" id="CNPJ" />
+                <input type="text" placeholder="CNPJ" name="CNPJ" oninput="handleCNPJ()" id="CNPJ" />
                 <label for="">Digite seu Email</label>
                 <input type="text" placeholder="Email" name="email" id="emailO" />
               </div>
@@ -53,6 +61,7 @@
       </div>
     </div>
   </div>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

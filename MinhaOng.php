@@ -3,7 +3,7 @@
 
 session_start();
 
-if (!isset($_SESSION['cnpj'])) {
+if (!isset($_SESSION['id'])) {
     header('location: ./loginOngs.php');
     exit;
 }
@@ -16,6 +16,7 @@ if (!isset($_SESSION['cnpj'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/verOngs.css" />
     <link rel="stylesheet" href="./css/perfil.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/teste.js" defer></script>
     <title>Perfil Ong's</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -309,6 +310,16 @@ if (!isset($_SESSION['cnpj'])) {
         </div>
     </section>
 </body>
-<footer></footer>
+<footer>
+    <div class="footer-logo">
+        <img src="./imagens/logotipo.png" alt="logo" width="500px" />
+    </div>
+    <div class="footer-socials">
+        <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com" target="_blank"><i class="fa-brands fa-x"></i></a>
+    </div>
+</footer>
 
 </html>
