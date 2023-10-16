@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/3552f262a9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/wave.css">
-    <script src="./js/teste.js"></script>
+    <script src="./js/RedefinirSenha.js"></script>
 
     <script src="./js/script.js" defer></script>
     <title>Feed</title>
@@ -24,8 +24,7 @@
                 X
             </button>
             <div class="top-sidebar">
-
-                <div class=" img-perfil-doador"></div>
+            <div class=" img-perfil-doador"></div>
             </div>
             <button class="btn edit" onclick="location.href='perfildoador.php'">Editar perfil</button>
             <button class="btn ver" onclick="location.href='perfildoador.php'">Ver perfil</button>
@@ -45,7 +44,7 @@
             </button>
 
         </div>
-        <div class="foto-doador" onclick="modalShow()">
+        <div class="foto-doador" onclick="modalShow()" >
             <div class=" img-perfil-doador"></div>
         </div>
     </nav>

@@ -45,7 +45,8 @@
               <img src="./imagens/img_upload.png" alt="" width="80px">
               <h3>Coloque uma imagem de sua ONG</h3>
             </label>
-            <input type="file" name="image" id="image">
+            <input type="file" name="image" id="image" onchange="openFile(event)">
+            <img id="output" width="200px">
             <div class="cad-1">
               <label for="CNPJ">Fale sobre sua ONG:</label>
               <textarea name="sobre_ong" id="" maxlength="512"></textarea>
@@ -63,6 +64,7 @@
       </div>
     </div>
   </div>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
