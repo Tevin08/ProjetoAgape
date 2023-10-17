@@ -16,7 +16,7 @@ while ($dados = $users->fetch_assoc()) {
     if (($_POST['login'] === $dados['LOGIN'] || $_POST['login'] === $dados['LOGIN']) && password_verify($_POST['senha'], $dados['SENHA'])) {
         $_SESSION['id'] = $dados['CD_USER'];
         $_SESSION['nm_ong'] = $dados['NM_ONG'];
-        $_SESSION['cnpj'] = $dados['CNPJ'];
+        $_SESSION['cnpj'] = $dados['LOGIN'];
         $_SESSION['email_ong'] = $dados['EMAIL'];
         $_SESSION['sobre'] = $dados['SOBRE'];
         $_SESSION['insta'] = $dados['INSTA'];

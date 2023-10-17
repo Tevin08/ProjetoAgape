@@ -24,7 +24,7 @@ if (gravar($conexao)) {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
             $imageData = file_get_contents($targetFile);
             $imageData = $conexao->real_escape_string($imageData);
-            $insertQuery = "UPDATE TB_ONG SET PIC = '$imageData' WHERE INSTA = '{$_POST['insta']}'";
+            $insertQuery = "UPDATE TB_ONG SET PIC = '$imageData' WHERE CNPJ = '{$_SESSION['cnpj']}'";
 
             if ($conexao->query($insertQuery) === TRUE) {
                 echo "Image uploaded and stored in the database.";

@@ -13,7 +13,7 @@ if (!isset($_SESSION['id'])) {
 $users = usuarios($conexao);
 function usuarios($conexao)
 {
-    $sqlBusca = 'SELECT * FROM TB_ONG WHERE CD_ONG = 100    ';
+    $sqlBusca = "SELECT * FROM TB_ONG WHERE CNPJ = '{$_SESSION['cnpj']}'";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
@@ -85,7 +85,7 @@ while ($dados = $users->fetch_assoc()) {
                     <p>
                         <?php
                         if (!isset($_SESSION['nm_ong'])) {
-                            echo "Médicos sem Fronteiras";
+                            echo "Erro";
                         } else {
                             echo $_SESSION['nm_ong'];
                         }
@@ -98,7 +98,7 @@ while ($dados = $users->fetch_assoc()) {
                         <span>
                             <?php
                             if (!isset($_SESSION['email_ong'])) {
-                                echo "medicossemfronteiras@gmail.com";
+                                echo "Erro";
                             } else {
                                 echo $_SESSION['email_ong'];
                             }
@@ -120,7 +120,7 @@ while ($dados = $users->fetch_assoc()) {
 
                     <span> <?php
                             if (!isset($_SESSION['wpp'])) {
-                                echo "2323";
+                                echo "Erro";
                             } else {
                                 echo $_SESSION['wpp'];
                             }
@@ -133,7 +133,7 @@ while ($dados = $users->fetch_assoc()) {
                     </svg>
                     <span> <?php
                             if (!isset($_SESSION['insta'])) {
-                                echo "@gmail.com";
+                                echo "Erro";
                             } else {
                                 echo "@" . $_SESSION['insta'];
                             }
@@ -146,7 +146,7 @@ while ($dados = $users->fetch_assoc()) {
                     <span>
                         <?php
                         if (!isset($_SESSION['x'])) {
-                            echo "@msf";
+                            echo "Erro";
                         } else {
                             echo "@" . $_SESSION['x'];
                         }
