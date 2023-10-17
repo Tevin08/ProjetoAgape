@@ -109,9 +109,40 @@ function gravarUser($conexao)
     return mysqli_query($conexao, $sql);
 }
 
+$ongs = ongs($conexao);
+function ongs($conexao)
+{
+    $sqlBusca = 'SELECT * FROM TB_USERS WHERE TIPO_USER = "ONG"';
+    $resultado = mysqli_query($conexao, $sqlBusca);
+    return $resultado;
+}
+
+
+
+
 if (gravar($conexao)) {
     if (gravarUser($conexao)) {
         $_SESSION['cnpj'] = $_POST['CNPJ'];
+        while ($dados = $ongs->fetch_assoc()) {
+            if (($_POST['login'] === $dados['LOGIN'] || $_POST['login'] === $dados['LOGIN']) && password_verify($_POST['senha'], $dados['SENHA'])) {
+                $_SESSION['id'] = $dados['CD_USER'];
+                $_SESSION['nm_ong'] = $dados['NM_ONG'];
+                $_SESSION['cnpj'] = $dados['CNPJ'];
+                $_SESSION['email_ong'] = $dados['EMAIL'];
+                $_SESSION['sobre'] = $dados['SOBRE'];
+                $_SESSION['insta'] = $dados['INSTA'];
+                $_SESSION['wpp'] = $dados['WPP'];
+                $_SESSION['x'] = $dados['TWITTER'];
+                $_SESSION['pic'] = $dados['PIC'];
+                header('location: ../MinhaOng.php');
+                exit;
+            } else {
+                $error = "Login ou senha inválidos";
+                $_SESSION['error'] = $error;
+                header("location: ../error.php");
+                $erro = "";
+            }
+        }
         header('location: ../dadosOngs.php');
     }
 } else {

@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <?php
 
+include "./php/banco.php";
+
 session_start();
 
 if (!isset($_SESSION['id'])) {
     header('location: ./loginOngs.php');
     exit;
 }
+
+$users = usuarios($conexao);
+function usuarios($conexao)
+{
+    $sqlBusca = 'SELECT * FROM TB_ONG WHERE CD_ONG = 100    ';
+    $resultado = mysqli_query($conexao, $sqlBusca);
+    return $resultado;
+}
+
+while ($dados = $users->fetch_assoc()) {
+        $_SESSION['nm_ong'] = $dados['NM_ONG'];
+        $_SESSION['cnpj'] = $dados['CNPJ'];
+        $_SESSION['email_ong'] = $dados['EMAIL'];
+        $_SESSION['sobre'] = $dados['SOBRE'];
+        $_SESSION['insta'] = $dados['INSTA'];
+        $_SESSION['wpp'] = $dados['WPP'];
+        $_SESSION['x'] = $dados['TWITTER'];
+        $_SESSION['pic'] = $dados['PIC'];
+}
+
 
 ?>
 <html lang="pt">
