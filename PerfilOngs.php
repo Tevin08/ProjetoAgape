@@ -5,11 +5,6 @@ include "./php/banco.php";
 
 session_start();
 
-if (!isset($_GET['id']) || $_GET['id'] == "") {
-  header("location: ./verOngs.php");
-  exit;
-}
-
 $ongs = ongs($conexao);
 function ongs($conexao)
 {
@@ -219,83 +214,7 @@ while ($dados = $ongs->fetch_assoc()) {
           <div class="top-comets-content">
 
             <div class="foto-user-comentario"></div>
-            <h1>Vitor Raphael</h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart" onclick="love()"></i>
-            </button>
-
-          </div>
-        </div>
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1>Vitor Raphael</h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart" onclick="love()"></i>
-            </button>
-
-          </div>
-        </div>
-
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1>Vitor Raphael</h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart" onclick="love()"></i>
-            </button>
-
-          </div>
-        </div>
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1>Vitor Raphael</h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart" onclick="love()"></i>
-            </button>
-          </div>
-        </div>
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1>Vitor Raphael</h1>
+            <h1>Banguelas anonimos</h1>
           </div>
 
           <div class="comentario-text">

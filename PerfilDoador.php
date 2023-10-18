@@ -102,7 +102,7 @@ while ($dados = $doadores->fetch_assoc()) {
     </div>
   </section>
 
-  <section class="section-doados">
+  <!-- <section class="section-doados">
     <div class="titulo">
       <h1>ONG's que você ajudou</h1>
     </div>
@@ -111,7 +111,7 @@ while ($dados = $doadores->fetch_assoc()) {
 
       </div>
     </div>
-  </section>
+  </section> -->
   <section class="section-doados">
     <div class="titulo">
       <h1>Comentários Realizados</h1>
