@@ -77,10 +77,13 @@ function usuarios($conexao)
           echo "<div class='banner-0' onclick='location.href=`PerfilOngs.php?id={$dados["CD_ONG"]}`'>";
           echo '<img src="data:image/jpeg;base64,' . base64_encode($dados["PIC"]) . '" id="ong-logo">';
           echo "<h1>{$dados['NM_ONG']}</h1>";
+          echo '<div>';
+          echo '<p>Categoria</p>';
+          echo '</div>';
           echo "</div>";
         }
       } else {
-        echo "Nenhuma ONG cadastrada";
+        echo "<h1 style=color:black; >Nenhuma ONG cadastrada</h1>";
       }
       // while ($dados = $users->fetch_assoc()) {
       //   echo "<div class='banner-0' onclick='location.href=`PerfilOngs.php`'>";

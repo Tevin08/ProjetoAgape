@@ -158,7 +158,16 @@
   justify-content: center;
   justify-items: center;
   margin: 2rem 0;
+  color: #fff;
   gap: 44px;
+}
+
+.banners p{
+  font-size: 1.3rem;
+}
+.banners h1{
+  justify-self: center;
+  align-self: center;
 }
 
 .main {

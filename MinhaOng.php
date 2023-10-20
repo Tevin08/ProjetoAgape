@@ -69,48 +69,51 @@ while ($dados = $users->fetch_assoc()) {
     </nav>
     <section class="section-center">
         <div class="perfil">
+            <div class="foto-e-info">
 
-            <div class="foto-doador">
-                <?php
-                if (!isset($_SESSION['pic'])) {
-                    echo "medicossemfronteiras@gmail.com";
-                } else {
-                    echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pic']) . '" class="img-perfil-ong">';
-                }
-                ?>
-                <!-- <div class="img-perfil-ong"></div> -->
-            </div>
-            <div class="info">
-                <div id="nome">
-                    <p>
-                        <?php
-                        if (!isset($_SESSION['nm_ong'])) {
-                            echo "Erro";
-                        } else {
-                            echo $_SESSION['nm_ong'];
-                        }
-
-                        ?>
-                    </p>
+                <div class="foto-doador">
+                    <?php
+                    if (!isset($_SESSION['pic'])) {
+                        echo "medicossemfronteiras@gmail.com";
+                    } else {
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pic']) . '" class="img-perfil-ong">';
+                    }
+                    ?>
+                    <!-- <div class="img-perfil-ong"></div> -->
                 </div>
-                <div id="contato">
-                    <div class="contato-content">
-                        <span>
+                <div class="info">
+                    <div id="nome">
+                        <p>
                             <?php
-                            if (!isset($_SESSION['email_ong'])) {
+                            if (!isset($_SESSION['nm_ong'])) {
                                 echo "Erro";
                             } else {
-                                echo $_SESSION['email_ong'];
+                                echo $_SESSION['nm_ong'];
                             }
+    
                             ?>
-                        </span>
-                        <img src="./imagens/icon-verificado.png" alt="" width="40px">
+                        </p>
                     </div>
-                    <button onclick="Seguindo()" class="btn-seguir ">
-                        Seguir
-                    </button>
+                    <div id="contato">
+                        <div class="contato-content">
+                            <span>
+                                <?php
+                                if (!isset($_SESSION['email_ong'])) {
+                                    echo "Erro";
+                                } else {
+                                    echo $_SESSION['email_ong'];
+                                }
+                                ?>
+                            </span>
+                            <img src="./imagens/icon-verificado.png" alt="" width="40px">
+                        </div>
+                        <button onclick="Seguindo()" class="btn-seguir ">
+                            Seguir
+                        </button>
+                    </div>
                 </div>
             </div>
+
             <div id="contatos">
                 <h4>contatos:</h4>
                 <div class="zap">

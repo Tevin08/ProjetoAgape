@@ -64,6 +64,8 @@ while ($dados = $ongs->fetch_assoc()) {
   <section class="section-center">
     <div class="perfil">
 
+    <div class="foto-e-info">
+      
       <div class="foto-doador">
         <?php
         if (!isset($_SESSION['pic'])) {
@@ -72,7 +74,7 @@ while ($dados = $ongs->fetch_assoc()) {
           echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pic']) . '" class="img-perfil-ong">';
         }
         ?>
-
+  
         <!-- <div class="img-perfil-ong"></div> -->
       </div>
       <div class="info">
@@ -84,28 +86,31 @@ while ($dados = $ongs->fetch_assoc()) {
             } else {
               echo $_SESSION['nm_ong'];
             }
-
+  
             ?>
           </p>
         </div>
         <div id="contato">
-          <span>
-            <?php
+        <div class="contato-content">
+      <span>
+           <?php
             if (!isset($_SESSION['email_ong'])) {
-              echo "medicossemfronteiras@gmail.com";
-            } else {
+              echo "Erro";
+           } else {
               echo $_SESSION['email_ong'];
-            }
-            ?>
-          </span>
+          }
+          ?>
+      </span>
+        <img src="./imagens/icon-verificado.png" alt="" width="40px">
+    </div>
           <button onclick="Seguindo()" class="btn-seguir ">
             Seguir
           </button>
         </div>
       </div>
-      <div class="icon-verificado">
-        <img src="./imagens/icon-verificado.png" alt="">
-      </div>
+    </div>
+
+     
       <div id="contatos">
         <h4>contatos:</h4>
         <div class="socials">
@@ -224,7 +229,7 @@ while ($dados = $ongs->fetch_assoc()) {
           </div>
           <div class="reactions-button-group">
             <button id="like-Button">
-              <i class="fa-solid  fa-heart" onclick="love()"></i>
+              <i class="fa-solid  fa-heart" ></i>
             </button>
 
           </div>

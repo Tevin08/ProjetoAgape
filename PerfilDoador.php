@@ -66,35 +66,38 @@ while ($dados = $doadores->fetch_assoc()) {
 
 
     <div class="perfil">
-      <div class="foto-doador">
-        <div class=" img-perfil-doador"></div>
-      </div>
-      <div class="info">
-
-        <div id="nome">
-          <p>
-            <?php
-
-            echo $_SESSION['nm_doador'];
-
-            ?>
-          </p>
+      <div class="foto-e-info-doador">
+      
+        <div class="foto-doador">
+          <div class=" img-perfil-doador"></div>
         </div>
-        <div id="contato">
-          <span>
-            <?php
-            echo $_SESSION['email'];
-            ?>
-          </span>
+        <div class="info">
+  
+          <div id="nome">
+            <p>
+              <?php
+  
+              echo $_SESSION['nm_doador'];
+  
+              ?>
+            </p>
+          </div>
+          <div id="contato">
+            <span>
+              <?php
+              echo $_SESSION['email'];
+              ?>
+            </span>
+          </div>
+          <div id="contato">
+            <span>
+              <?php
+              echo "@" . $_SESSION['nm_user'];
+              ?>
+            </span>
+          </div>
+  
         </div>
-        <div id="contato">
-          <span>
-            <?php
-            echo "@" . $_SESSION['nm_user'];
-            ?>
-          </span>
-        </div>
-
       </div>
 
 
