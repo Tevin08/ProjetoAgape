@@ -12,6 +12,13 @@ function ongs($conexao)
   $resultado = mysqli_query($conexao, $sqlBusca);
   return $resultado;
 }
+$comentarios = comentarios($conexao);
+function comentarios($conexao)
+{
+  $sqlBusca = "SELECT * FROM TB_COMENT";
+  $resultado = mysqli_query($conexao, $sqlBusca);
+  return $resultado;
+}
 
 while ($dados = $ongs->fetch_assoc()) {
   $_SESSION['nm_ong'] = $dados['NM_ONG'];
@@ -45,11 +52,11 @@ while ($dados = $ongs->fetch_assoc()) {
 
 <body>
   <div class="modal-add-comment">
-    <form action="" method="post">
+    <form action="./php/comentarios.php" method="post">
       <i onclick="closeComment(event)" class="fa-solid fa-close"></i>
       <label>Adicionar comentário</label>
-      <textarea placeholder="Adicione um comentário aqui" name="comment" cols="30" rows="10"></textarea>
-      <button onclick="closeComment(event)">Comentar</button>
+      <textarea placeholder="Adicione um comentário aqui" name="comentario" cols="30" rows="10"></textarea>
+      <button >Comentar</button>
     </form>
   </div>
   <nav id="nav-ongs">
@@ -223,25 +230,26 @@ while ($dados = $ongs->fetch_assoc()) {
         <span>Adicionar Comentário</span>
       </div>
       <div class="container-Comentarios ongs-ajudadas">
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1>Banguelas anonimos</h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart"></i>
-            </button>
-
-          </div>
-        </div>
+        <?php
+          while ($dados = $comentarios->fetch_assoc()) {
+          echo '<div class="comentarios">';
+          echo '<div class="top-comets-content">';
+          echo '<div class="foto-user-comentario"></div>';
+          echo '<h1>Banguelas anonimos</h1>';
+          echo '</div>';
+          echo '<div class="comentario-text">';
+          echo '<p>';
+          echo "{$dados['texto_coment']}";
+          echo '</p>';
+          echo '</div>';
+          echo '<div class="reactions-button-group">';
+          echo '<button id="like-Button">';
+          echo '<i class="fa-solid fa-heart"></i>';
+          echo '</button>';
+          echo '</div>';
+          echo '</div>';
+          }
+        ?>
       </div>
     </div>
   </section>
