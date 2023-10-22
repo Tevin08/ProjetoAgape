@@ -46,7 +46,7 @@ while ($dados = $doadores->fetch_assoc()) {
     <img src="imagens/logo.png" alt="logtipo" width="7%" id="logo" onclick="location.href='index.html'" />
     <div class="input-nav">
       <button onclick="location.href='verOngs.php'" class="btn-visualizar-ongs">
-        Vizualizar ONG'S
+        Visualizar ONG'S
       </button>
       <button class="btn-perfil" onclick="location.href='feed.php'">
         Feed
@@ -67,18 +67,18 @@ while ($dados = $doadores->fetch_assoc()) {
 
     <div class="perfil">
       <div class="foto-e-info-doador">
-      
+
         <div class="foto-doador">
           <div class=" img-perfil-doador"></div>
         </div>
         <div class="info">
-  
+
           <div id="nome">
             <p>
               <?php
-  
+
               echo $_SESSION['nm_doador'];
-  
+
               ?>
             </p>
           </div>
@@ -96,7 +96,7 @@ while ($dados = $doadores->fetch_assoc()) {
               ?>
             </span>
           </div>
-  
+
         </div>
       </div>
 

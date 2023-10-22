@@ -45,19 +45,6 @@ label {
   
 }
 
-textarea {
-  font-size: 1.3rem;
-  outline: none;
-  color: #000;
-  padding: 10px;
-  border: none;
-  resize: none;
-  background-color: #f1f1f1;
-  border-radius: 3px;
-  width: 400px;
-  height: 200px;
-}
-
 #nome-C {
   /* background-image: url(../imagens/Icon-color.png); */
 

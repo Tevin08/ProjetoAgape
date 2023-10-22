@@ -33,11 +33,18 @@ function usuarios($conexao)
     <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
     <div class="input-nav">
       <button class=" btn-visualizar-ongs">
-        Vizualizar ONG'S
+        Visualizar ONG'S
       </button>
       <button class="btn-perfil feed-btn" onclick="Rota2()">
         Feed
       </button>
+      <?php
+      if (isset($_SESSION["id"])) {
+        echo '<button class="btn-perfil minha-ong-btn" onclick="location.href=`./MinhaOng.php`">';
+        echo 'Minha ONG';
+        echo '</button>';
+      }
+      ?>
     </div>
     <?php
     if (!(isset($_SESSION['documento']) || isset($_SESSION['cnpj']))) {

@@ -18,6 +18,7 @@ if (isset($_SESSION['id'])) {
   <link rel="stylesheet" href="./css/wave.css" />
   <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon" />
   <script src="./js/RedefinirSenha.js"></script>
+  <script src="./js/script.js"></script>
   <title>Login ONG'S</title>
 </head>
 
@@ -50,8 +51,8 @@ if (isset($_SESSION['id'])) {
         <div class="cadas">
           <form action="./php/loginONG.php" method="post" class="frmcad-1">
             <div class="cad-1">
-              <label for="CNPJ">Digite seu CNPJ/Email</label>
-              <input type="text" placeholder="CNPJ/Email" name="login" id="CNPJ" />
+              <label for="CNPJ">Digite seu CNPJ</label>
+              <input type="text" placeholder="CNPJ" oninput="handleCNPJ()" name="login" id="CNPJ" />
               <label for="">Digite sua senha</label>
               <input type="password" placeholder="senha" name="senha" id="senha" />
             </div>

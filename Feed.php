@@ -24,7 +24,7 @@
                 X
             </button>
             <div class="top-sidebar">
-            <div class=" img-perfil-doador"></div>
+                <div class=" img-perfil-doador"></div>
             </div>
             <button class="btn edit" onclick="location.href='perfildoador.php'">Editar perfil</button>
             <button class="btn ver" onclick="location.href='perfildoador.php'">Ver perfil</button>
@@ -36,7 +36,7 @@
         <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
         <div class="input-nav">
             <button onclick="location.href='verOngs.php'" class="btn-visualizar-ongs feed-location">
-                Vizualizar ONG'S
+                Visualizar ONG'S
             </button>
 
             <button class="btn-perfil feed-btn" onclick="location.href='feed.php'">
@@ -44,7 +44,7 @@
             </button>
 
         </div>
-        <div class="foto-doador" onclick="modalShow()" >
+        <div class="foto-doador" onclick="modalShow()">
             <div class=" img-perfil-doador"></div>
         </div>
     </nav>
