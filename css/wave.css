@@ -19,6 +19,37 @@ input{
     border-radius: 58px;
     padding: 1rem;
 }
+.modal-comentarios , .contents{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 500px;
+    z-index: 9999;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.modal-comentarios h1{
+    font-weight: 200;
+    align-self: flex-start;
+    margin-left: 1.2em;
+}
+
+textarea {
+    font-size: 1.3rem;
+    outline: none;
+    color: #000;
+    padding: 10px;
+    border: none;
+    resize: none;
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    width: 400px;
+    height: 200px;
+  }
+  
 /* 
 .modal::backdrop{
 backdrop-filter: blur(5px);
@@ -35,10 +66,10 @@ backdrop-filter: blur(5px);
 
 .container-modal{
     display: none;
-    justify-content: flex-end;
-    align-items: flex-start;
-    position: fixed;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(0, 0, 0 ,0.55 );
+    position: fixed;
     height: 100%;
     width: 100%;
     z-index: 200;
@@ -48,9 +79,11 @@ backdrop-filter: blur(5px);
 .modal-btns{
     display: flex;
     height: 20%;
- align-self: flex-end;
- margin-bottom: 20px;
+ align-self: flex-start;
+ margin-top: 20px;
  gap: 20px;
+margin-left: 2.5em;
+
  
 
 }
@@ -61,7 +94,7 @@ backdrop-filter: blur(5px);
     width: 7rem;
     font-family: "Open sans",sans-serif;
     transition: all 1s;
-    border-radius: 40px;
+    border-radius: 10px;
 }
 
 

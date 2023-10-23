@@ -1,11 +1,13 @@
 function modalShow() {
   const modal = document.querySelector(".container-modal");
+  document.body.style.overflow = 'hidden'; 
 
   modal.style.display = "flex";
 }
 
 function modalClose() {
   const modal = document.querySelector(".container-modal");
+  document.body.style.overflow = ''; 
 
   modal.style.display = "none";
 }

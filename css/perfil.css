@@ -72,8 +72,9 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-right: -12rem;
+  /* margin-right: 0rem; */
   justify-content: space-around;
+  
 }
 
 .foto-e-info{
@@ -390,6 +391,12 @@ body::-webkit-scrollbar-thumb {
   justify-content: flex-end;
   margin-right: 30px;
   gap: 1em;
+}
+
+#btn-add-coments:active{
+transform: perspective(-1000px) ;
+border: 1px solid #f1f1f1;
+
 }
 
 #btn-add-coments {

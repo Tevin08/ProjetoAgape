@@ -107,9 +107,7 @@ while ($dados = $users->fetch_assoc()) {
                             </span>
                             <img src="./imagens/icon-verificado.png" alt="" width="40px">
                         </div>
-                        <button onclick="Seguindo()" class="btn-seguir ">
-                            Seguir
-                        </button>
+                        
                     </div>
                 </div>
             </div>
@@ -231,10 +229,7 @@ while ($dados = $users->fetch_assoc()) {
             <h1>Avaliações</h1>
         </div>
         <div class="section-center">
-            <div id="adicionar-coments">
-                <button id="btn-add-coments"><img src="./imagens/plus-icon.png" alt=""></button>
-                <span>Adicionar Comentário</span>
-            </div>
+           
             <div class="container-Comentarios ongs-ajudadas">
                 <div class="comentarios">
                     <div class="top-comets-content">

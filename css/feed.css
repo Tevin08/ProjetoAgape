@@ -47,6 +47,11 @@
     font-size: 2em;
   }
 
+  .fa-heart2{
+    color: aquamarine;
+    -webkit-text-stroke: #fff;
+  }
+
 .div-nome img {
   width: 3em;
   border-radius: 50%;
@@ -147,7 +152,28 @@
   margin-bottom: 20px;
 }
 
+.div-add-postcoments{
+ 
+ 
+  background-color: #C79DFF;
+  border-radius: 0px 0px 10px 10px ;
+  margin-top: -2.6em;
+}
 
+#btn-postcoments{
+  display: flex;
+  gap: 1em;
+  padding: 0.6em;
+}
+
+.fa-comment{
+  font-size: 2em;
+  color: #fff;
+}
+#btn-coment{
+  border: none;
+  background-color: #C79DFF;
+}
 #like-Button,
 #dislike-button {
   border: none;
