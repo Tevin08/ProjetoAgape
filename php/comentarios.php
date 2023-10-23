@@ -1,11 +1,15 @@
 <?php
 include "banco.php";
+
+session_start();
+
 function gravar($conexao)
 {
     $sql = "insert into tb_coment
-        (texto_coment)
-        values
-        (
+        (cd_doador, texto_coment)
+        values 
+        ( 
+            {$_SESSION['id_user']},
             '{$_POST['comentario']}'
         )";
     return mysqli_query($conexao, $sql);

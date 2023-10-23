@@ -18,7 +18,10 @@ function ongs($conexao)
 $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
-  $sqlBusca = "SELECT * FROM TB_COMENT";
+  $sqlBusca = "SELECT tb_coment.texto_coment, tb_doador.nm_doador
+                FROM tb_coment
+                JOIN tb_doador on tb_coment.cd_doador = tb_doador.cd_doador
+              ";
   $resultado = mysqli_query($conexao, $sqlBusca);
   return $resultado;
 }
@@ -238,11 +241,11 @@ while ($dados = $ongs->fetch_assoc()) {
           echo '<div class="comentarios">';
           echo '<div class="top-comets-content">';
           echo '<div class="foto-user-comentario"></div>';
-          echo '<h1>Banguelas anonimos</h1>';
+          echo "<h1>{$dados['nm_doador']}</h1>";
           echo '</div>';
           echo '<div class="comentario-text">';
           echo '<p>';
-          echo "{$dados['TEXTO_COMENT']}";
+          echo "{$dados['texto_coment']}";
           echo '</p>';
           echo '</div>';
           echo '<div class="reactions-button-group">';
