@@ -5,7 +5,7 @@ include "./php/banco.php";
 
 session_start();
 
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id_user'])) {
     header('location: ./loginOngs.php');
     exit;
 }
@@ -107,7 +107,7 @@ while ($dados = $users->fetch_assoc()) {
                             </span>
                             <img src="./imagens/icon-verificado.png" alt="" width="40px">
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -229,10 +229,7 @@ while ($dados = $users->fetch_assoc()) {
             <h1>Avaliações</h1>
         </div>
         <div class="section-center">
-<<<<<<< HEAD
-           
-=======
->>>>>>> 03bb9f39558cab241ed788b6dce734f197c4559e
+
             <div class="container-Comentarios ongs-ajudadas">
                 <div class="comentarios">
                     <div class="top-comets-content">

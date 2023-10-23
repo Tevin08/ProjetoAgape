@@ -16,7 +16,7 @@ while ($dados = $users->fetch_assoc()) {
     if (($_POST['documento'] === $dados['LOGIN']) && password_verify($_POST['senha'], $dados['SENHA'])) {
         // $_SESSION['nm_doador'] = $dados['nm_doador'];
         $_SESSION['documento'] = $dados['LOGIN'];
-        $_SESSION['id'] = $dados['CD_USER'];
+        $_SESSION['id_user'] = $dados['CD_USER'];
         // $_SESSION['nm_user'] = $dados['nm_user'];
         header('location: ../PerfilDoador.php');
         exit;

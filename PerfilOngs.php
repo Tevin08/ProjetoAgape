@@ -14,6 +14,7 @@ function ongs($conexao)
   $resultado = mysqli_query($conexao, $sqlBusca);
   return $resultado;
 }
+
 $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
@@ -53,33 +54,13 @@ while ($dados = $ongs->fetch_assoc()) {
 </head>
 
 <body>
-<<<<<<< HEAD
-  <div class="container-modal">
-    <div class="modal-comentarios">
-      <form action="Post">
-    <div class="contents">
-
-      <h1>Faça Um Comentário</h1>
-       <textarea name="comentario" id="" maxlength="512"></textarea>
-
-       <div class="modal-btns">
-
-         <button type="submit" id="btn-modal-avancar">Enviar</button>
-         <button  type="button" id="btn-modal-cancel" onclick="modalClose()">Cancelar</button>
-       </div>
-    </div>
-      </form>
-    </div>
-
-=======
   <div class="modal-add-comment">
     <form action="./php/comentarios.php" method="post">
       <i onclick="closeComment(event)" class="fa-solid fa-close"></i>
       <label>Adicionar comentário</label>
       <textarea placeholder="Adicione um comentário aqui" name="comentario" cols="30" rows="10"></textarea>
-      <button >Comentar</button>
+      <button>Comentar</button>
     </form>
->>>>>>> 03bb9f39558cab241ed788b6dce734f197c4559e
   </div>
   <nav id="nav-ongs">
     <img src="imagens/logo.png" alt="logtipo" width="7%" id="logo" onclick="location.href='index.html'" />
@@ -247,39 +228,13 @@ while ($dados = $ongs->fetch_assoc()) {
       <h1>Avaliações</h1>
     </div>
     <div class="section-center">
-<<<<<<< HEAD
-      <div id="adicionar-coments" onclick="modalShow()">
-        <button id="btn-add-coments" onclick="animationbtn()"><img src="./imagens/plus-icon.png" alt=""></button>
-        <span>Adicionar Comentário</span>
-      </div>
-      <div class="container-Comentarios ongs-ajudadas">
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1>Banguelas anonimos</h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart"></i>
-            </button>
-
-          </div>
-        </div>
-=======
       <div id="adicionar-coments">
         <button onclick="addComment()" id="btn-add-coments"><img src="./imagens/plus-icon.png" alt=""></button>
         <span>Adicionar Comentário</span>
       </div>
       <div class="container-Comentarios ongs-ajudadas">
         <?php
-          while ($dados = $comentarios->fetch_assoc()) {
+        while ($dados = $comentarios->fetch_assoc()) {
           echo '<div class="comentarios">';
           echo '<div class="top-comets-content">';
           echo '<div class="foto-user-comentario"></div>';
@@ -287,7 +242,7 @@ while ($dados = $ongs->fetch_assoc()) {
           echo '</div>';
           echo '<div class="comentario-text">';
           echo '<p>';
-          echo "{$dados['texto_coment']}";
+          echo "{$dados['TEXTO_COMENT']}";
           echo '</p>';
           echo '</div>';
           echo '<div class="reactions-button-group">';
@@ -296,9 +251,8 @@ while ($dados = $ongs->fetch_assoc()) {
           echo '</button>';
           echo '</div>';
           echo '</div>';
-          }
+        }
         ?>
->>>>>>> 03bb9f39558cab241ed788b6dce734f197c4559e
       </div>
     </div>
   </section>
