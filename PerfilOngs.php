@@ -14,6 +14,13 @@ function ongs($conexao)
   $resultado = mysqli_query($conexao, $sqlBusca);
   return $resultado;
 }
+$comentarios = comentarios($conexao);
+function comentarios($conexao)
+{
+  $sqlBusca = "SELECT * FROM TB_COMENT";
+  $resultado = mysqli_query($conexao, $sqlBusca);
+  return $resultado;
+}
 
 while ($dados = $ongs->fetch_assoc()) {
   $_SESSION['nm_ong'] = $dados['NM_ONG'];
@@ -46,6 +53,7 @@ while ($dados = $ongs->fetch_assoc()) {
 </head>
 
 <body>
+<<<<<<< HEAD
   <div class="container-modal">
     <div class="modal-comentarios">
       <form action="Post">
@@ -63,12 +71,21 @@ while ($dados = $ongs->fetch_assoc()) {
       </form>
     </div>
 
+=======
+  <div class="modal-add-comment">
+    <form action="./php/comentarios.php" method="post">
+      <i onclick="closeComment(event)" class="fa-solid fa-close"></i>
+      <label>Adicionar comentário</label>
+      <textarea placeholder="Adicione um comentário aqui" name="comentario" cols="30" rows="10"></textarea>
+      <button >Comentar</button>
+    </form>
+>>>>>>> 03bb9f39558cab241ed788b6dce734f197c4559e
   </div>
   <nav id="nav-ongs">
     <img src="imagens/logo.png" alt="logtipo" width="7%" id="logo" onclick="location.href='index.html'" />
     <div class="input-nav">
       <button onclick="location.href='verOngs.php'" class="btn-visualizar-ongs">
-        Vizualizar ONG'S
+        Visualizar ONG'S
       </button>
       <button class="btn-perfil" onclick="location.href='feed.php'">
         Feed
@@ -230,6 +247,7 @@ while ($dados = $ongs->fetch_assoc()) {
       <h1>Avaliações</h1>
     </div>
     <div class="section-center">
+<<<<<<< HEAD
       <div id="adicionar-coments" onclick="modalShow()">
         <button id="btn-add-coments" onclick="animationbtn()"><img src="./imagens/plus-icon.png" alt=""></button>
         <span>Adicionar Comentário</span>
@@ -254,20 +272,48 @@ while ($dados = $ongs->fetch_assoc()) {
 
           </div>
         </div>
+=======
+      <div id="adicionar-coments">
+        <button onclick="addComment()" id="btn-add-coments"><img src="./imagens/plus-icon.png" alt=""></button>
+        <span>Adicionar Comentário</span>
+      </div>
+      <div class="container-Comentarios ongs-ajudadas">
+        <?php
+          while ($dados = $comentarios->fetch_assoc()) {
+          echo '<div class="comentarios">';
+          echo '<div class="top-comets-content">';
+          echo '<div class="foto-user-comentario"></div>';
+          echo '<h1>Banguelas anonimos</h1>';
+          echo '</div>';
+          echo '<div class="comentario-text">';
+          echo '<p>';
+          echo "{$dados['texto_coment']}";
+          echo '</p>';
+          echo '</div>';
+          echo '<div class="reactions-button-group">';
+          echo '<button id="like-Button">';
+          echo '<i class="fa-solid fa-heart"></i>';
+          echo '</button>';
+          echo '</div>';
+          echo '</div>';
+          }
+        ?>
+>>>>>>> 03bb9f39558cab241ed788b6dce734f197c4559e
       </div>
     </div>
   </section>
+  <footer>
+    <div class="footer-logo">
+      <img src="./imagens/logotipo.png" alt="logo" width="500px" />
+    </div>
+    <div class="footer-socials">
+      <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://x.com" target="_blank"><i class="fa-brands fa-x"></i></a>
+    </div>
+  </footer>
+  <script src="./js/modals.js"></script>
 </body>
-<footer>
-  <div class="footer-logo">
-    <img src="./imagens/logotipo.png" alt="logo" width="500px" />
-  </div>
-  <div class="footer-socials">
-    <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-    <a href="https://x.com" target="_blank"><i class="fa-brands fa-x"></i></a>
-  </div>
-</footer>
 
 </html>

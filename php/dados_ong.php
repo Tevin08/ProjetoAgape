@@ -66,4 +66,4 @@ while ($dados = $users->fetch_assoc()) {
     $_SESSION['pic'] = $dados['PIC'];
 }
 
-header('location: ../MinhaOng.php');
+header('location: ../success.php');

@@ -72,7 +72,8 @@
 }
 
 .btn-perfil {
-  width: 7em;
+  /* width: 7em; */
+  padding: 0 2em 0 2em;
   background-color: #6640ee77;
   border-radius: 40px;
   text-align: center;

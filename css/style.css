@@ -82,6 +82,10 @@ button {
   height: 100vh;
 }
 
+.minha-ong-btn {
+  padding: 0 2em 0 2em;
+}
+
 .main-logo {
   display: flex;
   flex-direction: column;
@@ -102,7 +106,7 @@ button {
 }
 /*section-2*/
 
-/* section informaçoes */
+/* section informações */
 
 .img-fundo {
   width: 100%;
@@ -297,6 +301,83 @@ footer {
   position: fixed;
 }
 
+/* Modals */
+
+textarea {
+  font-size: 1.3rem;
+  outline: none;
+  color: #000;
+  padding: 10px;
+  border: none;
+  resize: none;
+  background-color: #ffffff;
+  border-radius: 0.2em;
+  width: 400px;
+  height: 200px;
+}
+
+.modal-add-comment {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-add-comment form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  padding: 2em 10em;
+  border-radius: 1em;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(252, 192, 255);
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.152);
+  animation: zoomIn 300ms ease;
+}
+
+.modal-add-comment button {
+  background-color: rgb(252, 192, 255);
+  border: none;
+  font-size: 1.5em;
+  border-radius: 1em;
+  padding: 0.2em 2em;
+}
+
+.modal-add-comment label {
+  font-size: 2rem;
+  margin-top: -1em;
+}
+
+.modal-add-comment i {
+  font-size: 2rem;
+  align-self: flex-end;
+  transform: translateX(8rem);
+  margin-top: -10px;
+  cursor: pointer;
+  color: rgb(252, 192, 255);
+}
+
+.modal-add-comment textarea {
+  border: 1px solid rgb(252, 192, 255);
+}
+
+.modal-add-comment textarea::placeholder {
+  opacity: 0.5;
+}
+
+.modal-hidden {
+  display: none;
+}
+
+.modal-show {
+  display: block;
+}
+
 /* bolhas cad */
 
 .bolha-1 {
@@ -349,4 +430,19 @@ footer {
 .fa-circle-exclamation {
   font-size: 5em;
   color: rgb(186, 22, 22);
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

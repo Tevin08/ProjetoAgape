@@ -19,14 +19,14 @@ function usuarios($conexao)
 }
 
 while ($dados = $users->fetch_assoc()) {
-        $_SESSION['nm_ong'] = $dados['NM_ONG'];
-        $_SESSION['cnpj'] = $dados['CNPJ'];
-        $_SESSION['email_ong'] = $dados['EMAIL'];
-        $_SESSION['sobre'] = $dados['SOBRE'];
-        $_SESSION['insta'] = $dados['INSTA'];
-        $_SESSION['wpp'] = $dados['WPP'];
-        $_SESSION['x'] = $dados['TWITTER'];
-        $_SESSION['pic'] = $dados['PIC'];
+    $_SESSION['nm_ong'] = $dados['NM_ONG'];
+    $_SESSION['cnpj'] = $dados['CNPJ'];
+    $_SESSION['email_ong'] = $dados['EMAIL'];
+    $_SESSION['sobre'] = $dados['SOBRE'];
+    $_SESSION['insta'] = $dados['INSTA'];
+    $_SESSION['wpp'] = $dados['WPP'];
+    $_SESSION['x'] = $dados['TWITTER'];
+    $_SESSION['pic'] = $dados['PIC'];
 }
 
 
@@ -54,7 +54,7 @@ while ($dados = $users->fetch_assoc()) {
         <img src="imagens/logo.png" alt="logtipo" width="7%" id="logo" onclick="location.href='index.html'" />
         <div class="input-nav">
             <button onclick="location.href='verOngs.php'" class="btn-visualizar-ongs">
-                Vizualizar ONG'S
+                Visualizar ONG'S
             </button>
             <button class="btn-perfil" onclick="location.href='feed.php'">
                 Feed
@@ -90,7 +90,7 @@ while ($dados = $users->fetch_assoc()) {
                             } else {
                                 echo $_SESSION['nm_ong'];
                             }
-    
+
                             ?>
                         </p>
                     </div>
@@ -229,7 +229,10 @@ while ($dados = $users->fetch_assoc()) {
             <h1>Avaliações</h1>
         </div>
         <div class="section-center">
+<<<<<<< HEAD
            
+=======
+>>>>>>> 03bb9f39558cab241ed788b6dce734f197c4559e
             <div class="container-Comentarios ongs-ajudadas">
                 <div class="comentarios">
                     <div class="top-comets-content">

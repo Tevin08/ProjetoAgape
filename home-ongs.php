@@ -17,7 +17,7 @@
     <img src="imagens/logo.png" alt="logtipo" width="7%" id="logo" />
     <div class="input-nav">
       <button onclick="location.href='verOngs.php'" class="btn-visualizar-ongs">
-        Vizualizar ONG'S
+        Visualizar ONG'S
       </button>
       <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
         Seu Perfil
