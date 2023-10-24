@@ -67,3 +67,5 @@ function Rota2() {
   btnir.setAttribute("onclick", "location.href='verOngs-logged.php'");
   window.location.replace("feed.php");
 }
+
+

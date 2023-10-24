@@ -10,6 +10,7 @@
   margin: auto;
   padding: 2em;
   gap: 2em;
+  overflow: hidden;
 }
 
 .div-nome {
@@ -56,7 +57,31 @@
 
 .post-descricao {
   height: 10em;
-  overflow-y: scroll;
+  overflow: hidden;
+}
+
+
+.div-toggle-parts{
+  
+}
+
+.btn-toggle {
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  background-color: #d6d6d6;
+  border: none;
+  padding: 0.7em;
+} 
+
+.btn-id-descricao{
+  background-color: #bdbdbd;
+
+}
+
+.leia-mais{
+  color: #c79dff;
+  font-weight: 630;
 }
 
 .post-descricao::-webkit-scrollbar {
@@ -72,9 +97,15 @@
 }
 
 .post-coments {
+  display: none;
   border-top: 2px solid #bdbdbd;
   height: 10em;
-  overflow-y: scroll;
+  flex-flow: row nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  max-width: 20em;
+  min-width: 20em;
+  min-height: 20em;
 }
 
 .post-coments::-webkit-scrollbar {
