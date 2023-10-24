@@ -39,7 +39,7 @@ function usuarios($conexao)
         Feed
       </button>
       <?php
-      if (isset($_SESSION["id"])) {
+      if (isset($_SESSION["id_ong"])) {
         echo '<button class="btn-perfil minha-ong-btn" onclick="location.href=`./MinhaOng.php`">';
         echo 'Minha ONG';
         echo '</button>';

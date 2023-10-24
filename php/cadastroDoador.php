@@ -116,7 +116,7 @@ if ($_POST['senha'] !== $_POST['senha-confirmar']) {
     header("location: ../error.php");
     exit;
 }
-function gravar($conexao)
+function gravarDoador($conexao)
 {
     $sql = "insert into tb_doador
         (nm_doador, nm_user, email, documento)
@@ -131,11 +131,15 @@ function gravar($conexao)
 }
 function gravarUser($conexao)
 {
+    $getDoadorID = "SELECT CD_DOADOR FROM TB_DOADOR WHERE DOCUMENTO = '{$_POST['documento']}'";
+    $result = $conexao -> query($getDoadorID);
+    $row = mysqli_fetch_assoc($result);
     $passHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $sql = "INSERT INTO TB_USERS
-        (TIPO_USER, LOGIN, SENHA)
+        (CD_DOADOR, TIPO_USER, LOGIN, SENHA)
         VALUES
         (
+            {$row['CD_DOADOR']},
             'Doador',
             '{$_POST['documento']}',
             '{$passHash}'
@@ -143,7 +147,7 @@ function gravarUser($conexao)
     return mysqli_query($conexao, $sql);
 }
 
-if (gravar($conexao)) {
+if (gravarDoador($conexao)) {
     if (gravarUser($conexao)) {
         header('location: ../logindoador.php');
     }

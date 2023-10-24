@@ -82,26 +82,31 @@ while ($dados = $users->fetch_assoc()) {
     }
 }
 
-function gravar($conexao)
+function gravarONG($conexao)
 {
-    $sql = "insert into tb_ong
-    (nm_ong, nm_representante, email, cnpj) 
-    values(
-        '{$_POST['nome-ong']}',
-        '{$_POST['nome-representante']}',
-        '{$_POST['email']}',
-        '{$_POST['CNPJ']}'
-    )";
+    $sql = "INSERT INTO TB_ONG
+        (NM_ONG, NM_REPRESENTANTE, EMAIL, CNPJ) 
+        VALUES
+        (
+            '{$_POST['nome-ong']}',
+            '{$_POST['nome-representante']}',
+            '{$_POST['email']}',
+            '{$_POST['CNPJ']}'
+        )";
     return mysqli_query($conexao, $sql);
 }
 
 function gravarUser($conexao)
 {
+    $getOngID = "SELECT CD_ONG FROM TB_ONG WHERE CNPJ = '{$_POST['CNPJ']}'";
+    $result = $conexao -> query($getOngID);
+    $row = mysqli_fetch_assoc($result);
     $passHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $sql = "INSERT INTO TB_USERS
-        (TIPO_USER, LOGIN, SENHA)
+        (CD_ONG, TIPO_USER, LOGIN, SENHA)
         VALUES
         (
+            {$row['CD_ONG']},
             'ONG',
             '{$_POST['CNPJ']}',
             '{$passHash}'
@@ -110,7 +115,7 @@ function gravarUser($conexao)
 }
 
 $ongs = ongs($conexao);
-function ongs($conexao)
+function ongs($conexao) 
 {
     $sqlBusca = 'SELECT * FROM TB_USERS WHERE TIPO_USER = "ONG"';
     $resultado = mysqli_query($conexao, $sqlBusca);
@@ -120,7 +125,7 @@ function ongs($conexao)
 
 
 
-if (gravar($conexao)) {
+if (gravarONG($conexao)) {
     if (gravarUser($conexao)) {
         $_SESSION['cnpj'] = $_POST['CNPJ'];
         while ($dados = $ongs->fetch_assoc()) {

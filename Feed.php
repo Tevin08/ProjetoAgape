@@ -28,25 +28,25 @@
             </div>
             <button class="btn edit" onclick="location.href='perfildoador.php'">Editar perfil</button>
             <button class="btn ver" onclick="location.href='perfildoador.php'">Ver perfil</button> -->
-            <!-- <button class="btn excluir">Excluir perfil</button> -->
-            <!-- <button class="btn sair" onclick="location.href='index.html'">Sair</button>
+        <!-- <button class="btn excluir">Excluir perfil</button> -->
+        <!-- <button class="btn sair" onclick="location.href='index.html'">Sair</button>
         </div> -->
 
         <div class="modal-comentarios">
-      <form action="Post">
-    <div class="contents">
+            <form action="Post">
+                <div class="contents">
 
-      <h1>Faça Um Comentário</h1>
-       <textarea name="comentario" id="" maxlength="512"></textarea>
+                    <h1>Faça Um Comentário</h1>
+                    <textarea name="comentario" id="" maxlength="512"></textarea>
 
-       <div class="modal-btns">
+                    <div class="modal-btns">
 
-         <button type="submit" id="btn-modal-avancar">Enviar</button>
-         <button  type="button" id="btn-modal-cancel" onclick="modalClose()">Cancelar</button>
-       </div>
-    </div>
-      </form>
-    </div>
+                        <button type="submit" id="btn-modal-avancar">Enviar</button>
+                        <button type="button" id="btn-modal-cancel" onclick="modalClose()">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
     <nav id="nav-ongs">
         <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
@@ -157,12 +157,12 @@
         </div>
         <div class="div-add-postcoments">
             <div id="btn-postcoments">
-                <button id="btn-coment" onclick="modalShow()">
-                    <i class="fa-regular fa-comment" ></i>
+                <button id="btn-comment" onclick="modalShow()">
+                    <i class="fa-regular fa-comment"></i>
 
                 </button>
-                <button id="btn-coment">
-                <i class="fa-regular  fa-heart fa-heart2" style="color:#fff" onclick="love()"></i>
+                <button id="btn-comment">
+                    <i class="fa-regular  fa-heart fa-heart2" style="color:#fff" onclick="love()"></i>
                 </button>
             </div>
         </div>

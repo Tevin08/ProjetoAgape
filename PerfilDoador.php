@@ -12,7 +12,7 @@ if (!isset($_SESSION['documento'])) {
 $doadores = doadores($conexao);
 function doadores($conexao)
 {
-  $sqlBusca = "SELECT * FROM TB_DOADOR WHERE CD_DOADOR = 100";
+  $sqlBusca = "SELECT * FROM TB_DOADOR WHERE CD_DOADOR = {$_SESSION['id_doador']}";
   $resultado = mysqli_query($conexao, $sqlBusca);
   return $resultado;
 }

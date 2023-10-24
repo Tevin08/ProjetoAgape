@@ -7,35 +7,32 @@ include "./php/banco.php";
 
 session_start();
 
-$ongs = ongs($conexao);
-function ongs($conexao)
-{
-  $sqlBusca = "SELECT * FROM TB_ONG WHERE CD_ONG = {$_GET['id']}";
-  $resultado = mysqli_query($conexao, $sqlBusca);
-  return $resultado;
-}
+$sqlONG = "SELECT * FROM TB_ONG WHERE CD_ONG = {$_GET['id']}";
+
+$_SESSION['get_id_ong'] = $_GET['id'];
 
 $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
-  $sqlBusca = "SELECT tb_coment.texto_coment, tb_doador.nm_doador
-                FROM tb_coment
-                JOIN tb_doador on tb_coment.cd_doador = tb_doador.cd_doador
-              ";
+  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
+  FROM TB_COMMENT
+  JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR;
+  ";
   $resultado = mysqli_query($conexao, $sqlBusca);
   return $resultado;
 }
 
-while ($dados = $ongs->fetch_assoc()) {
-  $_SESSION['nm_ong'] = $dados['NM_ONG'];
-  $_SESSION['cnpj'] = $dados['CNPJ'];
-  $_SESSION['email_ong'] = $dados['EMAIL'];
-  $_SESSION['sobre'] = $dados['SOBRE'];
-  $_SESSION['insta'] = $dados['INSTA'];
-  $_SESSION['wpp'] = $dados['WPP'];
-  $_SESSION['x'] = $dados['TWITTER'];
-  $_SESSION['pic'] = $dados['PIC'];
-}
+$row = mysqli_fetch_assoc($conexao -> query($sqlONG));
+
+$_SESSION['nm_ong'] = $row['NM_ONG'];
+$_SESSION['cnpj'] = $row['CNPJ'];
+$_SESSION['email_ong'] = $row['EMAIL'];
+$_SESSION['sobre'] = $row['SOBRE'];
+$_SESSION['insta'] = $row['INSTA'];
+$_SESSION['wpp'] = $row['WPP'];
+$_SESSION['x'] = $row['TWITTER'];
+$_SESSION['pic'] = $row['PIC'];
+
 
 ?>
 <html lang="pt">
@@ -241,11 +238,11 @@ while ($dados = $ongs->fetch_assoc()) {
           echo '<div class="comentarios">';
           echo '<div class="top-comets-content">';
           echo '<div class="foto-user-comentario"></div>';
-          echo "<h1>{$dados['nm_doador']}</h1>";
+          echo "<h1>{$dados['NM_DOADOR']}</h1>";
           echo '</div>';
           echo '<div class="comentario-text">';
           echo '<p>';
-          echo "{$dados['texto_coment']}";
+          echo "{$dados['TEXTO_COMMENT']}";
           echo '</p>';
           echo '</div>';
           echo '<div class="reactions-button-group">';
