@@ -186,9 +186,11 @@ button {
 }
 
 .icon-div-cad {
-  background-color: #c79dff;
-  border-radius: 70px;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
 }
+
 
 .traco {
   height: 19rem;
