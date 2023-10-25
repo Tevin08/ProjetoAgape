@@ -63,21 +63,39 @@
         </div>
     </div>
     <nav id="nav-ongs">
-        <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
-        <div class="input-nav">
-            <button onclick="location.href='verOngs.php'" class="btn-visualizar-ongs feed-location">
-                Visualizar ONG'S
-            </button>
+    <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
+    <div class="input-nav">
+      <button class=" btn-visualizar-ongs"  onclick="location.href='verongs.php'">
+        Visualizar ONG'S
+      </button>
+      <button class="feed-btn" onclick="Rota2()">
+        Feed
+      </button>
+      <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
+        Seu Perfil
+        </button>
 
-            <button class="btn-perfil feed-btn" onclick="location.href='feed.php'">
-                Feed
-            </button>
+      <?php
+      if (isset($_SESSION["id_ong"])) {
+        echo '<button class="btn-perfil minha-ong-btn" onclick="location.href=`./MinhaOng.php`">';
+        echo 'Minha ONG';
+        echo '</button>';
+      }
+      ?>
+    </div>
+    <?php
+    if (!(isset($_SESSION['documento']) || isset($_SESSION['cnpj']))) {
+      echo '<button id="btn-entrar" onclick="location.href=`index.html#div-cad`">';
+      echo 'Entrar';
+      echo '</button>';
+    } else {
+      echo '<button id="btn-sair" onclick="location.href=`./php/logout.php`">';
+      echo 'Sair';
+      echo '</button>';
+    }
 
-        </div>
-        <div class="foto-doador" >
-            <div class=" img-perfil-doador"></div>
-        </div>
-    </nav>
+    ?>
+  </nav>
     <div class="square-post">
         <div class="div-nome">
             <img src="./imagens/pfp.jpg" alt="" onclick="location.href='./PerfilOngs.php'">

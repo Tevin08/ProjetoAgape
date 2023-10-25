@@ -24,7 +24,7 @@
 }
 
 .btn-perfil,
-.btn-visualizar-ongs {
+.btn-visualizar-ongs,.feed-btn {
   padding: 10px 0 10px 0;
   color: #ffffff;
   font-size: 20px;
@@ -71,7 +71,15 @@
   color: #fff;
 }
 
+
 .btn-perfil {
+  /* width: 7em; */
+  padding: 0 2em 0 2em;
+  background-color: #6640ee77;
+  border-radius: 40px;
+  text-align: center;
+}
+.feed-btn {
   /* width: 7em; */
   padding: 0 2em 0 2em;
   background-color: #6640ee77;

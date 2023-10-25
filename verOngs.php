@@ -35,9 +35,13 @@ function usuarios($conexao)
       <button class=" btn-visualizar-ongs">
         Visualizar ONG'S
       </button>
-      <button class="btn-perfil feed-btn" onclick="Rota2()">
+      <button class="feed-btn" onclick="Rota2()">
         Feed
       </button>
+      <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
+        Seu Perfil
+        </button>
+
       <?php
       if (isset($_SESSION["id_ong"])) {
         echo '<button class="btn-perfil minha-ong-btn" onclick="location.href=`./MinhaOng.php`">';

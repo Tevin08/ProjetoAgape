@@ -3,6 +3,20 @@
   padding: 0;
 }
 
+.feed-btn{
+  background-color: #4f20fac5;
+   /* width: 7em; */
+   padding: 0 2em 0 2em;
+   border-radius: 40px;
+   text-align: center;
+
+}
+
+.btn-visualizar-ongs{
+  background-color: #6640ee77;
+}
+
+
 .square-post {
   display: flex;
   flex-direction: column;
