@@ -17,6 +17,17 @@ function doadores($conexao)
   return $resultado;
 }
 
+$comentarios = comentarios($conexao);
+function comentarios($conexao)
+{
+  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
+  FROM TB_COMMENT
+  JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR;
+  ";
+  $resultado = mysqli_query($conexao, $sqlBusca);
+  return $resultado;
+}
+
 while ($dados = $doadores->fetch_assoc()) {
   $_SESSION['nm_doador'] = $dados['NM_DOADOR'];
   $_SESSION['email'] = $dados['EMAIL'];
@@ -140,85 +151,31 @@ while ($dados = $doadores->fetch_assoc()) {
 
           </div>
         </div>
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart" onclick="love()"></i>
-            </button>
-
-          </div>
-        </div>
-
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart" onclick="love()"></i>
-            </button>
-
-          </div>
-        </div>
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart" onclick="love()"></i>
-            </button>
-          </div>
-        </div>
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart" onclick="love()"></i>
-            </button>
-
-          </div>
-        </div>
+            <?php 
+              while ($dados = $comentarios->fetch_assoc()) {
+              echo '<div class="comentarios">';
+              echo '<div class="top-comets-content">';
+              echo '';
+              echo '<div class="foto-user-comentario"></div>';
+              echo "<h1>{$dados['NM_DOADOR']}</h1>";
+              echo '</div>';
+              echo '<div class="comentario-text">';
+              echo '<p>';
+              echo "{$dados['TEXTO_COMMENT']}";
+              echo '</p>';
+              echo '</div>';
+              echo '<div class="reactions-button-group">';
+              echo '<button id="like-Button">';
+              echo '<i class="fa-solid  fa-heart" onclick="love()"></i>';
+              echo '</button>';
+              echo '';
+              echo '</div>';
+              echo '</div>';
+            }
+          ?>
       </div>
     </div>
-  </section>
+   </section>
 
 </body>
 <footer></footer>
