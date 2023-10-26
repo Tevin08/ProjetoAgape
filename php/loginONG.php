@@ -13,11 +13,11 @@ function usuarios($conexao)
 }
 
 while ($dados = $users->fetch_assoc()) {
-    if (($_POST['login'] === $dados['LOGIN']) && password_verify($_POST['senha'], $dados['SENHA'])) {
+    if (($_POST['login'] === $dados['LOGIN_EMAIL']) && password_verify($_POST['senha'], $dados['SENHA'])) {
         $_SESSION['id_user'] = $dados['CD_USER'];
         $_SESSION['id_ong'] = $dados['CD_ONG'];
         $_SESSION['nm_ong'] = $dados['NM_ONG'];
-        $_SESSION['cnpj'] = $dados['LOGIN'];
+        $_SESSION['cnpj'] = $dados['LOGIN_EMAIL'];
         $_SESSION['email_ong'] = $dados['EMAIL'];
         $_SESSION['sobre'] = $dados['SOBRE'];
         $_SESSION['insta'] = $dados['INSTA'];

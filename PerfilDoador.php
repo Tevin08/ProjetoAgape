@@ -43,6 +43,8 @@ while ($dados = $doadores->fetch_assoc()) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./css/verOngs.css" />
   <link rel="stylesheet" href="./css/perfil.css" />
+  <link rel="stylesheet" href="./css/wave.css">
+  <script src="./js/RedefinirSenha.js"></script>
   <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon">
   <script src="./js/teste.js" defer></script>
   <title>Perfil Doador</title>
@@ -53,6 +55,36 @@ while ($dados = $doadores->fetch_assoc()) {
 </head>
 
 <body>
+<div class="container-modal">
+
+
+<div class="modal-comentarios">
+<button class="btn-voltar" onclick="location.href='index.html#div-cad'">
+          <img width="35px" src="./imagens/arrow.png" alt="ff" />
+        </button>
+        <h1 style="font-weight: 700">Edite seu Perfil</h1>
+<div class="cadas">
+          <form action="./php/dados_ong.php" method="post" class="frmcad-1" enctype="multipart/form-data">
+            <label for="image" id="img_upload">
+              <img src="./imagens/img_upload.png" alt="" width="80px">
+              <h3>Coloque uma imagem</h3>
+            </label>
+            <input type="file" name="image" id="image" onchange="openFile(event)">
+            <img id="output" width="200px">
+            <div class="cad-1">
+              <label for="">WhatsApp da ONG</label>
+              <input type="text" placeholder="WhatsApp" name="wpp" id="emailO" />
+              <label for="">Instagram da ONG</label>
+              <input type="text" placeholder="Instagram" name="insta" id="emailO" />
+              <label for="">X da ONG</label>
+              <input type="text" placeholder="X" name="x" id="emailO" />
+            </div>
+            <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
+            <button id="btn-doadorC" type="submit">Confirmar</button>
+          </form>
+        </div>
+</div>
+</div>
 <nav id="nav-ongs">
     <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
     <div class="input-nav">
@@ -122,6 +154,10 @@ while ($dados = $doadores->fetch_assoc()) {
             </span>
           </div>
 
+          <button id='btn-edit-perfil' onclick="modalShow()">
+          <i class="fa-regular fa-pen-to-square"></i>  
+          Editar Perfil
+        </button>
         </div>
       </div>
 

@@ -103,7 +103,7 @@ function gravarUser($conexao)
     $row = mysqli_fetch_assoc($result);
     $passHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $sql = "INSERT INTO TB_USERS
-        (CD_ONG, TIPO_USER, LOGIN, SENHA)
+        (CD_ONG, TIPO_USER, LOGIN_EMAIL, SENHA)
         VALUES
         (
             {$row['CD_ONG']},
@@ -129,7 +129,7 @@ if (gravarONG($conexao)) {
     if (gravarUser($conexao)) {
         $_SESSION['cnpj'] = $_POST['CNPJ'];
         while ($dados = $ongs->fetch_assoc()) {
-            if (($_POST['login'] === $dados['LOGIN'] || $_POST['login'] === $dados['LOGIN']) && password_verify($_POST['senha'], $dados['SENHA'])) {
+            if (($_POST['login'] === $dados['LOGIN_EMAIL'] || $_POST['login'] === $dados['LOGIN_EMAIL']) && password_verify($_POST['senha'], $dados['SENHA'])) {
                 $_SESSION['id_user'] = $dados['CD_USER'];
                 $_SESSION['nm_ong'] = $dados['NM_ONG'];
                 $_SESSION['cnpj'] = $dados['CNPJ'];

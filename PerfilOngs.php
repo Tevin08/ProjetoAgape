@@ -142,6 +142,7 @@ $_SESSION['pic'] = $row['PIC'];
               Seguir
             </button>
           </div>
+          
         </div>
       </div>
 
