@@ -54,6 +54,42 @@ $_SESSION['pic'] = $row['PIC'];
 </head>
 
 <body>
+<div class="container-modal">
+<div class="modal-comentarios">
+  <div class="logo-2 center_content">
+
+    <div class="campos">
+  
+      <div class="div-forms forms-login dados-form" >
+    
+        <button class="btn-voltar" onclick="modalClose()">
+                  <img width="35px" src="./imagens/arrow.png" alt="ff" />
+                </button>
+                <h1 style="font-weight: 700">Edite seu Perfil</h1>
+        <div class="cadas">
+                  <form action="./php/dados_ong.php" method="post" class="frmcad-1" enctype="multipart/form-data">
+                    <label for="image" id="img_upload">
+                      <img src="./imagens/img_upload.png" alt="" width="80px">
+                      <h3>Coloque uma imagem</h3>
+                    </label>
+                    <input type="file" name="image" id="image" onchange="openFile(event)">
+                    <img id="output" width="200px">
+                    <div class="cad-1">
+                      <label for="">WhatsApp da ONG</label>
+                      <input type="text" placeholder="WhatsApp" name="wpp" id="emailO" />
+                      <label for="">Instagram da ONG</label>
+                      <input type="text" placeholder="Instagram" name="insta" id="emailO" />
+                      <label for="">X da ONG</label>
+                      <input type="text" placeholder="X" name="x" id="emailO" />
+                    </div>
+                    <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
+                    <button id="btn-doadorC" type="submit">Confirmar</button>
+                  </form>
+                </div>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="modal-add-comment">
     <form action="./php/comentarios.php" method="post">
       <i onclick="closeComment(event)" class="fa-solid fa-close"></i>
