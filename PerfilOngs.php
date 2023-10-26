@@ -65,7 +65,7 @@ $_SESSION['pic'] = $row['PIC'];
         <button class="btn-voltar" onclick="modalClose()">
                   <img width="35px" src="./imagens/arrow.png" alt="ff" />
                 </button>
-                <h1 style="font-weight: 700">Edite seu Perfil</h1>
+                <h2 style="font-weight: 700">Edite seu Perfil</h2>
         <div class="cadas">
                   <form action="./php/dados_ong.php" method="post" class="frmcad-1" enctype="multipart/form-data">
                     <label for="image" id="img_upload">

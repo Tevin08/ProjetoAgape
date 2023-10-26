@@ -443,3 +443,41 @@ border: 1px solid #f1f1f1;
     rotate: -25deg;
   }
 } */
+.edit-inputs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2em;
+  
+}
+
+#input-edit-name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5em;
+  
+
+}
+
+.input-edit-perfil{
+  margin: 1em;
+}
+
+.seta-voltar{
+  margin-right: 29em;
+}
+
+.cad-edit{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+ 
+}
+
+.cad-edit h1{
+  text-align: center ;
+}

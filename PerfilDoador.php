@@ -57,41 +57,46 @@ while ($dados = $doadores->fetch_assoc()) {
 <body>
 <div class="container-modal">
 <div class="modal-comentarios">
-  <div class="logo-2 center_content">
+  
 
-    <div class="campos">
+   
   
       <div class="div-forms forms-login dados-form" >
-    
-        <button class="btn-voltar" onclick="modalClose()">
-                  <img width="35px" src="./imagens/arrow.png" alt="ff" />
-                </button>
-                <h1 style="font-weight: 700">Edite seu Perfil</h1>
+        <div class="seta-voltar">
+
+          <button class="btn-voltar" onclick="modalClose()">
+          <img width="35px" src="./imagens/arrow.png" alt="ff" />
+          </button>
+        </div>
         <div class="cadas">
-                  <form action="./php/dados_ong.php" method="post" class="frmcad-1" enctype="multipart/form-data">
-                    <label for="image" id="img_upload">
-                      <img src="./imagens/img_upload.png" alt="" width="80px">
+          <form action="./php/dados_ong.php" method="post" class="cad-edit" enctype="multipart/form-data">
+            <h1 style="font-weight: 700">Edite seu Perfil</h1>
+            <label for="image" id="img_upload">
+              <img src="./imagens/img_upload.png" alt="" width="80px">
                       <h3>Coloque uma imagem</h3>
                     </label>
                     <input type="file" name="image" id="image" onchange="openFile(event)">
                     <img id="output" width="200px">
-                    <div class="cad-1">
-                     <div class="input-edit-name">
-                      <label for="name">Editar Nome do Perfil</label>
-                      <input type="text" name='name' id='input-edit-name'>
-                      <label for="name">Editar Nome do Perfil</label>
-                      <input type="text" name='name' id='input-edit-name'>
-                      <label for="name">Editar Nome do Perfil</label>
-                      <input type="text" name='name' id='input-edit-name'>
-                     </div>
+                    <div class="edit-inputs">
+                      <div class="input-edit-perfil">
+
+                        <label for="name">Editar Nome do Perfil</label>
+                        <input type="text" name='name' id='input-edit-name'>
+                      </div>
+                     
+                      <div class="input-edit-perfil">
+
+                        <label for="name">Editar Email</label>
+                        <input type="text" name='name' id='input-edit-name'>
+                      </div>
+                     
                     </div>
                     <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
                     <button id="btn-doadorC" type="submit">Confirmar</button>
                   </form>
                 </div>
       </div>
-    </div>
-  </div>
+    
 </div>
 </div>
 <nav id="nav-ongs">
