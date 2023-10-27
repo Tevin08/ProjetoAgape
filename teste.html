@@ -19,8 +19,6 @@
     </form>
     <div id="image-container"></div> -->
 
-   
-
     <div class="grande-carrossel">
       <div class="carrossel-container">
         <div class="cavalo">
@@ -98,17 +96,16 @@
         top: 45%;
         right: 2%;
       }
-
-
-
     </style>
 
     <script defer>
-        const cavalos = document.querySelector('.cavalo');
+      const cavalos = document.querySelector(".cavalo");
 
-        cavalos.forEach((slide, indx) => {
-  cavalos.style.transform = `translateX(${indx * 100}%)`;
-});
+      cavalos.forEach((slide, indx) => {
+        cavalos.style.transform = `translateX(${indx * 100}%)`;
+      });
     </script>
   </body>
 </html>
+
+

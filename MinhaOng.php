@@ -39,6 +39,8 @@ while ($dados = $users->fetch_assoc()) {
     <link rel="stylesheet" href="./css/verOngs.css" />
     <link rel="stylesheet" href="./css/perfil.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/wave.css">
+    <script src="./js/RedefinirSenha.js"></script>
     <script src="./js/teste.js" defer></script>
     <title>Perfil Ong's</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,6 +52,93 @@ while ($dados = $users->fetch_assoc()) {
 </head>
 
 <body>
+
+<div class="container-modal">
+<div class="modal-comentarios">
+      <div class="div-forms forms-login dados-form" >
+        <div class="seta-voltar">
+
+          <button class="btn-voltar" onclick="modalClose()">
+          <img width="35px" src="./imagens/arrow.png" alt="ff" />
+          </button>
+        </div>
+        <div class="cadas">
+          <form action="./php/update.php" method="post" class="cad-edit" enctype="multipart/form-data">
+            <h2 style="font-weight: 700">Edite seu Perfil</h2>
+            <label for="image" id="img_upload">
+              <img src="./imagens/img_upload.png" alt="" width="80px">
+                      <h3>Coloque uma imagem</h3>
+                    </label>
+                    <input type="file" name="image" id="image" onchange="openFile(event)">
+                    <img id="output" width="200px">
+                    <div class="edit-inputs">
+                      <div class="input-edit-perfil">
+
+                        <label for="name">Editar Nome do Perfil</label>
+                        <input type="text" name='name' id='input-edit-name'>
+                      </div>
+                     
+                      <div class="input-edit-perfil">
+
+                        <label for="name">Editar Email</label>
+                        <input type="text" name='email' id='input-edit-name'>
+                      </div>
+                     
+                    </div>
+                    <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
+                    <button id="btn-doadorC" type="submit">Confirmar</button>
+                  </form>
+                </div>
+      </div>
+    
+</div>
+</div>
+
+<div class="container-modal">
+  <div class="modal-comentarios">
+    <div class="div-forms forms-login dados-form">
+      <button class="btn-voltar" onclick="modalClose()">
+        <img width="35px" src="./imagens/arrow.png" alt="ff" />
+      </button>
+      <h2 style="font-weight: 700">Edite seu Perfil</h2>
+      <div class="cadas">
+        <form
+          action="./php/dados_ong.php"
+          method="post"
+          class="frmcad-1"
+          enctype="multipart/form-data"
+        >
+          <label for="image" id="img_upload">
+            <img src="./imagens/img_upload.png" alt="" width="80px" />
+            <h3>Coloque uma imagem</h3>
+          </label>
+          <input
+            type="file"
+            name="image"
+            id="image"
+            onchange="openFile(event)"
+          />
+          <img id="output" width="200px" />
+          <div class="cad-1">
+            <label for="">WhatsApp da ONG</label>
+            <input type="text" placeholder="WhatsApp" name="wpp" id="emailO" />
+            <label for="">Instagram da ONG</label>
+            <input
+              type="text"
+              placeholder="Instagram"
+              name="insta"
+              id="emailO"
+            />
+            <label for="">X da ONG</label>
+            <input type="text" placeholder="X" name="x" id="emailO" />
+          </div>
+          <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
+          <button id="btn-doadorC" type="submit">Confirmar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
     <nav id="nav-ongs">
         <img src="imagens/logo.png" alt="logtipo" width="7%" id="logo" onclick="location.href='index.html'" />
         <div class="input-nav">
@@ -115,7 +204,7 @@ while ($dados = $users->fetch_assoc()) {
                         </div>
 
                     </div>
-                    <button id='btn-edit-perfil'>
+                    <button id='btn-edit-perfil' onclick='modalShow()' >
           <i class="fa-regular fa-pen-to-square"></i>  
           Editar Perfil
         </button>

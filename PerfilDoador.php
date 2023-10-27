@@ -43,6 +43,7 @@ while ($dados = $doadores->fetch_assoc()) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./css/verOngs.css" />
   <link rel="stylesheet" href="./css/perfil.css" />
+  <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/wave.css">
   <script src="./js/RedefinirSenha.js"></script>
   <link rel="shortcut icon" href="./imagens/logo.png" type="image/x-icon">
@@ -57,10 +58,6 @@ while ($dados = $doadores->fetch_assoc()) {
 <body>
 <div class="container-modal">
 <div class="modal-comentarios">
-  
-
-   
-  
       <div class="div-forms forms-login dados-form" >
         <div class="seta-voltar">
 
@@ -70,7 +67,7 @@ while ($dados = $doadores->fetch_assoc()) {
         </div>
         <div class="cadas">
           <form action="./php/update.php" method="post" class="cad-edit" enctype="multipart/form-data">
-            <h1 style="font-weight: 700">Edite seu Perfil</h1>
+            <h2 style="font-weight: 700">Edite seu Perfil</h2>
             <label for="image" id="img_upload">
               <img src="./imagens/img_upload.png" alt="" width="80px">
                       <h3>Coloque uma imagem</h3>

@@ -60,12 +60,12 @@
 }
 
 .fa-heart2 {
-  color: aquamarine;
+
   -webkit-text-stroke: #fff;
 }
 
 .div-nome img {
-  width: 3em;
+  width: 4em;
   border-radius: 50%;
 }
 
@@ -75,23 +75,19 @@
 }
 
 
-.div-toggle-parts{
-  
-}
 
 .btn-toggle {
-  width: 0.7em;
-  height: 0.7em;
-  border-radius: 50%;
-  background-color: #d6d6d6;
+  width: 9em;
+  border-radius: 10px;
+  background-color: #7b1ff3;
   border: none;
-  padding: 0.7em;
+  font-size: 15px;
+  padding: 1em;
+  color: #fff;
 } 
 
-.btn-id-descricao{
-  background-color: #bdbdbd;
 
-}
+
 
 .leia-mais{
   color: #c79dff;
@@ -114,12 +110,15 @@
   display: none;
   border-top: 2px solid #bdbdbd;
   height: 10em;
-  flex-flow: row nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  max-width: 20em;
-  min-width: 20em;
+  align-items: center;
+  justify-content: center;
+  flex-flow: wrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 35em;
+  min-width: 35em;
   min-height: 20em;
+  word-break: break-all;
 }
 
 .post-coments::-webkit-scrollbar {
@@ -139,26 +138,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* width: 90%; */
-  padding: 1em;
-  min-width: 17rem;
-  height: 15em;
+  min-width: 2rem;
+  height: 10em;
   background-color: #fff;
-
   border-radius: 15px;
-  margin: 2em;
+  margin: 1em;
   transition: all 1s;
+
 }
 
 .feed-comentario-text {
-  /* width: 80%; */
-  /* height: 40%; */
-  /* background-color: #d6d6d6; */
   border: 1px solid rgba(0, 0, 0, 0.45);
   border-radius: 0.5em;
-  padding: 10px;
   overflow-y: scroll;
-  margin-bottom: 15px;
+
 }
 
 .feed-comentario-text::-webkit-scrollbar {

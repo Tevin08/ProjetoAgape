@@ -26,28 +26,40 @@ function animationbtn() {
   }, 1000);
 }
 
-function Toggleparts (button) {
+function Verdescricao() {
     const descript = document.querySelector('.btn-id-descricao')
-    const comments = document.querySelector('.btn-id-comments')
     const containercomments = document.querySelector('.post-coments')
     const containerdescrpt = document.querySelector('.post-descricao')
+    const lmais = document.querySelector('.leia-mais')
 
+    descript.textContent = "Ver Comentários";
 
-    if (button == 1){
+    descript.setAttribute("onclick", "Vercomments()");
 
+    
       containerdescrpt.style.display = "flex"
       containercomments.style.display = "none"
-      comments.style.background = '#d6d6d6'
-      descript.style.background = '#bdbdbd'
+      lmais.style.display = 'flex'
+  
+
+      
     
-    }
-    else{
+}
 
-      containerdescrpt.style.display = "none"
-      containercomments.style.display = "flex"
-      console.log('funciona')
-      comments.style.background = '#bdbdbd'
-      descript.style.background = '#d6d6d6'
+function Vercomments(){
 
-    }
+  const descript = document.querySelector('.btn-id-descricao')
+  const containercomments = document.querySelector('.post-coments')
+  const containerdescrpt = document.querySelector('.post-descricao')
+  const lmais = document.querySelector('.leia-mais')
+
+  descript.textContent = "Ver Descrição";
+  
+
+  descript .setAttribute("onclick", "Verdescricao()");
+
+  containerdescrpt.style.display = "none"
+  containercomments.style.display = "flex"
+  lmais.style.display = 'none'
+
 }

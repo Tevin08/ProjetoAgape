@@ -108,12 +108,10 @@
             <div class="post-img"><img src="./imagens/palhaço.png" alt=""></div>
             <div class="div-coments-description">
                     <div class="div-toggle-parts">
-                        <button class='btn-toggle  btn-id-descricao' onclick='Toggleparts(1)'>
-                        
-                        </button>
-                        <button class='btn-toggle btn-id-comments' onclick='Toggleparts(2)'>
+                       
+                        <!-- <button class='btn-toggle btn-id-comments' onclick='Toggleparts(2)'>
                             
-                        </button>
+                        </button> -->
                     </div>
                 <div class="post-descricao">
                     <p>
@@ -150,7 +148,6 @@
                         echo '</div>';
                         echo '<div class="reactions-button-group">';
                         echo '<button id="like-Button">';
-                        echo '<i class="fa-solid  fa-heart" onclick="love()"></i>';
                         echo '</button>';
                         echo '';
                         echo '</div>';
@@ -158,6 +155,10 @@
                     }
                 ?> 
                 </div> 
+                    <button class='btn-toggle  btn-id-descricao' onclick='Vercomments()'>
+                 
+                     Ver Comentários
+                    </button>
             </div>
         </div>
         <div class="div-add-postcoments">
