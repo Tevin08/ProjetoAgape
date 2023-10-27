@@ -69,7 +69,7 @@ while ($dados = $doadores->fetch_assoc()) {
           </button>
         </div>
         <div class="cadas">
-          <form action="./php/dados_ong.php" method="post" class="cad-edit" enctype="multipart/form-data">
+          <form action="./php/update.php" method="post" class="cad-edit" enctype="multipart/form-data">
             <h1 style="font-weight: 700">Edite seu Perfil</h1>
             <label for="image" id="img_upload">
               <img src="./imagens/img_upload.png" alt="" width="80px">
@@ -87,7 +87,7 @@ while ($dados = $doadores->fetch_assoc()) {
                       <div class="input-edit-perfil">
 
                         <label for="name">Editar Email</label>
-                        <input type="text" name='name' id='input-edit-name'>
+                        <input type="text" name='email' id='input-edit-name'>
                       </div>
                      
                     </div>
@@ -196,25 +196,6 @@ while ($dados = $doadores->fetch_assoc()) {
     </div>
     <div class="section-center">
       <div class="container-Comentarios ongs-ajudadas">
-        <div class="comentarios">
-          <div class="top-comets-content">
-
-            <div class="foto-user-comentario"></div>
-            <h1><?php echo $_SESSION['nm_doador'] ?></h1>
-          </div>
-
-          <div class="comentario-text">
-            <p>
-              Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-            </p>
-          </div>
-          <div class="reactions-button-group">
-            <button id="like-Button">
-              <i class="fa-solid  fa-heart"></i>
-            </button>
-
-          </div>
-        </div>
             <?php 
               while ($dados = $comentarios->fetch_assoc()) {
               echo '<div class="comentarios">';
