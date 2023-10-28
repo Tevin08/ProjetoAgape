@@ -33,6 +33,7 @@ while ($dados = $doadores->fetch_assoc()) {
   $_SESSION['email'] = $dados['EMAIL'];
   $_SESSION['nm_user'] = $dados['NM_USER'];
   $_SESSION['documento'] = $dados['DOCUMENTO'];
+  $_SESSION['foto'] = $dados['FOTO'];
 }
 
 ?>
@@ -137,7 +138,13 @@ while ($dados = $doadores->fetch_assoc()) {
       <div class="foto-e-info-doador">
 
         <div class="foto-doador">
-          <div class=" img-perfil-doador"></div>
+        <?php
+          if (!isset($_SESSION['foto'])) {
+            echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
+          } else {
+            echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['foto']) . '" class="img-perfil-ong">';
+          }
+          ?>
         </div>
         <div class="info">
 

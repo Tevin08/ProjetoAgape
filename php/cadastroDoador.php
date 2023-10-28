@@ -136,11 +136,13 @@ function gravarUser($conexao)
     $row = mysqli_fetch_assoc($result);
     $passHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $sql = "INSERT INTO TB_USERS
-        (CD_DOADOR, TIPO_USER, LOGIN_EMAIL, SENHA)
+        (CD_DOADOR, TIPO_USER, LOGIN_EMAIL, LOGIN_CNPJ, LOGIN_CPF, SENHA)
         VALUES
         (
             {$row['CD_DOADOR']},
             'Doador',
+            '{$_POST['email']}',
+            '{$_POST['documento']}',
             '{$_POST['documento']}',
             '{$passHash}'
         )";

@@ -3,11 +3,11 @@
  session_start();
     function gravar($conexao)
     {
-        $sql = "update tb_doador
+        $sql = "update tb_ong
         set 
         email = '{$_POST['email']}',
-        nm_doador = '{$_POST['name']}'
-        where cd_doador = '{$_SESSION['id_doador']}'";
+        nm_ong = '{$_POST['name']}'
+        where CNPJ = '{$_SESSION['cnpj']}'";
         return mysqli_query($conexao, $sql);
     }
     
@@ -19,7 +19,7 @@
             if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
                 $imageData = file_get_contents($targetFile);
                 $imageData = $conexao->real_escape_string($imageData);
-                $insertQuery = "UPDATE TB_DOADOR SET FOTO = '$imageData' WHERE CD_DOADOR = '{$_SESSION['id_doador']}'";
+                $insertQuery = "UPDATE TB_ONG SET PIC = '$imageData' WHERE CNPJ = '{$_SESSION['cnpj']}'";
     
                 if ($conexao->query($insertQuery) === TRUE) {
                     echo "Image uploaded and stored in the database.";
@@ -41,5 +41,5 @@
         echo 'Erro na gravação';
         exit;
     }
-    header('location: ../PerfilDoador.php');
+    header('location: ../MinhaOng.php');
 ?>

@@ -9,7 +9,16 @@ if (!isset($_SESSION['id_ong'])) {
     header('location: ./loginOngs.php');
     exit;
 }
-
+$comentarios = comentarios($conexao);
+function comentarios($conexao)
+{
+  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
+  FROM TB_COMMENT
+  JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR;
+  ";
+  $resultado = mysqli_query($conexao, $sqlBusca);
+  return $resultado;
+}
 $users = usuarios($conexao);
 function usuarios($conexao)
 {
@@ -63,7 +72,7 @@ while ($dados = $users->fetch_assoc()) {
           </button>
         </div>
         <div class="cadas">
-          <form action="./php/update.php" method="post" class="cad-edit" enctype="multipart/form-data">
+          <form action="./php/update_ong.php" method="post" class="cad-edit" enctype="multipart/form-data">
             <h2 style="font-weight: 700">Edite seu Perfil</h2>
             <label for="image" id="img_upload">
               <img src="./imagens/img_upload.png" alt="" width="80px">
@@ -325,101 +334,26 @@ while ($dados = $users->fetch_assoc()) {
         <div class="section-center">
 
             <div class="container-Comentarios ongs-ajudadas">
-                <div class="comentarios">
-                    <div class="top-comets-content">
-
-                        <div class="foto-user-comentario"></div>
-                        <h1>Vitor Raphael</h1>
-                    </div>
-
-                    <div class="comentario-text">
-                        <p>
-                            Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-                        </p>
-                    </div>
-                    <div class="reactions-button-group">
-                        <button id="like-Button">
-                            <i class="fa-solid  fa-heart" onclick="love()"></i>
-                        </button>
-
-                    </div>
-                </div>
-                <div class="comentarios">
-                    <div class="top-comets-content">
-
-                        <div class="foto-user-comentario"></div>
-                        <h1>Vitor Raphael</h1>
-                    </div>
-
-                    <div class="comentario-text">
-                        <p>
-                            Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-                        </p>
-                    </div>
-                    <div class="reactions-button-group">
-                        <button id="like-Button">
-                            <i class="fa-solid  fa-heart" onclick="love()"></i>
-                        </button>
-
-                    </div>
-                </div>
-
-                <div class="comentarios">
-                    <div class="top-comets-content">
-
-                        <div class="foto-user-comentario"></div>
-                        <h1>Vitor Raphael</h1>
-                    </div>
-
-                    <div class="comentario-text">
-                        <p>
-                            Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-                        </p>
-                    </div>
-                    <div class="reactions-button-group">
-                        <button id="like-Button">
-                            <i class="fa-solid  fa-heart" onclick="love()"></i>
-                        </button>
-
-                    </div>
-                </div>
-                <div class="comentarios">
-                    <div class="top-comets-content">
-
-                        <div class="foto-user-comentario"></div>
-                        <h1>Vitor Raphael</h1>
-                    </div>
-
-                    <div class="comentario-text">
-                        <p>
-                            Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-                        </p>
-                    </div>
-                    <div class="reactions-button-group">
-                        <button id="like-Button">
-                            <i class="fa-solid  fa-heart" onclick="love()"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="comentarios">
-                    <div class="top-comets-content">
-
-                        <div class="foto-user-comentario"></div>
-                        <h1>Vitor Raphael</h1>
-                    </div>
-
-                    <div class="comentario-text">
-                        <p>
-                            Gostaria de elogiar a ONG por seu trabalho excepcional em prol das crianças ao redor do mundo. Esta organização tem se dedicado incansavelmente a melhorar a vida de crianças em situações vulneráveis, proporcionando-lhes acesso à educação, cuidados de saúde e apoio emocional.
-                        </p>
-                    </div>
-                    <div class="reactions-button-group">
-                        <button id="like-Button">
-                            <i class="fa-solid  fa-heart" onclick="love()"></i>
-                        </button>
-
-                    </div>
-                </div>
+            <?php
+        while ($dados = $comentarios->fetch_assoc()) {
+          echo '<div class="comentarios">';
+          echo '<div class="top-comets-content">';
+          echo '<div class="foto-user-comentario"></div>';
+          echo "<h1>{$dados['NM_DOADOR']}</h1>";
+          echo '</div>';
+          echo '<div class="comentario-text">';
+          echo '<p>';
+          echo "{$dados['TEXTO_COMMENT']}";
+          echo '</p>';
+          echo '</div>';
+          echo '<div class="reactions-button-group">';
+          echo '<button id="like-Button">';
+          echo '<i class="fa-solid fa-heart"></i>';
+          echo '</button>';
+          echo '</div>';
+          echo '</div>';
+        }
+        ?>
             </div>
         </div>
     </section>

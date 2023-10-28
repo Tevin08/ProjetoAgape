@@ -136,7 +136,7 @@
                         echo '';
                         echo '<div class="foto-user-comentario"></div>';
                         echo '<h1>';
-                        echo 'victor Raphael';
+                        echo "{$dados['NM_DOADOR']}";
                         echo '</h1>';
                         echo '</div>';
                         echo '';
