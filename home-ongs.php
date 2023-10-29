@@ -19,9 +19,13 @@
       <button onclick="location.href='verOngs.php'" class="btn-visualizar-ongs">
         Visualizar ONG'S
       </button>
-      <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
-        Seu Perfil
-      </button>
+      <?php
+      if (isset($_SESSION["id_doador"])) {
+        echo '<button class="btn-perfil" onclick="location.href=`PerfilDoador.php`">';
+        echo 'Meu perfil';
+        echo '</button>';
+      }
+      ?>
     </div>
     <div class="pesquisar-2">
       <input type="search" name="pesquisar" placeholder="Pesquise o nome de uma ONG" id="search" />

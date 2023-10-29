@@ -106,9 +106,13 @@ while ($dados = $doadores->fetch_assoc()) {
       <button class="feed-btn" onclick="Rota2()">
         Feed
       </button>
-      <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
-        Seu Perfil
-      </button>
+      <?php
+      if (isset($_SESSION["id_doador"])) {
+        echo '<button class="btn-perfil" onclick="location.href=`PerfilDoador.php`">';
+        echo 'Meu perfil';
+        echo '</button>';
+      }
+      ?>
 
       <?php
       if (isset($_SESSION["id_ong"])) {
@@ -226,15 +230,15 @@ while ($dados = $doadores->fetch_assoc()) {
 
 </body>
 <footer>
-    <div class="footer-logo">
-        <img src="./imagens/logotipo.png" alt="logo" width="500px" />
-    </div>
-    <div class="footer-socials">
-        <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-    </div>
+  <div class="footer-logo">
+    <img src="./imagens/logotipo.png" alt="logo" width="500px" />
+  </div>
+  <div class="footer-socials">
+    <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+  </div>
 </footer>
 
 </html>

@@ -25,7 +25,6 @@ function comentarios($conexao)
 $row = mysqli_fetch_assoc($conexao->query($sqlONG));
 
 $_SESSION['nm_ong'] = $row['NM_ONG'];
-$_SESSION['cnpj'] = $row['CNPJ'];
 $_SESSION['email_ong'] = $row['EMAIL'];
 $_SESSION['sobre'] = $row['SOBRE'];
 $_SESSION['insta'] = $row['INSTA'];
@@ -72,9 +71,13 @@ $_SESSION['pic'] = $row['PIC'];
       <button class="feed-btn" onclick="Rota2()">
         Feed
       </button>
-      <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
-        Seu Perfil
-      </button>
+      <?php
+      if (isset($_SESSION["id_doador"])) {
+        echo '<button class="btn-perfil" onclick="location.href=`PerfilDoador.php`">';
+        echo 'Meu perfil';
+        echo '</button>';
+      }
+      ?>
 
       <?php
       if (isset($_SESSION["id_ong"])) {

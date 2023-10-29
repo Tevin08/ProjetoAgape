@@ -71,9 +71,13 @@ function comentarios($conexao)
             <button class="feed-btn" onclick="Rota2()">
                 Feed
             </button>
-            <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
-                Seu Perfil
-            </button>
+            <?php
+            if (isset($_SESSION["id_doador"])) {
+                echo '<button class="btn-perfil" onclick="location.href=`PerfilDoador.php`">';
+                echo 'Meu perfil';
+                echo '</button>';
+            }
+            ?>
 
             <?php
             if (isset($_SESSION["id_ong"])) {

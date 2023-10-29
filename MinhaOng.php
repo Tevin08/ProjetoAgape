@@ -12,12 +12,12 @@ if (!isset($_SESSION['id_ong'])) {
 $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
-  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
+    $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
   FROM TB_COMMENT
   JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR;
   ";
-  $resultado = mysqli_query($conexao, $sqlBusca);
-  return $resultado;
+    $resultado = mysqli_query($conexao, $sqlBusca);
+    return $resultado;
 }
 $users = usuarios($conexao);
 function usuarios($conexao)
@@ -35,7 +35,7 @@ while ($dados = $users->fetch_assoc()) {
     $_SESSION['insta'] = $dados['INSTA'];
     $_SESSION['wpp'] = $dados['WPP'];
     $_SESSION['x'] = $dados['TWITTER'];
-    $_SESSION['pic'] = $dados['PIC'];
+    $_SESSION['minha_logo'] = $dados['PIC'];
 }
 
 
@@ -62,92 +62,77 @@ while ($dados = $users->fetch_assoc()) {
 
 <body>
 
-<div class="container-modal">
-<div class="modal-comentarios">
-      <div class="div-forms forms-login dados-form" >
-        <div class="seta-voltar">
+    <div class="container-modal">
+        <div class="modal-comentarios">
+            <div class="div-forms forms-login dados-form">
+                <div class="seta-voltar">
 
-          <button class="btn-voltar" onclick="modalClose()">
-          <img width="35px" src="./imagens/arrow.png" alt="ff" />
-          </button>
-        </div>
-        <div class="cadas">
-          <form action="./php/update_ong.php" method="post" class="cad-edit" enctype="multipart/form-data">
-            <h2 style="font-weight: 700">Edite seu Perfil</h2>
-            <label for="image" id="img_upload">
-              <img src="./imagens/img_upload.png" alt="" width="80px">
-                      <h3>Coloque uma imagem</h3>
-                    </label>
-                    <input type="file" name="image" id="image" onchange="openFile(event)">
-                    <img id="output" width="200px">
-                    <div class="edit-inputs">
-                      <div class="input-edit-perfil">
-
-                        <label for="name">Editar Nome do Perfil</label>
-                        <input type="text" name='name' id='input-edit-name'>
-                      </div>
-                     
-                      <div class="input-edit-perfil">
-
-                        <label for="name">Editar Email</label>
-                        <input type="text" name='email' id='input-edit-name'>
-                      </div>
-                     
-                    </div>
-                    <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
-                    <button id="btn-doadorC" type="submit">Confirmar</button>
-                  </form>
+                    <button class="btn-voltar" onclick="modalClose()">
+                        <img width="35px" src="./imagens/arrow.png" alt="ff" />
+                    </button>
                 </div>
-      </div>
-    
-</div>
-</div>
+                <div class="cadas">
+                    <form action="./php/update_ong.php" method="post" class="cad-edit" enctype="multipart/form-data">
+                        <h2 style="font-weight: 700">Edite seu Perfil</h2>
+                        <label for="image" id="img_upload">
+                            <img src="./imagens/img_upload.png" alt="" width="80px">
+                            <h3>Coloque uma imagem</h3>
+                        </label>
+                        <input type="file" name="image" id="image" onchange="openFile(event)">
+                        <img id="output" width="200px">
+                        <div class="edit-inputs">
+                            <div class="input-edit-perfil">
 
-<div class="container-modal">
-  <div class="modal-comentarios">
-    <div class="div-forms forms-login dados-form">
-      <button class="btn-voltar" onclick="modalClose()">
-        <img width="35px" src="./imagens/arrow.png" alt="ff" />
-      </button>
-      <h2 style="font-weight: 700">Edite seu Perfil</h2>
-      <div class="cadas">
-        <form
-          action="./php/dados_ong.php"
-          method="post"
-          class="frmcad-1"
-          enctype="multipart/form-data"
-        >
-          <label for="image" id="img_upload">
-            <img src="./imagens/img_upload.png" alt="" width="80px" />
-            <h3>Coloque uma imagem</h3>
-          </label>
-          <input
-            type="file"
-            name="image"
-            id="image"
-            onchange="openFile(event)"
-          />
-          <img id="output" width="200px" />
-          <div class="cad-1">
-            <label for="">WhatsApp da ONG</label>
-            <input type="text" placeholder="WhatsApp" name="wpp" id="emailO" />
-            <label for="">Instagram da ONG</label>
-            <input
-              type="text"
-              placeholder="Instagram"
-              name="insta"
-              id="emailO"
-            />
-            <label for="">X da ONG</label>
-            <input type="text" placeholder="X" name="x" id="emailO" />
-          </div>
-          <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
-          <button id="btn-doadorC" type="submit">Confirmar</button>
-        </form>
-      </div>
+                                <label for="name">Editar Nome do Perfil</label>
+                                <input type="text" name='name' id='input-edit-name'>
+                            </div>
+
+                            <div class="input-edit-perfil">
+
+                                <label for="name">Editar Email</label>
+                                <input type="text" name='email' id='input-edit-name'>
+                            </div>
+
+                        </div>
+                        <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
+                        <button id="btn-doadorC" type="submit">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
-</div>
+
+    <div class="container-modal">
+        <div class="modal-comentarios">
+            <div class="div-forms forms-login dados-form">
+                <button class="btn-voltar" onclick="modalClose()">
+                    <img width="35px" src="./imagens/arrow.png" alt="ff" />
+                </button>
+                <h2 style="font-weight: 700">Edite seu Perfil</h2>
+                <div class="cadas">
+                    <form action="./php/dados_ong.php" method="post" class="frmcad-1" enctype="multipart/form-data">
+                        <label for="image" id="img_upload">
+                            <img src="./imagens/img_upload.png" alt="" width="80px" />
+                            <h3>Coloque uma imagem</h3>
+                        </label>
+                        <input type="file" name="image" id="image" onchange="openFile(event)" />
+                        <img id="output" width="200px" />
+                        <div class="cad-1">
+                            <label for="">WhatsApp da ONG</label>
+                            <input type="text" placeholder="WhatsApp" name="wpp" id="emailO" />
+                            <label for="">Instagram da ONG</label>
+                            <input type="text" placeholder="Instagram" name="insta" id="emailO" />
+                            <label for="">X da ONG</label>
+                            <input type="text" placeholder="X" name="x" id="emailO" />
+                        </div>
+                        <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
+                        <button id="btn-doadorC" type="submit">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <nav id="nav-ongs">
         <img src="imagens/logo.png" alt="logtipo" width="7%" id="logo" onclick="location.href='index.html'" />
         <div class="input-nav">
@@ -159,43 +144,44 @@ while ($dados = $users->fetch_assoc()) {
             </button>
         </div>
         <?php
-    if (!(isset($_SESSION['documento']) || isset($_SESSION['cnpj']))) {
-      echo '<button id="btn-entrar" onclick="location.href=`index.html#div-cad`">';
-      echo 'Entrar';
-      echo '</button>';
-    } else {
-      echo '<button id="btn-sair" onclick="location.href=`./php/logout.php`">';
-      echo 'Sair';
-      echo '</button>';
-    }
+        if (!(isset($_SESSION['documento']) || isset($_SESSION['cnpj']))) {
+            echo '<button id="btn-entrar" onclick="location.href=`index.html#div-cad`">';
+            echo 'Entrar';
+            echo '</button>';
+        } else {
+            echo '<button id="btn-sair" onclick="location.href=`./php/logout.php`">';
+            echo 'Sair';
+            echo '</button>';
+        }
 
-    ?>
+        ?>
     </nav>
     <section class="section-center">
         <div class="perfil">
             <div class="foto-e-info">
 
-                <div class="foto-doador">
-                    <?php
-                    if (!isset($_SESSION['pic'])) {
-                        echo "medicossemfronteiras@gmail.com";
-                    } else {
-                        echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pic']) . '" class="img-perfil-ong">';
-                    }
-                    ?>
-                    <!-- <div class="img-perfil-ong"></div> -->
-                </div>
+                <?php
+                if (!isset($_SESSION['minha_logo'])) {
+                    echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
+                } else {
+                    echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['minha_logo']) . '" class="img-perfil-ong" width="250px">';
+                }
+                ?>
+
+                <!-- <div class="img-perfil-ong"></div> -->
                 <div class="info">
                     <div id="nome">
                         <p>
                             <?php
                             if (!isset($_SESSION['nm_ong'])) {
-                                echo "Erro";
+                                echo "Médicos sem Fronteiras";
                             } else {
                                 echo $_SESSION['nm_ong'];
                             }
 
                             ?>
+                            <img src="./imagens/icon-verificado.png" alt="" width="40px">
+
                         </p>
                     </div>
                     <div id="contato">
@@ -209,53 +195,36 @@ while ($dados = $users->fetch_assoc()) {
                                 }
                                 ?>
                             </span>
-                            <img src="./imagens/icon-verificado.png" alt="" width="40px">
                         </div>
-
+                        <button onclick="Seguindo()" class="btn-seguir">
+                            Seguir
+                        </button>
                     </div>
-                    <button id='btn-edit-perfil' onclick='modalShow()' >
-          <i class="fa-regular fa-pen-to-square"></i>  
-          Editar Perfil
-        </button>
+
                 </div>
             </div>
 
             <div id="contatos">
-                <h4>contatos:</h4>
-                <div class="zap">
-                <i class="fa-brands fa-whatsapp fa-shake"></i>
-
-                    <span> 
-                        <?php
-                            if (!isset($_SESSION['wpp'])) {
-                                echo "Erro";
-                            } else {
-                                echo $_SESSION['wpp'];
-                            }
-                            ?> </span>
-                </div>
-
-                <div class="insta">
-                <i class="fa-brands fa-instagram fa-beat"></i>
-                    <span> <?php
-                            if (!isset($_SESSION['insta'])) {
-                                echo "Erro";
-                            } else {
-                                echo "@" . $_SESSION['insta'];
-                            }
-                            ?> </span>
-                </div>
-                <div class="twiter">
-                <i class="fa-brands fa-x-twitter"></i>
-                    <span>
-                        <?php
-                        if (!isset($_SESSION['x'])) {
-                            echo "Erro";
-                        } else {
-                            echo "@" . $_SESSION['x'];
-                        }
-                        ?>
-                    </span>
+                <h4>Contatos:</h4>
+                <div class="socials">
+                    <a href="https://api.whatsapp.com/send/?phone=<?php echo $_SESSION['wpp'] ?>&text&type=phone_number&app_absent=0" target="_blank">
+                        <div class="whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span> <?php echo $_SESSION['wpp'] ?></span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/<?php echo $_SESSION['insta'] ?>" target="_blank">
+                        <div class="insta">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span> <?php echo "@" . $_SESSION['insta'] ?> </span>
+                        </div>
+                    </a>
+                    <a href="https://twitter.com/<?php echo $_SESSION['x'] ?>" target="_blank">
+                        <div class="twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                            <span> <?php echo "@" . $_SESSION['x'] ?> </span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -334,26 +303,26 @@ while ($dados = $users->fetch_assoc()) {
         <div class="section-center">
 
             <div class="container-Comentarios ongs-ajudadas">
-            <?php
-        while ($dados = $comentarios->fetch_assoc()) {
-          echo '<div class="comentarios">';
-          echo '<div class="top-comets-content">';
-          echo '<div class="foto-user-comentario"></div>';
-          echo "<h1>{$dados['NM_DOADOR']}</h1>";
-          echo '</div>';
-          echo '<div class="comentario-text">';
-          echo '<p>';
-          echo "{$dados['TEXTO_COMMENT']}";
-          echo '</p>';
-          echo '</div>';
-          echo '<div class="reactions-button-group">';
-          echo '<button id="like-Button">';
-          echo '<i class="fa-solid fa-heart"></i>';
-          echo '</button>';
-          echo '</div>';
-          echo '</div>';
-        }
-        ?>
+                <?php
+                while ($dados = $comentarios->fetch_assoc()) {
+                    echo '<div class="comentarios">';
+                    echo '<div class="top-comets-content">';
+                    echo '<div class="foto-user-comentario"></div>';
+                    echo "<h1>{$dados['NM_DOADOR']}</h1>";
+                    echo '</div>';
+                    echo '<div class="comentario-text">';
+                    echo '<p>';
+                    echo "{$dados['TEXTO_COMMENT']}";
+                    echo '</p>';
+                    echo '</div>';
+                    echo '<div class="reactions-button-group">';
+                    echo '<button id="like-Button">';
+                    echo '<i class="fa-solid fa-heart"></i>';
+                    echo '</button>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
             </div>
         </div>
     </section>
