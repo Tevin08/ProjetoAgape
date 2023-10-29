@@ -22,7 +22,7 @@ function comentarios($conexao)
   return $resultado;
 }
 
-$row = mysqli_fetch_assoc($conexao -> query($sqlONG));
+$row = mysqli_fetch_assoc($conexao->query($sqlONG));
 
 $_SESSION['nm_ong'] = $row['NM_ONG'];
 $_SESSION['cnpj'] = $row['CNPJ'];
@@ -66,7 +66,7 @@ $_SESSION['pic'] = $row['PIC'];
   <nav id="nav-ongs">
     <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
     <div class="input-nav">
-      <button class=" btn-visualizar-ongs"  onclick="location.href='verongs.php'">
+      <button class=" btn-visualizar-ongs" onclick="location.href='verongs.php'">
         Visualizar ONG'S
       </button>
       <button class="feed-btn" onclick="Rota2()">
@@ -74,7 +74,7 @@ $_SESSION['pic'] = $row['PIC'];
       </button>
       <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
         Seu Perfil
-        </button>
+      </button>
 
       <?php
       if (isset($_SESSION["id_ong"])) {
@@ -102,17 +102,15 @@ $_SESSION['pic'] = $row['PIC'];
 
       <div class="foto-e-info">
 
-        <div class="foto-doador">
-          <?php
-          if (!isset($_SESSION['pic'])) {
-            echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
-          } else {
-            echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pic']) . '" class="img-perfil-ong">';
-          }
-          ?>
+        <?php
+        if (!isset($_SESSION['pic'])) {
+          echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
+        } else {
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pic']) . '" class="img-perfil-ong" width="250px">';
+        }
+        ?>
 
-          <!-- <div class="img-perfil-ong"></div> -->
-        </div>
+        <!-- <div class="img-perfil-ong"></div> -->
         <div class="info">
           <div id="nome">
             <p>
@@ -124,6 +122,8 @@ $_SESSION['pic'] = $row['PIC'];
               }
 
               ?>
+              <img src="./imagens/icon-verificado.png" alt="" width="40px">
+
             </p>
           </div>
           <div id="contato">
@@ -137,38 +137,37 @@ $_SESSION['pic'] = $row['PIC'];
                 }
                 ?>
               </span>
-              <img src="./imagens/icon-verificado.png" alt="" width="40px">
             </div>
-            <button onclick="Seguindo()" class="btn-seguir ">
+            <button onclick="Seguindo()" class="btn-seguir">
               Seguir
             </button>
           </div>
-          
+
         </div>
       </div>
 
 
       <div id="contatos">
-        <h4>contatos:</h4>
+        <h4>Contatos:</h4>
         <div class="socials">
-          <div class="whatsapp">
-            <a href="https://api.whatsapp.com/send/?phone=<?php echo $_SESSION['wpp'] ?>&text&type=phone_number&app_absent=0" target="_blank">
-            <i class="fa-brands fa-whatsapp fa-shake"></i>
-            </a>
-            <span> <?php echo $_SESSION['wpp'] ?></span>
-          </div>
-          <div class="insta">
-            <a href="https://instagram.com/<?php echo $_SESSION['insta'] ?>" target="_blank">
-            <i class="fa-brands fa-instagram fa-beat"></i>
-            </a>
-            <span> <?php echo "@" . $_SESSION['insta'] ?> </span>
-          </div>
-          <div class="twitter">
-            <a href="https://twitter.com/<?php echo $_SESSION['x'] ?>" target="_blank">
-            <i class="fa-brands fa-x-twitter"></i>
-            </a>
-            <span> <?php echo "@" . $_SESSION['x'] ?> </span>
-          </div>
+          <a href="https://api.whatsapp.com/send/?phone=<?php echo $_SESSION['wpp'] ?>&text&type=phone_number&app_absent=0" target="_blank">
+            <div class="whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span> <?php echo $_SESSION['wpp'] ?></span>
+            </div>
+          </a>
+          <a href="https://instagram.com/<?php echo $_SESSION['insta'] ?>" target="_blank">
+            <div class="insta">
+              <i class="fa-brands fa-instagram"></i>
+              <span> <?php echo "@" . $_SESSION['insta'] ?> </span>
+            </div>
+          </a>
+          <a href="https://twitter.com/<?php echo $_SESSION['x'] ?>" target="_blank">
+            <div class="twitter">
+              <i class="fa-brands fa-x-twitter"></i>
+              <span> <?php echo "@" . $_SESSION['x'] ?> </span>
+            </div>
+          </a>
         </div>
       </div>
     </div>

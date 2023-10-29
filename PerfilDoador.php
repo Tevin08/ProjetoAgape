@@ -57,13 +57,13 @@ while ($dados = $doadores->fetch_assoc()) {
 </head>
 
 <body>
-<div class="container-modal">
-<div class="modal-comentarios">
-      <div class="div-forms forms-login dados-form" >
+  <div class="container-modal">
+    <div class="modal-comentarios">
+      <div class="div-forms forms-login dados-form">
         <div class="seta-voltar">
 
           <button class="btn-voltar" onclick="modalClose()">
-          <img width="35px" src="./imagens/arrow.png" alt="ff" />
+            <img width="35px" src="./imagens/arrow.png" alt="ff" />
           </button>
         </div>
         <div class="cadas">
@@ -71,36 +71,36 @@ while ($dados = $doadores->fetch_assoc()) {
             <h2 style="font-weight: 700">Edite seu Perfil</h2>
             <label for="image" id="img_upload">
               <img src="./imagens/img_upload.png" alt="" width="80px">
-                      <h3>Coloque uma imagem</h3>
-                    </label>
-                    <input type="file" name="image" id="image" onchange="openFile(event)">
-                    <img id="output" width="200px">
-                    <div class="edit-inputs">
-                      <div class="input-edit-perfil">
+              <h3>Coloque uma imagem</h3>
+            </label>
+            <input type="file" name="image" id="image" onchange="openFile(event)">
+            <img id="output" width="200px">
+            <div class="edit-inputs">
+              <div class="input-edit-perfil">
 
-                        <label for="name">Editar Nome do Perfil</label>
-                        <input type="text" name='name' id='input-edit-name'>
-                      </div>
-                     
-                      <div class="input-edit-perfil">
+                <label for="name">Editar Nome do Perfil</label>
+                <input type="text" name='name' id='input-edit-name'>
+              </div>
 
-                        <label for="name">Editar Email</label>
-                        <input type="text" name='email' id='input-edit-name'>
-                      </div>
-                     
-                    </div>
-                    <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
-                    <button id="btn-doadorC" type="submit">Confirmar</button>
-                  </form>
-                </div>
+              <div class="input-edit-perfil">
+
+                <label for="name">Editar Email</label>
+                <input type="text" name='email' id='input-edit-name'>
+              </div>
+
+            </div>
+            <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
+            <button id="btn-doadorC" type="submit">Confirmar</button>
+          </form>
+        </div>
       </div>
-    
-</div>
-</div>
-<nav id="nav-ongs">
+
+    </div>
+  </div>
+  <nav id="nav-ongs">
     <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
     <div class="input-nav">
-      <button class=" btn-visualizar-ongs"  onclick="location.href='verongs.php'">
+      <button class=" btn-visualizar-ongs" onclick="location.href='verongs.php'">
         Visualizar ONG'S
       </button>
       <button class="feed-btn" onclick="Rota2()">
@@ -108,7 +108,7 @@ while ($dados = $doadores->fetch_assoc()) {
       </button>
       <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
         Seu Perfil
-        </button>
+      </button>
 
       <?php
       if (isset($_SESSION["id_ong"])) {
@@ -137,15 +137,13 @@ while ($dados = $doadores->fetch_assoc()) {
     <div class="perfil">
       <div class="foto-e-info-doador">
 
-        <div class="foto-doador">
         <?php
-          if (!isset($_SESSION['foto'])) {
-            echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
-          } else {
-            echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['foto']) . '" class="img-perfil-ong">';
-          }
-          ?>
-        </div>
+        if (!isset($_SESSION['foto'])) {
+          echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
+        } else {
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['foto']) . '" class="img-perfil-ong" width="250px">';
+        }
+        ?>
         <div class="info">
 
           <div id="nome">
@@ -173,9 +171,9 @@ while ($dados = $doadores->fetch_assoc()) {
           </div>
 
           <button id='btn-edit-perfil' onclick="modalShow()">
-          <i class="fa-regular fa-pen-to-square"></i>  
-          Editar Perfil
-        </button>
+            <i class="fa-regular fa-pen-to-square"></i>
+            Editar Perfil
+          </button>
         </div>
       </div>
 
@@ -200,31 +198,31 @@ while ($dados = $doadores->fetch_assoc()) {
     </div>
     <div class="section-center">
       <div class="container-Comentarios ongs-ajudadas">
-            <?php 
-              while ($dados = $comentarios->fetch_assoc()) {
-              echo '<div class="comentarios">';
-              echo '<div class="top-comets-content">';
-              echo '';
-              echo '<div class="foto-user-comentario"></div>';
-              echo "<h1>{$dados['NM_DOADOR']}</h1>";
-              echo '</div>';
-              echo '<div class="comentario-text">';
-              echo '<p>';
-              echo "{$dados['TEXTO_COMMENT']}";
-              echo '</p>';
-              echo '</div>';
-              echo '<div class="reactions-button-group">';
-              echo '<button id="like-Button">';
-              echo '<i class="fa-solid  fa-heart" onclick="love()"></i>';
-              echo '</button>';
-              echo '';
-              echo '</div>';
-              echo '</div>';
-            }
-          ?>
+        <?php
+        while ($dados = $comentarios->fetch_assoc()) {
+          echo '<div class="comentarios">';
+          echo '<div class="top-comets-content">';
+          echo '';
+          echo '<div class="foto-user-comentario"></div>';
+          echo "<h1>{$dados['NM_DOADOR']}</h1>";
+          echo '</div>';
+          echo '<div class="comentario-text">';
+          echo '<p>';
+          echo "{$dados['TEXTO_COMMENT']}";
+          echo '</p>';
+          echo '</div>';
+          echo '<div class="reactions-button-group">';
+          echo '<button id="like-Button">';
+          echo '<i class="fa-solid  fa-heart" onclick="love()"></i>';
+          echo '</button>';
+          echo '';
+          echo '</div>';
+          echo '</div>';
+        }
+        ?>
       </div>
     </div>
-   </section>
+  </section>
 
 </body>
 <footer></footer>
