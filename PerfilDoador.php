@@ -225,6 +225,16 @@ while ($dados = $doadores->fetch_assoc()) {
   </section>
 
 </body>
-<footer></footer>
+<footer>
+    <div class="footer-logo">
+        <img src="./imagens/logotipo.png" alt="logo" width="500px" />
+    </div>
+    <div class="footer-socials">
+        <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+</footer>
 
 </html>

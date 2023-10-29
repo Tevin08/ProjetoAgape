@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <?php
-    include "./php/banco.php";
+include "./php/banco.php";
 
-    session_start();
+session_start();
 
-    $comentarios = comentarios($conexao);
-    function comentarios($conexao)
-    {
+$comentarios = comentarios($conexao);
+function comentarios($conexao)
+{
     $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
     FROM TB_COMMENT
     JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR;
     ";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
-    }
+}
 
 ?>
 <html lang="en">
@@ -63,39 +63,39 @@
         </div>
     </div>
     <nav id="nav-ongs">
-    <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
-    <div class="input-nav">
-      <button class=" btn-visualizar-ongs"  onclick="location.href='verongs.php'">
-        Visualizar ONG'S
-      </button>
-      <button class="feed-btn" onclick="Rota2()">
-        Feed
-      </button>
-      <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
-        Seu Perfil
-        </button>
+        <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
+        <div class="input-nav">
+            <button class=" btn-visualizar-ongs" onclick="location.href='verongs.php'">
+                Visualizar ONG'S
+            </button>
+            <button class="feed-btn" onclick="Rota2()">
+                Feed
+            </button>
+            <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
+                Seu Perfil
+            </button>
 
-      <?php
-      if (isset($_SESSION["id_ong"])) {
-        echo '<button class="btn-perfil minha-ong-btn" onclick="location.href=`./MinhaOng.php`">';
-        echo 'Minha ONG';
-        echo '</button>';
-      }
-      ?>
-    </div>
-    <?php
-    if (!(isset($_SESSION['documento']) || isset($_SESSION['cnpj']))) {
-      echo '<button id="btn-entrar" onclick="location.href=`index.html#div-cad`">';
-      echo 'Entrar';
-      echo '</button>';
-    } else {
-      echo '<button id="btn-sair" onclick="location.href=`./php/logout.php`">';
-      echo 'Sair';
-      echo '</button>';
-    }
+            <?php
+            if (isset($_SESSION["id_ong"])) {
+                echo '<button class="btn-perfil minha-ong-btn" onclick="location.href=`./MinhaOng.php`">';
+                echo 'Minha ONG';
+                echo '</button>';
+            }
+            ?>
+        </div>
+        <?php
+        if (!(isset($_SESSION['documento']) || isset($_SESSION['cnpj']))) {
+            echo '<button id="btn-entrar" onclick="location.href=`index.html#div-cad`">';
+            echo 'Entrar';
+            echo '</button>';
+        } else {
+            echo '<button id="btn-sair" onclick="location.href=`./php/logout.php`">';
+            echo 'Sair';
+            echo '</button>';
+        }
 
-    ?>
-  </nav>
+        ?>
+    </nav>
     <div class="square-post">
         <div class="div-nome">
             <img src="./imagens/pfp.jpg" alt="" onclick="location.href='./PerfilOngs.php'">
@@ -107,12 +107,12 @@
 
             <div class="post-img"><img src="./imagens/palhaço.png" alt=""></div>
             <div class="div-coments-description">
-                    <div class="div-toggle-parts">
-                       
-                        <!-- <button class='btn-toggle btn-id-comments' onclick='Toggleparts(2)'>
+                <div class="div-toggle-parts">
+
+                    <!-- <button class='btn-toggle btn-id-comments' onclick='Toggleparts(2)'>
                             
                         </button> -->
-                    </div>
+                </div>
                 <div class="post-descricao">
                     <p>
 
@@ -126,9 +126,9 @@
                 <div class="leia-mais">
                     <p>Ler mais...</p>
                 </div>
-                 <div class="post-coments">
+                <div class="post-coments">
 
-                 <?php
+                    <?php
                     while ($dados = $comentarios->fetch_assoc()) {
 
                         echo '<div class="feed-comentarios">';
@@ -153,12 +153,12 @@
                         echo '</div>';
                         echo '</div>';
                     }
-                ?> 
-                </div> 
-                    <button class='btn-toggle  btn-id-descricao' onclick='Vercomments()'>
-                 
-                     Ver Comentários
-                    </button>
+                    ?>
+                </div>
+                <button class='btn-toggle  btn-id-descricao' onclick='Vercomments()'>
+
+                    Ver Comentários
+                </button>
             </div>
         </div>
         <div class="div-add-postcoments">
@@ -182,7 +182,7 @@
             <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://x.com" target="_blank"><i class="fa-brands fa-x"></i></a>
+            <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
     </footer>
 </body>

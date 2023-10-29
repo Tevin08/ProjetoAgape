@@ -246,8 +246,9 @@ $_SESSION['pic'] = $row['PIC'];
       </div>
       <div class="container-Comentarios ongs-ajudadas">
         <?php
+        $count = 0;
         while ($dados = $comentarios->fetch_assoc()) {
-          echo '<div class="comentarios">';
+          echo '<form action="" method="post" class="comentarios">';
           echo '<div class="top-comets-content">';
           echo '<div class="foto-user-comentario"></div>';
           echo "<h1>{$dados['NM_DOADOR']}</h1>";
@@ -258,11 +259,13 @@ $_SESSION['pic'] = $row['PIC'];
           echo '</p>';
           echo '</div>';
           echo '<div class="reactions-button-group">';
-          echo '<button id="like-Button">';
-          echo '<i class="fa-solid fa-heart"></i>';
+          echo "<button type='button' class='like-Button likeBtn-$count' onclick='likeBtn($count)'>";
+          echo "<i class='fa-solid fa-heart like-$count'></i>";
+          echo "<span class='count-like count-like-$count'>0</span>";
           echo '</button>';
           echo '</div>';
-          echo '</div>';
+          echo '</form>';
+          $count++;
         }
         ?>
       </div>
@@ -276,10 +279,11 @@ $_SESSION['pic'] = $row['PIC'];
       <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
       <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://x.com" target="_blank"><i class="fa-brands fa-x"></i></a>
+      <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
   </footer>
   <script src="./js/modals.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

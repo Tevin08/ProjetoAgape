@@ -40,7 +40,7 @@ function usuarios($conexao)
       </button>
       <button class="btn-perfil" onclick="location.href='PerfilDoador.php'">
         Seu Perfil
-        </button>
+      </button>
 
       <?php
       if (isset($_SESSION["id_ong"])) {
@@ -117,7 +117,7 @@ function usuarios($conexao)
     <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
     <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
     <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-    <a href="https://x.com" target="_blank"><i class="fa-brands fa-x"></i></a>
+    <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
   </div>
 </footer>
 

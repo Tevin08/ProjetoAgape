@@ -251,7 +251,7 @@ body::-webkit-scrollbar-thumb {
 .comentarios:hover,
 .posts:hover {
   transition: 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-  scale: 105%;
+  /* scale: 105%; */
 }
 .posts:hover {
   height: 325px;
@@ -388,7 +388,7 @@ body::-webkit-scrollbar-thumb {
   gap: 10px;
 }
 
-#like-Button,
+.like-Button,
 #dislike-button {
   border: none;
   transition: all 0.5s;
@@ -481,6 +481,13 @@ body::-webkit-scrollbar-thumb {
     rotate: -25deg;
   }
 } */
+
+.count-like {
+  font-size: 1.3rem;
+  color: #513585;
+  margin-left: .5em;
+}
+
 .edit-inputs {
   display: flex;
   justify-content: center;
