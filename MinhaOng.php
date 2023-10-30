@@ -62,6 +62,43 @@ while ($dados = $users->fetch_assoc()) {
 
 <body>
 
+    <div class="container-post">
+        <div class="modal-post">
+            <div class="div-forms forms-login dados-form">
+                <div class="seta-voltar">
+
+                    <button class="btn-voltar" onclick="fecharModal()">
+                        <img width="35px" src="./imagens/arrow.png" alt="ff" />
+                    </button>
+                </div>
+                <div class="cadas">
+                    <form action="./php/update_ong.php" method="post" class="cad-edit" enctype="multipart/form-data">
+                        <h1 >Faça sua Postagem!</h1>
+                        <div class="post-content-square">
+
+                            <div class="post-foto-square">
+    
+                                <label for="image" id="img_upload">
+                                    <img src="./imagens/img_upload.png" alt="" width="80px">
+                                    
+                                </label>
+                                <input type="file" name="image" id="image" onchange="openFile(event)">
+                                <img id="output" width="200px">
+                                <div class="edit-inputs">
+                                   
+                                </div>
+                            </div>
+                            <div class="descricao-post-square">
+                                <textarea name="" id="" cols="20" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <button id="btn-doadorC" type="submit">Postar</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <div class="container-modal">
         <div class="modal-comentarios">
             <div class="div-forms forms-login dados-form">
@@ -160,6 +197,8 @@ while ($dados = $users->fetch_assoc()) {
         <div class="perfil">
             <div class="foto-e-info">
 
+            <div class="div-img-perfil-ong">
+
                 <?php
                 if (!isset($_SESSION['minha_logo'])) {
                     echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
@@ -167,6 +206,8 @@ while ($dados = $users->fetch_assoc()) {
                     echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['minha_logo']) . '" class="img-perfil-ong" width="250px">';
                 }
                 ?>
+            </div>
+
 
                 <!-- <div class="img-perfil-ong"></div> -->
                 <div class="info">
@@ -196,10 +237,12 @@ while ($dados = $users->fetch_assoc()) {
                                 ?>
                             </span>
                         </div>
-                        <button onclick="Seguindo()" class="btn-seguir">
-                            Seguir
-                        </button>
+                       
                     </div>
+                    <button id='btn-edit-perfil' onclick="modalShow()">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        Editar Perfil
+                    </button>
 
                 </div>
             </div>
@@ -255,43 +298,25 @@ while ($dados = $users->fetch_assoc()) {
             <h1>Postagens</h1>
         </div>
         <div class="section-center">
-
+            <div id="adicionar-coments">
+            <button onclick="abrirModal()" id="btn-add-coments"><img src="./imagens/plus-icon.png" alt=""></button>
+            <span>Adicionar Post</span>
+          </div>
+                        
+          
 
             <div class="container-posts">
-                <div class="posts">
+                              
+
+                <!-- <div class="posts">
                     <div class="foto-post"></div>
 
                     <div class="conteudo">
                         <h2>Dia do Áçai</h2>
                         <p>Hoje aqui, tivemos o dia do açái</p>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="posts">
-                    <div class="foto-post"></div>
-
-                    <div class="conteudo">
-                        <h2>Dia do Áçai</h2>
-                        <p>Hoje aqui, tivemos o dia do açái</p>
-                    </div>
-                </div>
-
-                <div class="posts">
-                    <div class="foto-post"></div>
-
-                    <div class="conteudo">
-                        <h2>Dia do Áçai</h2>
-                        <p>Hoje aqui, tivemos o dia do açái</p>
-                    </div>
-                </div>
-
-                <div class="posts">
-                    <div class="foto-post"></div>
-
-                    <div class="conteudo">
-                        <h2>Dia do Áçai</h2>
-                        <p>Hoje aqui, tivemos o dia do açái</p>
-                    </div>
                 </div>
             </div>
         </div>

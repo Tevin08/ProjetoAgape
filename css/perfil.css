@@ -24,17 +24,26 @@ body::-webkit-scrollbar-thumb {
 .img-perfil-doador {
   background-image: url(../imagens/pfp.jpg);
   background-size: cover;
-  width: 200px;
-  height: 200px;
   border-radius: 50%;
   box-shadow: 0 0 25px 1px rgba(215, 206, 252, 0.5);
   border: 3px solid rgb(215, 206, 252);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .img-perfil-ong {
   border-radius: 50%;
   box-shadow: 0 0 25px 1px rgba(215, 206, 252, 0.5);
   border: 3px solid rgb(215, 206, 252);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.div-img-perfil-ong{
+  width: 200px;
+  height: 200px;
 }
 
 .btn-perfil {
@@ -522,3 +531,4 @@ body::-webkit-scrollbar-thumb {
 .cad-edit h1 {
   text-align: center;
 }
+ 

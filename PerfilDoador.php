@@ -141,6 +141,8 @@ while ($dados = $doadores->fetch_assoc()) {
     <div class="perfil">
       <div class="foto-e-info-doador">
 
+      <div class="div-img-perfil-ong">
+
         <?php
         if (!isset($_SESSION['foto'])) {
           echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
@@ -148,6 +150,7 @@ while ($dados = $doadores->fetch_assoc()) {
           echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['foto']) . '" class="img-perfil-ong" width="250px">';
         }
         ?>
+      </div>
         <div class="info">
 
           <div id="nome">

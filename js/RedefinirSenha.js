@@ -63,3 +63,19 @@ function Vercomments(){
   lmais.style.display = 'none'
 
 }
+
+
+function abrirModal(){
+  const modal = document.querySelector(".container-post");
+  document.body.style.overflow = 'hidden'; 
+
+  modal.style.display = "flex";
+
+}
+
+function fecharModal(){
+  const modal = document.querySelector(".container-post");
+  document.body.style.overflow = ''; 
+
+  modal.style.display = "none"; 
+}
