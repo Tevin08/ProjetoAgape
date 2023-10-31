@@ -215,7 +215,7 @@ while ($dados = $users->fetch_assoc()) {
                         <p>
                             <?php
                             if (!isset($_SESSION['nm_ong'])) {
-                                echo "Médicos sem Fronteiras";
+                                echo "ONG";
                             } else {
                                 echo $_SESSION['nm_ong'];
                             }

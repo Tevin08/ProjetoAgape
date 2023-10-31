@@ -22,28 +22,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 .img-perfil-doador {
-  background-image: url(../imagens/pfp.jpg);
-  background-size: cover;
-  border-radius: 50%;
   box-shadow: 0 0 25px 1px rgba(215, 206, 252, 0.5);
   border: 3px solid rgb(215, 206, 252);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 15em;
+  height: 15em;
+  margin-right: 1em;
 }
 
 .img-perfil-ong {
   border-radius: 50%;
   box-shadow: 0 0 25px 1px rgba(215, 206, 252, 0.5);
   border: 3px solid rgb(215, 206, 252);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.div-img-perfil-ong{
-  width: 200px;
-  height: 200px;
+  width: 15em;
+  height: 15em;
 }
 
 .btn-perfil {
@@ -68,6 +59,7 @@ body::-webkit-scrollbar-thumb {
 .info {
   display: flex;
   flex-direction: column;
+  margin-left: 1em;
   /* margin-top: 2em; */
 }
 .info p {
@@ -80,8 +72,6 @@ body::-webkit-scrollbar-thumb {
 .perfil {
   display: flex;
   align-items: center;
-  gap: 20px;
-  /* margin-right: 0rem; */
   justify-content: space-around;
 }
 
@@ -165,7 +155,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   /* align-items: center;  */
   color: #777777;
-  font-size: 27px;
+  font-size: 1.5rem;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -471,11 +461,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 #btn-edit-perfil {
+  align-self: flex-start;
   background-color: #705dbd;
-  width: 10em;
-  margin-top: 1em;
-  padding: 10px;
-  font-size: 1.3em;
+  padding: .2em 1em;
+  font-size: 1.4em;
   border-radius: 10px;
   color: #fff;
   border: 1px #705dbd;

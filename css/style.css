@@ -254,6 +254,18 @@ button {
   border: 2px solid #f088c7;
 }
 
+.cad-link {
+  font-size: 1.4rem;
+}
+
+.cad-link a {
+  color: #d36ba9;
+}
+
+.cad-link a:hover {
+  text-decoration: underline;
+}
+
 footer {
   display: flex;
   flex-direction: column;

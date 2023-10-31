@@ -109,7 +109,7 @@ $_SESSION['pic'] = $row['PIC'];
         if (!isset($_SESSION['pic'])) {
           echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
         } else {
-          echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pic']) . '" class="img-perfil-ong" width="250px">';
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pic']) . '" class="img-perfil-ong">';
         }
         ?>
 

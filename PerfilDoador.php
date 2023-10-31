@@ -138,19 +138,19 @@ while ($dados = $doadores->fetch_assoc()) {
   <section class="section-center">
 
 
-    <div class="perfil">
+    <div class="perfil-doador">
       <div class="foto-e-info-doador">
 
-      <div class="div-img-perfil-ong">
+        <div class="div-img-perfil-ong">
 
-        <?php
-        if (!isset($_SESSION['foto'])) {
-          echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
-        } else {
-          echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['foto']) . '" class="img-perfil-ong" width="250px">';
-        }
-        ?>
-      </div>
+          <?php
+          if (!isset($_SESSION['foto'])) {
+            echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
+          } else {
+            echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['foto']) . '" class="img-perfil-doador">';
+          }
+          ?>
+        </div>
         <div class="info">
 
           <div id="nome">
@@ -206,10 +206,10 @@ while ($dados = $doadores->fetch_assoc()) {
     <div class="section-center">
       <div class="container-Comentarios ongs-ajudadas">
         <?php
+        $count = 0;
         while ($dados = $comentarios->fetch_assoc()) {
           echo '<div class="comentarios">';
           echo '<div class="top-comets-content">';
-          echo '';
           echo '<div class="foto-user-comentario"></div>';
           echo "<h1>{$dados['NM_DOADOR']}</h1>";
           echo '</div>';
@@ -219,17 +219,19 @@ while ($dados = $doadores->fetch_assoc()) {
           echo '</p>';
           echo '</div>';
           echo '<div class="reactions-button-group">';
-          echo '<button id="like-Button">';
-          echo '<i class="fa-solid  fa-heart" onclick="love()"></i>';
+          echo "<button type='button' class='like-Button likeBtn-$count' onclick='likeBtn($count)'>";
+          echo "<i class='fa-solid fa-heart like-$count'></i>";
+          echo "<span class='count-like count-like-$count'>0</span>";
           echo '</button>';
-          echo '';
           echo '</div>';
           echo '</div>';
+          $count++;
         }
         ?>
       </div>
     </div>
   </section>
+  <script src="./js/script.js"></script>
 
 </body>
 <footer>

@@ -67,6 +67,7 @@ if (isset($_SESSION['id_user'])) {
             </div> -->
             <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
             <button id="btn-doadorC" type="submit">Acessar</button>
+            <p class="cad-link">Não possui uma conta? <a href="./cadastroDoador.php">Cadastre-se aqui</a></p>
           </form>
         </div>
       </div>
