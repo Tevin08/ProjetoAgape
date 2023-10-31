@@ -200,7 +200,10 @@ margin-left: 2.5em;
 
 .post-content-square{
     display: flex;
-   
+    justify-content: center;
+    width: 800px;
+    align-items: self-end;
+    height: 300px;
 }
 
 .modal-post{
@@ -208,11 +211,13 @@ margin-left: 2.5em;
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    width: 50em;
+    width: 55em;
+    height: 570px;
     overflow: hidden;
     z-index: 9999;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 1rem;
+
 }
 
 .modal-post h1{
@@ -221,5 +226,37 @@ margin-left: 2.5em;
 }
 
 .modal-post .post-foto-square,.descricao-post-square {
-    width: 50%;
+     width: 50%;
+}
+
+.post-foto-square{
+    margin-right: -20px;
+}
+
+.descricao-post-square textarea{
+    flex: 1 ;
+    border-radius: 20px;
+    
+}
+.descricao-post-square{
+   
+    align-self: center;
+}
+
+#tituloPost{
+    padding: 5px;
+    border: 0;
+    border-bottom: 2px solid #d36ba9;
+    color: #d36ba9;
+    font-size: 25px;
+}
+#tituloPost::placeholder{
+    color: #d36ba9;
+    font-size: 25px;
+   
+}
+
+textarea::placeholder{
+    position: absolute;
+    left: 20px;
 }
