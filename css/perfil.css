@@ -480,6 +480,16 @@ body::-webkit-scrollbar-thumb {
   }
 } */
 
+.cad-edit {
+  padding: 2em 1em;
+  margin-top: -2em;
+}
+
+.cad-edit h2 {
+  font-size: 2.2rem;
+  color: #513585;
+}
+
 .count-like {
   font-size: 1.3rem;
   color: #513585;
@@ -491,10 +501,27 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 1em;
   margin: 2em;
 }
 
-#input-edit-name {
+.edit-inputs label {
+  font-size: 1.2rem;
+  margin-left: .5em;
+  color: #26143e;
+}
+
+.edit-inputs input {
+  display: flex;
+  flex-direction: column;
+  padding: .5em;
+  font-size: 1.3rem;
+  border-radius: 1em;
+  outline: none;
+  border: 1px solid #c79dff;
+}
+
+/* #input-edit-name {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -504,7 +531,7 @@ body::-webkit-scrollbar-thumb {
 
 .input-edit-perfil {
   margin: 1em;
-}
+} */
 
 .seta-voltar {
   margin-right: 29em;

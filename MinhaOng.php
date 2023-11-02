@@ -113,21 +113,18 @@ while ($dados = $users->fetch_assoc()) {
                         <h2 style="font-weight: 700">Edite seu Perfil</h2>
                         <label for="image" id="img_upload">
                             <img src="./imagens/img_upload.png" alt="" width="80px">
-                            <h3>Coloque uma imagem</h3>
+                            <h3>Editar imagem de perfil</h3>
                         </label>
                         <input type="file" name="image" id="image" onchange="openFile(event)">
                         <img id="output" width="200px">
                         <div class="edit-inputs">
                             <div class="input-edit-perfil">
-
                                 <label for="name">Editar Nome do Perfil</label>
-                                <input type="text" name='name' id='input-edit-name'>
+                                <input type="text" placeholder="Nome do perfil" value="<?php echo $_SESSION['nm_ong'] ?>" name='name' id='input-edit-name'>
                             </div>
-
                             <div class="input-edit-perfil">
-
                                 <label for="name">Editar Email</label>
-                                <input type="text" name='email' id='input-edit-name'>
+                                <input type="text" placeholder="Email" value="<?php echo $_SESSION['email_ong'] ?>" name='email' id='input-edit-name'>
                             </div>
 
                         </div>

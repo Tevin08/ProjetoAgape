@@ -77,9 +77,8 @@ while ($dados = $doadores->fetch_assoc()) {
             <img id="output" width="200px">
             <div class="edit-inputs">
               <div class="input-edit-perfil">
-
                 <label for="name">Editar Nome do Perfil</label>
-                <input type="text" name='name' id='input-edit-name'>
+                <input type="text" value="<?php echo'nome'; ?>" name='name' id='input-edit-name'>
               </div>
 
               <div class="input-edit-perfil">
