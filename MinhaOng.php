@@ -72,7 +72,7 @@ while ($dados = $users->fetch_assoc()) {
                     </button>
                 </div>
                 <div class="cadas">
-                    <form action="./php/update_ong.php" method="post" class="cad-edit" enctype="multipart/form-data">
+                    <form action="./php/post.php" method="post" class="cad-edit" enctype="multipart/form-data">
                        <input type="text" name="tituloPost" maxlength="20" id="tituloPost" placeholder="Título do Post..">
                         <div class="post-content-square">
 
@@ -89,7 +89,7 @@ while ($dados = $users->fetch_assoc()) {
                                 </div>
                             </div>
                             <div class="descricao-post-square">
-                                <textarea name="" id="" placeholder="Descrição..." cols="20" rows="10"></textarea>
+                                <textarea name="texto" id="" placeholder="Descrição..." cols="20" rows="10"></textarea>
                             </div>
                         </div>
                         <button id="btn-doadorC" type="submit">Postar</button>

@@ -14,6 +14,15 @@ function comentarios($conexao)
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
+$post = post($conexao);
+function post($conexao)
+{
+    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST
+    FROM TB_ONG
+    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG";
+    $resultado = mysqli_query($conexao, $sqlBusca);
+    return $resultado;
+}
 
 ?>
 <html lang="en">
@@ -101,15 +110,18 @@ function comentarios($conexao)
         ?>
     </nav>
     <div class="square-post">
+    <?php
+        while ($dados = $post->fetch_assoc()) {
+?>
         <div class="div-nome">
-            <img src="./imagens/pfp.jpg" alt="" onclick="location.href='./PerfilOngs.php'">
+        <img src="data:image/jpeg;base64,<?= base64_encode($dados['PIC']) ?>">
             <h1>
-                IKMD - I Know my Directs
+                <?= $dados['NM_ONG']  ?>
             </h1>
         </div>
         <div class="post-content">
 
-            <div class="post-img"><img src="./imagens/palhaço.png" alt=""></div>
+            <div class="post-img"><img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>"></div>
             <div class="div-coments-description">
                 <div class="div-toggle-parts">
 
@@ -119,12 +131,7 @@ function comentarios($conexao)
                 </div>
                 <div class="post-descricao">
                     <p>
-
-                        Hoje foi um dia muito especial para as crianças do nosso projeto social. Recebemos a visita do palhaço Pitanguinha, que trouxe muita alegria, diversão e esperança para todos. Pitanguinha é um artista voluntário que faz parte da ONG [Palhaços Sem Fronteiras], uma organização que leva sorrisos e solidariedade para lugares onde há conflitos, violência e pobreza.
-
-                        Pitanguinha chegou com seu nariz vermelho, sua roupa colorida e sua mala cheia de surpresas. Ele fez brincadeiras, contou piadas, cantou músicas e encantou as crianças com sua magia e seu carisma. Ele também distribuiu balões, doces e abraços para todos. Foi lindo ver o brilho nos olhos e o sorriso no rosto de cada criança que participou da atividade.
-
-                        Agradecemos ao palhaço Pitanguinha por sua generosidade e seu talento. Ele nos mostrou que o humor é uma forma de resistir e de transformar a realidade. Esperamos que ele volte mais vezes para alegrar nossos dias. E você, quer conhecer mais sobre o trabalho da ONG Palhaços Sem Fronteiras? Acesse o site e saiba como apoiar essa causa. Juntos, podemos fazer a diferença na vida de muitas pessoas!
+                        <?= $dados['TEXTO_POST'] ?>
                     </p>
                 </div>
                 <div class="leia-mais">
@@ -176,6 +183,9 @@ function comentarios($conexao)
                 </button>
             </div>
         </div>
+        <?php
+        }
+        ?>
     </div>
     </div>
     <footer>
