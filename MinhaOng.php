@@ -22,7 +22,7 @@ function comentarios($conexao)
 $users = usuarios($conexao);
 function usuarios($conexao)
 {
-    $sqlBusca = "SELECT * FROM TB_ONG WHERE CNPJ = '{$_SESSION['cnpj']}'";
+    $sqlBusca = "SELECT * FROM TB_ONG WHERE CD_ONG = '{$_SESSION['id_ong']}'";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
@@ -348,6 +348,7 @@ while ($dados = $users->fetch_assoc()) {
             </div>
         </div>
     </section>
+    <script src="./js/script.js"></script>
 </body>
 <footer>
     <div class="footer-logo">
