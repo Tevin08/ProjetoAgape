@@ -27,9 +27,10 @@ $_SESSION['get_id_ong'] = $_GET['id'];
 $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
-  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
+  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT, TB_COMMENT.CD_ONG
   FROM TB_COMMENT
-  JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR;
+  JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR
+  JOIN TB_ONG ON TB_ONG.CD_ONG = TB_COMMENT.CD_ONG WHERE TB_COMMENT.CD_ONG = {$_GET['id']};
   ";
   $resultado = mysqli_query($conexao, $sqlBusca);
   return $resultado;
@@ -37,7 +38,7 @@ function comentarios($conexao)
 $post = post($conexao);
 function post($conexao)
 {
-    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST
+    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST, TB_ONG.CD_ONG
     FROM TB_ONG
     JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG WHERE TB_ONG.CD_ONG = {$_GET['id']}";
     $resultado = mysqli_query($conexao, $sqlBusca);
@@ -52,7 +53,7 @@ $_SESSION['insta'] = $row['INSTA'];
 $_SESSION['wpp'] = $row['WPP'];
 $_SESSION['x'] = $row['TWITTER'];
 $_SESSION['pic'] = $row['PIC'];
-
+$_SESSION['cd_ong'] = $row['CD_ONG'];
 
 ?>
 <html lang="pt">
@@ -75,8 +76,8 @@ $_SESSION['pic'] = $row['PIC'];
 
 <body>
 
-  <div class="modal-add-comment">
-    <form action="./php/comentarios.php" method="post">
+  <div class="anim modal-add-comment">
+    <form action="./php/comentarios.php?id=<?=$_SESSION['cd_ong']?>" method="post">
       <i onclick="closeComment(event)" class="fa-solid fa-close"></i>
       <label>Adicionar comentário</label>
       <textarea placeholder="Adicione um comentário aqui" name="comentario" cols="30" rows="10"></textarea>
