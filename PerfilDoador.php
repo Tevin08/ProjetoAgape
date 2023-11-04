@@ -78,13 +78,13 @@ while ($dados = $doadores->fetch_assoc()) {
             <div class="edit-inputs">
               <div class="input-edit-perfil">
                 <label for="name">Editar Nome do Perfil</label>
-                <input type="text" value="<?php echo'nome'; ?>" name='name' id='input-edit-name'>
+                <input type="text" value="<?php echo $_SESSION['nm_doador']; ?>" name='name' id='input-edit-name'>
               </div>
 
               <div class="input-edit-perfil">
 
                 <label for="name">Editar Email</label>
-                <input type="text" name='email' id='input-edit-name'>
+                <input type="text" value="<?php echo $_SESSION['email']; ?>" name='email' id='input-edit-name'>
               </div>
 
             </div>

@@ -1,4 +1,4 @@
-let modal = document.querySelector(".modal-add-comment");
+let modal = document.querySelector(".anim");
 
 function addComment() {
   modal.style.display = "flex";

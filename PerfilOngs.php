@@ -7,6 +7,19 @@ include "./php/banco.php";
 
 session_start();
 
+if (!isset($_GET['id'])) {
+  header('location: ./verOngs.php');
+  exit;
+}
+
+if(isset($_SESSION['id_ong'])) {
+  if ($_SESSION['id_ong'] === $_GET['id']) {
+    header('location: ./MinhaOng.php');
+    exit;
+  }
+}
+
+
 $sqlONG = "SELECT * FROM TB_ONG WHERE CD_ONG = {$_GET['id']}";
 
 $_SESSION['get_id_ong'] = $_GET['id'];
@@ -26,7 +39,7 @@ function post($conexao)
 {
     $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST
     FROM TB_ONG
-    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG";
+    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG WHERE TB_ONG.CD_ONG = {$_GET['id']}";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
@@ -89,7 +102,7 @@ $_SESSION['pic'] = $row['PIC'];
 
       <?php
       if (isset($_SESSION["id_ong"])) {
-        echo '<button class="btn-perfil minha-ong-btn" onclick="location.href=`./MinhaOng.php`">';
+        echo '<button class="feed-btn minha-ong-btn" onclick="location.href=`./MinhaOng.php`">';
         echo 'Minha ONG';
         echo '</button>';
       }

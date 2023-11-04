@@ -352,7 +352,6 @@ textarea {
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(252, 192, 255);
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.152);
-  animation: zoomIn 300ms ease;
 }
 
 .modal-add-comment button {
@@ -391,6 +390,10 @@ textarea {
 
 .modal-show {
   display: block;
+}
+
+.anim {
+  animation: zoomIn 300ms ease;
 }
 
 /* bolhas cad */

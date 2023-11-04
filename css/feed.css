@@ -67,6 +67,7 @@
 .div-nome img {
   width: 4em;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .post-descricao {

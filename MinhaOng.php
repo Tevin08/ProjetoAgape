@@ -14,7 +14,7 @@ function comentarios($conexao)
 {
     $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
   FROM TB_COMMENT
-  JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR;
+  JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR ;
   ";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
@@ -24,7 +24,7 @@ function post($conexao)
 {
     $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST
     FROM TB_ONG
-    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG";
+    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG WHERE TB_ONG.CD_ONG = {$_SESSION['id_ong']}";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
@@ -82,19 +82,18 @@ while ($dados = $users->fetch_assoc()) {
                 </div>
                 <div class="cadas">
                     <form action="./php/post.php" method="post" class="cad-edit" enctype="multipart/form-data">
-                       <input type="text" name="tituloPost" maxlength="20" id="tituloPost" placeholder="Título do Post..">
+                        <input type="text" name="tituloPost" maxlength="20" id="tituloPost" placeholder="Título do Post..">
                         <div class="post-content-square">
 
                             <div class="post-foto-square">
-    
-                                <label for="image" id="img_upload">
+
+                                <label for="images" id="img_upload">
                                     <img src="./imagens/img_upload.png" alt="" width="80px">
-                                    
                                 </label>
-                                <input type="file" name="image" id="image" onchange="openFile(event)">
-                                <img id="output" width="200px">
+                                <input type="file" name="image" id="images" onchange="openFile(event)">
+                                <img class="output" width="200px">
                                 <div class="edit-inputs">
-                                   
+
                                 </div>
                             </div>
                             <div class="descricao-post-square">
@@ -124,8 +123,8 @@ while ($dados = $users->fetch_assoc()) {
                             <img src="./imagens/img_upload.png" alt="" width="80px">
                             <h3>Editar imagem de perfil</h3>
                         </label>
-                        <input type="file" name="image" id="image" onchange="openFile(event)">
-                        <img id="output" width="200px">
+                        <input type="file" name="image" id="image" onchange="openFileEdit(event)">
+                        <img class="outputEdit" width="200px">
                         <div class="edit-inputs">
                             <div class="input-edit-perfil">
                                 <label for="name">Editar Nome do Perfil</label>
@@ -137,43 +136,11 @@ while ($dados = $users->fetch_assoc()) {
                             </div>
 
                         </div>
-                        <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
                         <button id="btn-doadorC" type="submit">Confirmar</button>
                     </form>
                 </div>
             </div>
 
-        </div>
-    </div>
-
-    <div class="container-modal">
-        <div class="modal-comentarios">
-            <div class="div-forms forms-login dados-form">
-                <button class="btn-voltar" onclick="modalClose()">
-                    <img width="35px" src="./imagens/arrow.png" alt="ff" />
-                </button>
-                <h2 style="font-weight: 700">Edite seu Perfil</h2>
-                <div class="cadas">
-                    <form action="./php/dados_ong.php" method="post" class="frmcad-1" enctype="multipart/form-data">
-                        <label for="image" id="img_upload">
-                            <img src="./imagens/img_upload.png" alt="" width="80px" />
-                            <h3>Coloque uma imagem</h3>
-                        </label>
-                        <input type="file" name="image" id="image" onchange="openFile(event)" />
-                        <img id="output" width="200px" />
-                        <div class="cad-1">
-                            <label for="">WhatsApp da ONG</label>
-                            <input type="text" placeholder="WhatsApp" name="wpp" id="emailO" />
-                            <label for="">Instagram da ONG</label>
-                            <input type="text" placeholder="Instagram" name="insta" id="emailO" />
-                            <label for="">X da ONG</label>
-                            <input type="text" placeholder="X" name="x" id="emailO" />
-                        </div>
-                        <!-- <a onclick="modalShow()">Esqueceu sua senha?</a> -->
-                        <button id="btn-doadorC" type="submit">Confirmar</button>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
     <nav id="nav-ongs">
@@ -182,8 +149,11 @@ while ($dados = $users->fetch_assoc()) {
             <button onclick="location.href='verOngs.php'" class="btn-visualizar-ongs">
                 Visualizar ONG'S
             </button>
-            <button class="btn-perfil" onclick="location.href='feed.php'">
+            <button class="feed-btn" onclick="location.href='feed.php'">
                 Feed
+            </button>
+            <button class="btn-perfil" onclick="location.href='MinhaOng.php'">
+                Minha ONG
             </button>
         </div>
         <?php
@@ -203,17 +173,16 @@ while ($dados = $users->fetch_assoc()) {
         <div class="perfil">
             <div class="foto-e-info">
 
-            <div class="div-img-perfil-ong">
+                <div class="div-img-perfil-ong">
 
-                <?php
-                if (!isset($_SESSION['minha_logo'])) {
-                    echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
-                } else {
-                    echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['minha_logo']) . '" class="img-perfil-ong" width="250px">';
-                }
-                ?>
-            </div>
-
+                    <?php
+                    if (!isset($_SESSION['minha_logo'])) {
+                        echo '<img src="./imagens/pfp.jpg" class="img-perfil-ong">';
+                    } else {
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['minha_logo']) . '" class="img-perfil-ong" width="250px">';
+                    }
+                    ?>
+                </div>
 
                 <!-- <div class="img-perfil-ong"></div> -->
                 <div class="info">
@@ -243,7 +212,7 @@ while ($dados = $users->fetch_assoc()) {
                                 ?>
                             </span>
                         </div>
-                       
+
                     </div>
                     <button id='btn-edit-perfil' onclick="modalShow()">
                         <i class="fa-regular fa-pen-to-square"></i>
@@ -305,19 +274,25 @@ while ($dados = $users->fetch_assoc()) {
         </div>
         <div class="section-center">
             <div id="adicionar-coments">
-            <button onclick="abrirModal()" id="btn-add-coments"><img src="./imagens/plus-icon.png" alt=""></button>
-            <span>Adicionar Post</span>
-          </div>
-                        
-          
+                <button onclick="abrirModal()" id="btn-add-coments"><img src="./imagens/plus-icon.png" alt=""></button>
+                <span>Adicionar Post</span>
+            </div>
+
+
 
             <div class="container-posts">
-            <?php
-        while ($dados = $post->fetch_assoc()) {
-        ?>
-
-                </div>
+                <?php
+                while ($dados = $post->fetch_assoc()) {
+                ?>
+                    <div class="posts">
+                        <img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>" width="200px">
+                        <h2><?= $dados['TITULO'] ?></h2>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
+        </div>
         </div>
     </section>
     <section class="section-doados">

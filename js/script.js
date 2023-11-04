@@ -12,12 +12,23 @@ function handleCNPJ() {
   }
 }
 
-var openFile = function (file) {
-  var input = file.target;
-  var reader = new FileReader();
+function openFile(file) {
+  let input = file.target;
+  let reader = new FileReader();
   reader.onload = function () {
-    var dataURL = reader.result;
-    var output = document.getElementById("output");
+    let dataURL = reader.result;
+    let output = document.querySelector(".output");
+    output.src = dataURL;
+  };
+  reader.readAsDataURL(input.files[0]);
+};
+
+function openFileEdit(file) {
+  let input = file.target;
+  let reader = new FileReader();
+  reader.onload = function () {
+    let dataURL = reader.result;
+    let output = document.querySelector(".outputEdit");
     output.src = dataURL;
   };
   reader.readAsDataURL(input.files[0]);
@@ -45,4 +56,34 @@ function unlikeBtn(id) {
   like.style.color = "#FFF";
   countLike.textContent = 0;
   likeBtn.setAttribute("onclick", `likeBtn(${id})`);
+}
+
+function Vercomments(id){
+  const toggleBtn = document.querySelector(`.ver-${id}`)
+  const containercomments = document.querySelector(`.cmts-${id}`)
+  const containerdescrpt = document.querySelector(`.ds-${id}`)
+  const lmais = document.querySelector('.leia-mais')
+
+  toggleBtn.textContent = "Ver Descrição";
+
+  toggleBtn.setAttribute("onclick", `Verdescricao(${id})`);
+
+  containerdescrpt.style.display = "none"
+  containercomments.style.display = "flex"
+  lmais.style.display = 'none'
+}
+
+function Verdescricao(id) {
+  const toggleBtn = document.querySelector(`.ver-${id}`);
+  const containercomments = document.querySelector(`.cmts-${id}`)
+  const containerdescrpt = document.querySelector(`.ds-${id}`)
+  const lmais = document.querySelector(".leia-mais");
+
+  toggleBtn.textContent = "Ver Comentários";
+
+  toggleBtn.setAttribute("onclick", `Vercomments(${id})`);
+
+  containerdescrpt.style.display = "flex";
+  containercomments.style.display = "none";
+  lmais.style.display = "flex";
 }

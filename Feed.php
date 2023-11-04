@@ -38,27 +38,13 @@ function post($conexao)
     <link rel="stylesheet" href="./css/wave.css">
     <script src="./js/RedefinirSenha.js"></script>
 
-    <script src="./js/script.js" defer></script>
     <title>Feed</title>
 </head>
 
 <body>
     <div class="container-modal">
 
-        <!-- <div class="side-bar">
-            <button id="btn-fechar" onclick="modalClose()">
-                X
-            </button>
-            <div class="top-sidebar">
-                <div class=" img-perfil-doador"></div>
-            </div>
-            <button class="btn edit" onclick="location.href='perfildoador.php'">Editar perfil</button>
-            <button class="btn ver" onclick="location.href='perfildoador.php'">Ver perfil</button> -->
-        <!-- <button class="btn excluir">Excluir perfil</button> -->
-        <!-- <button class="btn sair" onclick="location.href='index.html'">Sair</button>
-        </div> -->
-
-        <div class="modal-comentarios">
+        <div class="modal-comentarios anim">
             <form action="./php/comentarios_feed.php" method="post">
                 <div class="contents">
                     <h1>Faça Um Comentário</h1>
@@ -110,80 +96,74 @@ function post($conexao)
         ?>
     </nav>
     <div class="square-post">
-    <?php
-        while ($dados = $post->fetch_assoc()) {
-?>
-        <div class="div-nome">
-        <img src="data:image/jpeg;base64,<?= base64_encode($dados['PIC']) ?>">
-            <h1>
-                <?= $dados['NM_ONG']  ?>
-            </h1>
-        </div>
-        <div class="post-content">
-
-            <div class="post-img"><img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>"></div>
-            <div class="div-coments-description">
-                <div class="div-toggle-parts">
-
-                    <!-- <button class='btn-toggle btn-id-comments' onclick='Toggleparts(2)'>
-                            
-                        </button> -->
-                </div>
-                <div class="post-descricao">
-                    <p>
-                        <?= $dados['TEXTO_POST'] ?>
-                    </p>
-                </div>
-                <div class="leia-mais">
-                    <p>Ler mais...</p>
-                </div>
-                <div class="post-coments">
-
-                    <?php
-                    while ($dados = $comentarios->fetch_assoc()) {
-
-                        echo '<div class="feed-comentarios">';
-                        echo '<div class="feed-top-comets-content">';
-                        echo '';
-                        echo '<div class="foto-user-comentario"></div>';
-                        echo '<h1>';
-                        echo "{$dados['NM_DOADOR']}";
-                        echo '</h1>';
-                        echo '</div>';
-                        echo '';
-                        echo '<div class="comentario-text">';
-                        echo '<p>';
-                        echo "{$dados['TEXTO_COMMENT']}";
-                        echo '</p>';
-                        echo '';
-                        echo '</div>';
-                        echo '<div class="reactions-button-group">';
-                        echo '<button id="like-Button">';
-                        echo '</button>';
-                        echo '';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                    ?>
-                </div>
-                <button class='btn-toggle  btn-id-descricao' onclick='Vercomments()'>
-
-                    Ver Comentários
-                </button>
-            </div>
-        </div>
-        <div class="div-add-postcoments">
-            <div id="btn-postcoments">
-                <button id="btn-comment" onclick="modalShow()">
-                    <i class="fa-regular fa-comment"></i>
-
-                </button>
-                <button id="btn-comment">
-                    <i class="fa-regular  fa-heart fa-heart2" style="color:#fff" onclick="love()"></i>
-                </button>
-            </div>
-        </div>
         <?php
+        $count = 0;
+        while ($dados = $post->fetch_assoc()) {
+        ?>
+            <div class="div-nome">
+                <img onclick="location.href='PerfilOngs.php?id=<?= $dados['CD_ONG'] ?>'" src="data:image/jpeg;base64,<?= base64_encode($dados['PIC']) ?>">
+                <h1>
+                    <?= $dados['NM_ONG']  ?>
+                </h1>
+            </div>
+            <div class="post-content">
+
+                <div class="post-img">
+                    <img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>">
+                </div>
+                <div class="div-coments-description">
+                    <div class="div-toggle-parts">
+                    </div>
+                    <div class="post-descricao ds-<?= $count ?>">
+                        <p>
+                            <?= $dados['TEXTO_POST'] ?>
+                        </p>
+                    </div>
+                    <div class="post-coments cmts-<?= $count ?>">
+
+                        <?php
+                        while ($dados = $comentarios->fetch_assoc()) {
+                            echo '<div class="feed-comentarios">';
+                            echo '<div class="feed-top-comets-content">';
+                            echo '';
+                            echo '<div class="foto-user-comentario"></div>';
+                            echo '<h1>';
+                            echo "{$dados['NM_DOADOR']}";
+                            echo '</h1>';
+                            echo '</div>';
+                            echo '';
+                            echo '<div class="comentario-text">';
+                            echo '<p>';
+                            echo "{$dados['TEXTO_COMMENT']}";
+                            echo '</p>';
+                            echo '';
+                            echo '</div>';
+                            echo '<div class="reactions-button-group">';
+                            echo '<button id="like-Button">';
+                            echo '</button>';
+                            echo '';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                    <button class='btn-toggle btn-id-descricao ver-<?= $count ?>' onclick='Vercomments(<?= $count ?>)'>
+                        Ver Comentários
+                    </button>
+                </div>
+            </div>
+            <div class="div-add-postcoments">
+                <div id="btn-postcoments">
+                    <button id="btn-comment" onclick="modalShow()">
+                        <i class="fa-regular fa-comment"></i>
+                    </button>
+                    <button id="btn-comment">
+                        <i class="fa-regular  fa-heart fa-heart2" style="color:#fff" onclick="love()"></i>
+                    </button>
+                </div>
+            </div>
+        <?php
+            $count++;
         }
         ?>
     </div>
@@ -199,6 +179,7 @@ function post($conexao)
             <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
     </footer>
+    <script src="./js/script.js" defer></script>
 </body>
 
 </html>

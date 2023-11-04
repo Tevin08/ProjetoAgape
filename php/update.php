@@ -34,7 +34,7 @@
     
             unlink($targetFile);
         } else {
-            echo "Please select an image to upload.";
+            header('location: ../PerfilDoador.php');
             exit;
         }
     } else {
