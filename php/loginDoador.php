@@ -12,6 +12,13 @@ function usuarios($conexao)
     return $resultado;
 }
 
+if ($users->num_rows < 1) {
+    $error = "Login ou senha inválidos";
+    $_SESSION['error'] = $error;
+    header("location: ../error.php");
+    exit;
+}
+
 while ($dados = $users->fetch_assoc()) {
     if (($_POST['documento'] === $dados['LOGIN_CNPJ']) || ($_POST['documento'] === $dados['LOGIN_EMAIL']) && password_verify($_POST['senha'], $dados['SENHA'])) {
         // $_SESSION['nm_doador'] = $dados['nm_doador'];

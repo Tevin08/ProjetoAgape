@@ -26,7 +26,7 @@ session_start();
                 <button class="btn-voltar" onclick="history.back()">
                     <img width="35px" src="./imagens/arrow.png" alt="ff" />
                 </button>
-                <h1 style="font-weight: 700; font-size: 30px; text-align: center"><?php echo $_SESSION['error'] ?></h1>
+                <h1 style="font-weight: 700; font-size: 30px; margin-bottom: 20px; text-align: center"><?php echo $_SESSION['error'] ?></h1>
                 <i class="fa-solid fa-circle-exclamation"></i>
                 <h3></h3>
             </div>

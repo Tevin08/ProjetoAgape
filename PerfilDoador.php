@@ -28,6 +28,17 @@ function comentarios($conexao)
   return $resultado;
 }
 
+$avaliacoes = avaliacoes($conexao);
+function avaliacoes($conexao)
+{
+  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
+  FROM TB_COMMENT
+  JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR WHERE TB_DOADOR.CD_DOADOR = {$_SESSION['id_doador']};
+  ";
+  $resultado = mysqli_query($conexao, $sqlBusca);
+  return $resultado;
+}
+
 while ($dados = $doadores->fetch_assoc()) {
   $_SESSION['nm_doador'] = $dados['NM_DOADOR'];
   $_SESSION['email'] = $dados['EMAIL'];
@@ -230,6 +241,39 @@ while ($dados = $doadores->fetch_assoc()) {
       </div>
     </div>
   </section>
+  <section class="section-doados">
+    <div class="titulo">
+      <h1>Avaliações</h1>
+    </div>
+    <div class="section-center">
+      <div class="container-Comentarios ongs-ajudadas">
+        <?php
+        $count = 0;
+        while ($dados = $avaliacoes->fetch_assoc()) {
+          echo '<div class="comentarios">';
+          echo '<div class="top-comets-content">';
+          echo '<div class="foto-user-comentario"></div>';
+          echo "<h1>{$dados['NM_DOADOR']}</h1>";
+          echo '</div>';
+          echo '<div class="comentario-text">';
+          echo '<p>';
+          echo "{$dados['TEXTO_COMMENT']}";
+          echo '</p>';
+          echo '</div>';
+          echo '<div class="reactions-button-group">';
+          echo "<button type='button' class='like-Button likeBtn-$count' onclick='likeBtn($count)'>";
+          echo "<i class='fa-solid fa-heart like-$count'></i>";
+          echo "<span class='count-like count-like-$count'>0</span>";
+          echo '</button>';
+          echo '</div>';
+          echo '</div>';
+          $count++;
+        }
+        ?>
+      </div>
+    </div>
+  </section>
+
   <script src="./js/script.js"></script>
 
 </body>
