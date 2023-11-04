@@ -15,7 +15,7 @@ function gravar($conexao)
         values 
         ( 
             {$_SESSION['id_doador']},
-            3,
+            {$_GET['id']},
             '{$_POST['comentario']}'
         )";
     return mysqli_query($conexao, $sql);

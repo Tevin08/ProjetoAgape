@@ -10,3 +10,15 @@ function closeComment(e) {
   modal.style.display = "none";
   document.body.style.overflowY = "visible";
 }
+
+function modalShow(id) {
+  const modal = document.querySelector(`.mdl-${id}`);
+  document.body.style.overflow = "hidden";
+  modal.style.display = "flex";
+}
+
+function modalClose(id) {
+  const modal = document.querySelector(`.mdl-${id}`);
+  modal.style.display = "none";
+  document.body.style.overflow = "visible";
+}

@@ -69,7 +69,7 @@ function Vercomments(id){
   toggleBtn.setAttribute("onclick", `Verdescricao(${id})`);
 
   containerdescrpt.style.display = "none"
-  containercomments.style.display = "flex"
+  containercomments.style.display = "block"
   lmais.style.display = 'none'
 }
 

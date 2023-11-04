@@ -7,9 +7,10 @@ session_start();
 $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
-    $sqlBusca = "SELECT TB_COMMENT_FEED.CD_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT_FEED.TEXTO_COMMENT
+    $sqlBusca = "SELECT TB_COMMENT_FEED.CD_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_DOADOR.FOTO, TB_COMMENT_FEED.TEXTO_COMMENT, TB_POST.CD_POST
     FROM TB_COMMENT_FEED
-    JOIN TB_DOADOR ON TB_COMMENT_FEED.CD_DOADOR = TB_DOADOR.CD_DOADOR;
+    JOIN TB_DOADOR ON TB_COMMENT_FEED.CD_DOADOR = TB_DOADOR.CD_DOADOR
+    JOIN TB_POST ON TB_COMMENT_FEED.CD_POST = TB_POST.CD_POST;
     ";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
@@ -17,7 +18,7 @@ function comentarios($conexao)
 $post = post($conexao);
 function post($conexao)
 {
-    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST
+    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST, TB_POST.CD_POST
     FROM TB_ONG
     JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG";
     $resultado = mysqli_query($conexao, $sqlBusca);
@@ -36,27 +37,11 @@ function post($conexao)
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/3552f262a9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/wave.css">
-    <script src="./js/RedefinirSenha.js"></script>
 
     <title>Feed</title>
 </head>
 
 <body>
-    <div class="container-modal">
-
-        <div class="modal-comentarios anim">
-            <form action="./php/comentarios_feed.php" method="post">
-                <div class="contents">
-                    <h1>Faça Um Comentário</h1>
-                    <textarea name="comentario" id="" maxlength="512"></textarea>
-                    <div class="modal-btns">
-                        <button type="submit" id="btn-modal-avancar">Enviar</button>
-                        <button type="button" id="btn-modal-cancel" onclick="modalClose()">Cancelar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
     <nav id="nav-ongs">
         <img src="imagens/logo.png" onclick="location.href='index.html'" alt="logtipo" width="7%" id="logo" />
         <div class="input-nav">
@@ -100,8 +85,22 @@ function post($conexao)
         $count = 0;
         while ($dados = $post->fetch_assoc()) {
         ?>
+            <div class="container-modal mdl-<?=$count?>">
+                <div class="modal-comentarios anim">
+                    <form action="./php/comentarios_feed.php?id=<?=$dados['CD_POST']?>" method="post">
+                        <div class="contents">
+                            <h1>Faça um comentário</h1>
+                            <textarea name="comentario" id="" maxlength="512"></textarea>
+                            <div class="modal-btns">
+                                <button type="submit" id="btn-modal-avancar">Enviar</button>
+                                <button type="button" id="btn-modal-cancel" onclick="modalClose(<?=$count?>)">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="div-nome">
-                <img onclick="location.href='PerfilOngs.php?id=<?= $dados['CD_ONG'] ?>'" src="data:image/jpeg;base64,<?= base64_encode($dados['PIC']) ?>">
+                <img onclick="location.href='PerfilOngs.php?id=<?=$dados['CD_ONG']?>'" src="data:image/jpeg;base64,<?= base64_encode($dados['PIC']) ?>">
                 <h1>
                     <?= $dados['NM_ONG']  ?>
                 </h1>
@@ -120,28 +119,24 @@ function post($conexao)
                         </p>
                     </div>
                     <div class="post-coments cmts-<?= $count ?>">
-
+                        <h1>Comentários</h1>
                         <?php
                         while ($dados = $comentarios->fetch_assoc()) {
                             echo '<div class="feed-comentarios">';
                             echo '<div class="feed-top-comets-content">';
-                            echo '';
-                            echo '<div class="foto-user-comentario"></div>';
+                            echo '<img src="data:image/jpeg;base64,' . base64_encode($dados['FOTO']) . '" class="img-perfil-ong" width="250px">';
                             echo '<h1>';
                             echo "{$dados['NM_DOADOR']}";
                             echo '</h1>';
                             echo '</div>';
-                            echo '';
                             echo '<div class="comentario-text">';
                             echo '<p>';
                             echo "{$dados['TEXTO_COMMENT']}";
                             echo '</p>';
-                            echo '';
                             echo '</div>';
                             echo '<div class="reactions-button-group">';
                             echo '<button id="like-Button">';
                             echo '</button>';
-                            echo '';
                             echo '</div>';
                             echo '</div>';
                         }
@@ -154,7 +149,7 @@ function post($conexao)
             </div>
             <div class="div-add-postcoments">
                 <div id="btn-postcoments">
-                    <button id="btn-comment" onclick="modalShow()">
+                    <button id="btn-comment" onclick="modalShow(<?=$count?>)">
                         <i class="fa-regular fa-comment"></i>
                     </button>
                     <button id="btn-comment">
@@ -180,6 +175,7 @@ function post($conexao)
         </div>
     </footer>
     <script src="./js/script.js" defer></script>
+    <script src="./js/modals.js" defer></script>
 </body>
 
 </html>

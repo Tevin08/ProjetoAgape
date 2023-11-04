@@ -66,16 +66,18 @@ backdrop-filter: blur(5px);
 } */
 
 .container-modal{
+    position: fixed;
     display: none;
     justify-content: center;
     align-items: center;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
     background-color: rgba(0, 0, 0 ,0.55 );
-    position: fixed;
-    height: 100%;
-    width: 100%;
     z-index: 200;
     transition: all 1s linear;  
 }
+
 .container-post{
     display: none;
     justify-content: center;

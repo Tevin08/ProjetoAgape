@@ -1,15 +1,3 @@
-function modalShow() {
-  const modal = document.querySelector(".container-modal");
-  document.body.style.overflow = "hidden";
-  modal.style.display = "flex";
-}
-
-function modalClose() {
-  const modal = document.querySelector(".container-modal");
-  modal.style.display = "none";
-  document.body.style.overflow = "visible";
-}
-
 function animationbtn() {
   const btn = document.querySelector("#btn-modal-confirm");
 
