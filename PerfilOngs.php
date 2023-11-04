@@ -21,7 +21,15 @@ function comentarios($conexao)
   $resultado = mysqli_query($conexao, $sqlBusca);
   return $resultado;
 }
-
+$post = post($conexao);
+function post($conexao)
+{
+    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST
+    FROM TB_ONG
+    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG";
+    $resultado = mysqli_query($conexao, $sqlBusca);
+    return $resultado;
+}
 $row = mysqli_fetch_assoc($conexao->query($sqlONG));
 
 $_SESSION['nm_ong'] = $row['NM_ONG'];
@@ -200,41 +208,19 @@ $_SESSION['pic'] = $row['PIC'];
 
 
       <div class="container-posts">
+      <?php
+        while ($dados = $post->fetch_assoc()) {
+        ?>
         <div class="posts">
-          <div class="foto-post"></div>
+        <img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>" width="100px">
 
           <div class="conteudo">
-            <h2>Dia do Áçai</h2>
-            <p>Hoje aqui, tivemos o dia do açái</p>
+            <h2><?= $dados['TITULO'] ?></h2>
           </div>
         </div>
-
-        <div class="posts">
-          <div class="foto-post"></div>
-
-          <div class="conteudo">
-            <h2>Dia do Áçai</h2>
-            <p>Hoje aqui, tivemos o dia do açái</p>
-          </div>
-        </div>
-
-        <div class="posts">
-          <div class="foto-post"></div>
-
-          <div class="conteudo">
-            <h2>Dia do Áçai</h2>
-            <p>Hoje aqui, tivemos o dia do açái</p>
-          </div>
-        </div>
-
-        <div class="posts">
-          <div class="foto-post"></div>
-
-          <div class="conteudo">
-            <h2>Dia do Áçai</h2>
-            <p>Hoje aqui, tivemos o dia do açái</p>
-          </div>
-        </div>
+        <?php
+        }
+        ?>
       </div>
     </div>
   </section>

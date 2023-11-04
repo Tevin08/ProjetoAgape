@@ -19,6 +19,15 @@ function comentarios($conexao)
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
+$post = post($conexao);
+function post($conexao)
+{
+    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST
+    FROM TB_ONG
+    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG";
+    $resultado = mysqli_query($conexao, $sqlBusca);
+    return $resultado;
+}
 $users = usuarios($conexao);
 function usuarios($conexao)
 {
@@ -303,16 +312,9 @@ while ($dados = $users->fetch_assoc()) {
           
 
             <div class="container-posts">
-                              
-
-                <!-- <div class="posts">
-                    <div class="foto-post"></div>
-
-                    <div class="conteudo">
-                        <h2>Dia do Áçai</h2>
-                        <p>Hoje aqui, tivemos o dia do açái</p>
-                    </div>
-                </div> -->
+            <?php
+        while ($dados = $post->fetch_assoc()) {
+        ?>
 
                 </div>
             </div>

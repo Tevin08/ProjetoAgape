@@ -5,7 +5,7 @@ session_start();
 
 function gravar($conexao)
 {
-    $sql = "insert into tb_comment
+    $sql = "insert into tb_comment_feed
         (cd_doador, texto_comment)
         values 
         ( 
