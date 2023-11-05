@@ -21,7 +21,7 @@ function openFile(file) {
     output.src = dataURL;
   };
   reader.readAsDataURL(input.files[0]);
-};
+}
 
 function openFileEdit(file) {
   let input = file.target;
@@ -32,12 +32,12 @@ function openFileEdit(file) {
     output.src = dataURL;
   };
   reader.readAsDataURL(input.files[0]);
-};
+}
 
 let count;
 function likeBtn(id) {
   count = 0;
-  count++
+  count++;
   let likeBtn = document.querySelector(`.likeBtn-${id}`);
   let like = document.querySelector(`.like-${id}`);
   let countLike = document.querySelector(`.count-like-${id}`);
@@ -48,7 +48,7 @@ function likeBtn(id) {
 }
 
 function unlikeBtn(id) {
-  count--
+  count--;
   let likeBtn = document.querySelector(`.likeBtn-${id}`);
   let like = document.querySelector(`.like-${id}`);
   let countLike = document.querySelector(`.count-like-${id}`);
@@ -58,23 +58,23 @@ function unlikeBtn(id) {
   likeBtn.setAttribute("onclick", `likeBtn(${id})`);
 }
 
-function Vercomments(id){
-  const toggleBtn = document.querySelector(`.ver-${id}`)
-  const containercomments = document.querySelector(`.cmts-${id}`)
-  const containerdescrpt = document.querySelector(`.ds-${id}`)
+function Vercomments(id) {
+  const toggleBtn = document.querySelector(`.ver-${id}`);
+  const containercomments = document.querySelector(`.cmts-${id}`);
+  const containerdescrpt = document.querySelector(`.ds-${id}`);
 
   toggleBtn.textContent = "Ver Descrição";
 
   toggleBtn.setAttribute("onclick", `Verdescricao(${id})`);
 
-  containerdescrpt.style.display = "none"
-  containercomments.style.display = "block"
+  containerdescrpt.style.display = "none";
+  containercomments.style.display = "block";
 }
 
 function Verdescricao(id) {
   const toggleBtn = document.querySelector(`.ver-${id}`);
-  const containercomments = document.querySelector(`.cmts-${id}`)
-  const containerdescrpt = document.querySelector(`.ds-${id}`)
+  const containercomments = document.querySelector(`.cmts-${id}`);
+  const containerdescrpt = document.querySelector(`.ds-${id}`);
 
   toggleBtn.textContent = "Ver Comentários";
 
@@ -82,4 +82,9 @@ function Verdescricao(id) {
 
   containerdescrpt.style.display = "flex";
   containercomments.style.display = "none";
+}
+
+function Sair() {
+  localStorage.clear();
+  window.location.href = "./php/logout.php";
 }

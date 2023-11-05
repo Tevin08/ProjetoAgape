@@ -20,7 +20,7 @@ function doadores($conexao)
 $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
-  $sqlBusca = "SELECT TB_COMMENT_FEED.CD_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT_FEED.TEXTO_COMMENT
+  $sqlBusca = "SELECT TB_COMMENT_FEED.CD_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT_FEED.TEXTO_COMMENT, TB_DOADOR.FOTO
   FROM TB_COMMENT_FEED
   JOIN TB_DOADOR ON TB_COMMENT_FEED.CD_DOADOR = TB_DOADOR.CD_DOADOR WHERE TB_DOADOR.CD_DOADOR = {$_SESSION['id_doador']};
   ";
@@ -31,7 +31,7 @@ function comentarios($conexao)
 $avaliacoes = avaliacoes($conexao);
 function avaliacoes($conexao)
 {
-  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
+  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT, TB_DOADOR.FOTO
   FROM TB_COMMENT
   JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR WHERE TB_DOADOR.CD_DOADOR = {$_SESSION['id_doador']};
   ";
@@ -73,7 +73,7 @@ while ($dados = $doadores->fetch_assoc()) {
       <div class="div-forms forms-login dados-form">
         <div class="seta-voltar">
 
-          <button class="btn-voltar" onclick="modalClose()">
+          <button class="btn-voltar" onclick="modalCloseEdit()">
             <img width="35px" src="./imagens/arrow.png" alt="ff" />
           </button>
         </div>
@@ -138,7 +138,7 @@ while ($dados = $doadores->fetch_assoc()) {
       echo 'Entrar';
       echo '</button>';
     } else {
-      echo '<button id="btn-sair" onclick="location.href=`./php/logout.php`">';
+      echo '<button id="btn-sair" onclick="Sair()">';
       echo 'Sair';
       echo '</button>';
     }
@@ -187,7 +187,7 @@ while ($dados = $doadores->fetch_assoc()) {
             </span>
           </div>
 
-          <button id='btn-edit-perfil' onclick="modalShow()">
+          <button id='btn-edit-perfil' onclick="modalEdit()">
             <i class="fa-regular fa-pen-to-square"></i>
             Editar Perfil
           </button>
@@ -220,7 +220,7 @@ while ($dados = $doadores->fetch_assoc()) {
         while ($dados = $comentarios->fetch_assoc()) {
           echo '<div class="comentarios">';
           echo '<div class="top-comets-content">';
-          echo '<div class="foto-user-comentario"></div>';
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($dados['FOTO']) . '" class="icon-pfp" width="250px">';
           echo "<h1>{$dados['NM_DOADOR']}</h1>";
           echo '</div>';
           echo '<div class="comentario-text">';
@@ -252,7 +252,7 @@ while ($dados = $doadores->fetch_assoc()) {
         while ($dados = $avaliacoes->fetch_assoc()) {
           echo '<div class="comentarios">';
           echo '<div class="top-comets-content">';
-          echo '<div class="foto-user-comentario"></div>';
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($dados['FOTO']) . '" class="icon-pfp" width="250px">';
           echo "<h1>{$dados['NM_DOADOR']}</h1>";
           echo '</div>';
           echo '<div class="comentario-text">';
@@ -275,6 +275,7 @@ while ($dados = $doadores->fetch_assoc()) {
   </section>
 
   <script src="./js/script.js"></script>
+  <script src="./js/modals.js"></script>
 
 </body>
 <footer>

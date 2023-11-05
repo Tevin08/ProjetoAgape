@@ -162,7 +162,7 @@ while ($dados = $users->fetch_assoc()) {
             echo 'Entrar';
             echo '</button>';
         } else {
-            echo '<button id="btn-sair" onclick="location.href=`./php/logout.php`">';
+            echo '<button id="btn-sair" onclick="Sair()">';
             echo 'Sair';
             echo '</button>';
         }

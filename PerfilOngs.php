@@ -12,13 +12,12 @@ if (!isset($_GET['id'])) {
   exit;
 }
 
-if(isset($_SESSION['id_ong'])) {
+if (isset($_SESSION['id_ong'])) {
   if ($_SESSION['id_ong'] === $_GET['id']) {
     header('location: ./MinhaOng.php');
     exit;
   }
 }
-
 
 $sqlONG = "SELECT * FROM TB_ONG WHERE CD_ONG = {$_GET['id']}";
 
@@ -27,7 +26,7 @@ $_SESSION['get_id_ong'] = $_GET['id'];
 $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
-  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT, TB_COMMENT.CD_ONG
+  $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT, TB_COMMENT.CD_ONG, TB_DOADOR.FOTO
   FROM TB_COMMENT
   JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR
   JOIN TB_ONG ON TB_ONG.CD_ONG = TB_COMMENT.CD_ONG WHERE TB_COMMENT.CD_ONG = {$_GET['id']};
@@ -38,11 +37,11 @@ function comentarios($conexao)
 $post = post($conexao);
 function post($conexao)
 {
-    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST, TB_ONG.CD_ONG
+  $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST, TB_ONG.CD_ONG
     FROM TB_ONG
     JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG WHERE TB_ONG.CD_ONG = {$_GET['id']}";
-    $resultado = mysqli_query($conexao, $sqlBusca);
-    return $resultado;
+  $resultado = mysqli_query($conexao, $sqlBusca);
+  return $resultado;
 }
 $row = mysqli_fetch_assoc($conexao->query($sqlONG));
 
@@ -77,7 +76,7 @@ $_SESSION['cd_ong'] = $row['CD_ONG'];
 <body>
 
   <div class="anim modal-add-comment">
-    <form action="./php/comentarios.php?id=<?=$_SESSION['cd_ong']?>" method="post">
+    <form action="./php/comentarios.php?id=<?= $_SESSION['cd_ong'] ?>" method="post">
       <i onclick="closeComment(event)" class="fa-solid fa-close"></i>
       <label>Adicionar comentário</label>
       <textarea placeholder="Adicione um comentário aqui" name="comentario" cols="30" rows="10"></textarea>
@@ -115,7 +114,7 @@ $_SESSION['cd_ong'] = $row['CD_ONG'];
       echo 'Entrar';
       echo '</button>';
     } else {
-      echo '<button id="btn-sair" onclick="location.href=`./php/logout.php`">';
+      echo '<button id="btn-sair" onclick="Sair()">';
       echo 'Sair';
       echo '</button>';
     }
@@ -163,11 +162,10 @@ $_SESSION['cd_ong'] = $row['CD_ONG'];
                 ?>
               </span>
             </div>
-            <button onclick="Seguindo()" class="btn-seguir">
+            <button onclick="Seguindo(<?= $_GET['id'] ?>)" class="btn-seguir seguir-<?= $_GET['id'] ?>">
               Seguir
             </button>
           </div>
-
         </div>
       </div>
 
@@ -222,16 +220,16 @@ $_SESSION['cd_ong'] = $row['CD_ONG'];
 
 
       <div class="container-posts">
-      <?php
+        <?php
         while ($dados = $post->fetch_assoc()) {
         ?>
-        <div class="posts">
-        <img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>" width="100px">
+          <div class="posts">
+            <img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>" width="100px">
 
-          <div class="conteudo">
-            <h2><?= $dados['TITULO'] ?></h2>
+            <div class="conteudo">
+              <h2><?= $dados['TITULO'] ?></h2>
+            </div>
           </div>
-        </div>
         <?php
         }
         ?>
@@ -253,7 +251,7 @@ $_SESSION['cd_ong'] = $row['CD_ONG'];
         while ($dados = $comentarios->fetch_assoc()) {
           echo '<form action="" method="post" class="comentarios">';
           echo '<div class="top-comets-content">';
-          echo '<div class="foto-user-comentario"></div>';
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($dados['FOTO']) . '" class="icon-pfp" width="250px">';
           echo "<h1>{$dados['NM_DOADOR']}</h1>";
           echo '</div>';
           echo '<div class="comentario-text">';
@@ -287,6 +285,36 @@ $_SESSION['cd_ong'] = $row['CD_ONG'];
   </footer>
   <script src="./js/modals.js"></script>
   <script src="./js/script.js"></script>
+  <script>
+    function Seguindo(id) {
+      localStorage.setItem(`isFollowing-${id}`, id);
+      idFollow = id;
+      const btnSeguir = document.querySelector(`.seguir-${id}`);
+      btnSeguir.classList.add("seguindo");
+      btnSeguir.setAttribute("onclick", `Notfollow(${id})`);
+      setTimeout(() => {
+        btnSeguir.textContent = "Seguindo";
+      }, 30);
+    }
+
+    function Notfollow(id) {
+      localStorage.removeItem(`isFollowing-${id}`);
+      const btnSeguir = document.querySelector(".btn-seguir");
+      btnSeguir.classList.remove("seguindo");
+      btnSeguir.setAttribute("onclick", `Seguindo(${id})`);
+      setTimeout(() => {
+        btnSeguir.textContent = "Seguir";
+      }, 30);
+    }
+
+    function checkFollow(id) {
+      let followID = localStorage.getItem(`isFollowing-${id}`);
+      if (followID) {
+        Seguindo(followID);
+      }
+    }
+    checkFollow(<?= $_GET['id'] ?>)
+  </script>
 </body>
 
 </html>
