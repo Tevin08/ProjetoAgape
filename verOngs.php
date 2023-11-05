@@ -93,7 +93,6 @@ function usuarios($conexao)
           echo '<img src="data:image/jpeg;base64,' . base64_encode($dados["PIC"]) . '" id="ong-logo">';
           echo "<h1>{$dados['NM_ONG']}</h1>";
           echo '<div>';
-          echo '<p>Categoria</p>';
           echo '</div>';
           echo "</div>";
         }

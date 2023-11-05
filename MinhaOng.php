@@ -82,7 +82,7 @@ while ($dados = $users->fetch_assoc()) {
                 </div>
                 <div class="cadas">
                     <form action="./php/post.php" method="post" class="cad-edit" enctype="multipart/form-data">
-                        <input type="text" name="tituloPost" maxlength="20" id="tituloPost" placeholder="Título do Post..">
+                        <input type="text" name="tituloPost" id="tituloPost" placeholder="Título do Post..">
                         <div class="post-content-square">
 
                             <div class="post-foto-square">
