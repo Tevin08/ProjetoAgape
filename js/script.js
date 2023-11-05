@@ -62,7 +62,6 @@ function Vercomments(id){
   const toggleBtn = document.querySelector(`.ver-${id}`)
   const containercomments = document.querySelector(`.cmts-${id}`)
   const containerdescrpt = document.querySelector(`.ds-${id}`)
-  const lmais = document.querySelector('.leia-mais')
 
   toggleBtn.textContent = "Ver Descrição";
 
@@ -70,14 +69,12 @@ function Vercomments(id){
 
   containerdescrpt.style.display = "none"
   containercomments.style.display = "block"
-  lmais.style.display = 'none'
 }
 
 function Verdescricao(id) {
   const toggleBtn = document.querySelector(`.ver-${id}`);
   const containercomments = document.querySelector(`.cmts-${id}`)
   const containerdescrpt = document.querySelector(`.ds-${id}`)
-  const lmais = document.querySelector(".leia-mais");
 
   toggleBtn.textContent = "Ver Comentários";
 
@@ -85,5 +82,4 @@ function Verdescricao(id) {
 
   containerdescrpt.style.display = "flex";
   containercomments.style.display = "none";
-  lmais.style.display = "flex";
 }

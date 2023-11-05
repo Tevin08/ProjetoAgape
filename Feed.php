@@ -3,24 +3,14 @@
 include "./php/banco.php";
 
 session_start();
-
-$comentarios = comentarios($conexao);
-function comentarios($conexao)
-{
-    $sqlBusca = "SELECT TB_COMMENT_FEED.CD_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_DOADOR.FOTO, TB_COMMENT_FEED.TEXTO_COMMENT, TB_POST.CD_POST
-    FROM TB_COMMENT_FEED
-    JOIN TB_DOADOR ON TB_COMMENT_FEED.CD_DOADOR = TB_DOADOR.CD_DOADOR
-    JOIN TB_POST ON TB_COMMENT_FEED.CD_POST = TB_POST.CD_POST;
-    ";
-    $resultado = mysqli_query($conexao, $sqlBusca);
-    return $resultado;
-}
 $post = post($conexao);
 function post($conexao)
 {
-    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST, TB_POST.CD_POST
-    FROM TB_ONG
-    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG";
+    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST, TB_POST.CD_POST, TB_COMMENT_FEED.TEXTO_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.FOTO
+	FROM TB_ONG
+    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG
+    JOIN TB_COMMENT_FEED ON TB_POST.CD_POST = TB_COMMENT_FEED.CD_POST
+    JOIN TB_DOADOR ON TB_COMMENT_FEED.CD_DOADOR = TB_DOADOR.CD_DOADOR";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
@@ -121,26 +111,25 @@ function post($conexao)
                     <div class="post-coments cmts-<?= $count ?>">
                         <h1>Comentários</h1>
                         <?php
-                        while ($dados = $comentarios->fetch_assoc()) {
-                            echo '<div class="feed-comentarios">';
-                            echo '<div class="feed-top-comets-content">';
-                            echo '<img src="data:image/jpeg;base64,' . base64_encode($dados['FOTO']) . '" class="img-perfil-ong" width="250px">';
-                            echo '<h1>';
-                            echo "{$dados['NM_DOADOR']}";
-                            echo '</h1>';
-                            echo '</div>';
-                            echo '<div class="comentario-text">';
-                            echo '<p>';
-                            echo "{$dados['TEXTO_COMMENT']}";
-                            echo '</p>';
-                            echo '</div>';
-                            echo '<div class="reactions-button-group">';
-                            echo '<button id="like-Button">';
-                            echo '</button>';
-                            echo '</div>';
-                            echo '</div>';
-                        }
+                                echo '<div class="feed-comentarios">';
+                                echo '<div class="feed-top-comets-content">';
+                                echo '<img src="data:image/jpeg;base64,' . base64_encode($dados['FOTO']) . '" class="img-perfil-ong" width="250px">';
+                                echo '<h1>';
+                                echo "{$dados['NM_DOADOR']}";
+                                echo '</h1>';
+                                echo '</div>';
+                                echo '<div class="comentario-text">';
+                                echo '<p>';
+                                echo "{$dados['TEXTO_COMMENT']}";
+                                echo '</p>';
+                                echo '</div>';
+                                echo '<div class="reactions-button-group">';
+                                echo '<button id="like-Button">';
+                                echo '</button>';
+                                echo '</div>';
+                                echo '</div>';
                         ?>
+                        
                     </div>
                     <button class='btn-toggle btn-id-descricao ver-<?= $count ?>' onclick='Vercomments(<?= $count ?>)'>
                         Ver Comentários
