@@ -12,7 +12,7 @@ if (!isset($_SESSION['id_ong'])) {
 $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
-    $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT
+    $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT, TB_DOADOR.FOTO
   FROM TB_COMMENT
   JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR ;
   ";
@@ -112,7 +112,7 @@ while ($dados = $users->fetch_assoc()) {
             <div class="div-forms forms-login dados-form">
                 <div class="seta-voltar">
 
-                    <button class="btn-voltar" onclick="modalClose()">
+                    <button class="btn-voltar" onclick="modalCloseEdit()">
                         <img width="35px" src="./imagens/arrow.png" alt="ff" />
                     </button>
                 </div>
@@ -214,7 +214,7 @@ while ($dados = $users->fetch_assoc()) {
                         </div>
 
                     </div>
-                    <button id='btn-edit-perfil' onclick="modalShow()">
+                    <button id='btn-edit-perfil' onclick="modalEdit()">
                         <i class="fa-regular fa-pen-to-square"></i>
                         Editar Perfil
                     </button>
@@ -303,10 +303,11 @@ while ($dados = $users->fetch_assoc()) {
 
             <div class="container-Comentarios ongs-ajudadas">
                 <?php
+                $count = 0;
                 while ($dados = $comentarios->fetch_assoc()) {
                     echo '<div class="comentarios">';
                     echo '<div class="top-comets-content">';
-                    echo '<div class="foto-user-comentario"></div>';
+                    echo '<img src="data:image/jpeg;base64,' . base64_encode($dados['FOTO']) . '" class="icon-pfp" width="250px">';
                     echo "<h1>{$dados['NM_DOADOR']}</h1>";
                     echo '</div>';
                     echo '<div class="comentario-text">';
@@ -315,17 +316,20 @@ while ($dados = $users->fetch_assoc()) {
                     echo '</p>';
                     echo '</div>';
                     echo '<div class="reactions-button-group">';
-                    echo '<button id="like-Button">';
-                    echo '<i class="fa-solid fa-heart"></i>';
+                    echo "<button type='button' class='like-Button likeBtn-$count' onclick='likeBtn($count)'>";
+                    echo "<i class='fa-solid fa-heart like-$count'></i>";
+                    echo "<span class='count-like count-like-$count'>0</span>";
                     echo '</button>';
                     echo '</div>';
                     echo '</div>';
+                    $count++;
                 }
                 ?>
             </div>
         </div>
     </section>
     <script src="./js/script.js"></script>
+    <script src="./js/modals.js"></script>
 </body>
 <footer>
     <div class="footer-logo">

@@ -22,3 +22,15 @@ function modalClose(id) {
   modal.style.display = "none";
   document.body.style.overflow = "visible";
 }
+
+function modalEdit() {
+  const modal = document.querySelector(".container-modal");
+  document.body.style.overflow = "hidden";
+  modal.style.display = "flex";
+}
+
+function modalCloseEdit() {
+  const modal = document.querySelector(".container-modal");
+  modal.style.display = "none";
+  document.body.style.overflow = "visible";
+}

@@ -254,6 +254,13 @@ button {
   border: 2px solid #f088c7;
 }
 
+.icon-pfp {
+  width: 3.5em;
+  border: 2px solid #c79dff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .cad-link {
   font-size: 1.4rem;
 }
