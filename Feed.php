@@ -6,14 +6,35 @@ session_start();
 $post = post($conexao);
 function post($conexao)
 {
-    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST, TB_POST.CD_POST, TB_COMMENT_FEED.TEXTO_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.FOTO
-	FROM TB_ONG
-    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG
-    JOIN TB_COMMENT_FEED ON TB_POST.CD_POST = TB_COMMENT_FEED.CD_POST
-    JOIN TB_DOADOR ON TB_COMMENT_FEED.CD_DOADOR = TB_DOADOR.CD_DOADOR";
+    $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST, TB_POST.CD_POST
+    FROM TB_ONG
+    JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
+
+$comentarios = comentarios($conexao);
+function comentarios($conexao)
+{
+    $sqlBusca = "SELECT TB_COMMENT_FEED.CD_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_DOADOR.FOTO, TB_COMMENT_FEED.TEXTO_COMMENT, TB_POST.CD_POST
+    FROM TB_COMMENT_FEED
+    JOIN TB_DOADOR ON TB_COMMENT_FEED.CD_DOADOR = TB_DOADOR.CD_DOADOR
+    JOIN TB_POST ON TB_COMMENT_FEED.CD_POST = TB_POST.CD_POST;
+    ";
+    $resultado = mysqli_query($conexao, $sqlBusca);
+    return $resultado;
+}
+// $post = post($conexao);
+// function post($conexao)
+// {
+//     $sqlBusca = "SELECT TB_ONG.NM_ONG, TB_ONG.CD_ONG, TB_ONG.PIC, TB_POST.TEXTO_POST, TB_POST.TITULO, TB_POST.IMAGEM_POST, TB_POST.CD_POST, TB_COMMENT_FEED.TEXTO_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.FOTO
+// 	FROM TB_ONG
+//     JOIN TB_POST ON TB_ONG.CD_ONG = TB_POST.CD_ONG
+//     JOIN TB_COMMENT_FEED ON TB_POST.CD_POST = TB_COMMENT_FEED.CD_POST
+//     JOIN TB_DOADOR ON TB_COMMENT_FEED.CD_DOADOR = TB_DOADOR.CD_DOADOR";
+//     $resultado = mysqli_query($conexao, $sqlBusca);
+//     return $resultado;
+// }
 
 ?>
 <html lang="en">
@@ -75,22 +96,22 @@ function post($conexao)
         $count = 0;
         while ($dados = $post->fetch_assoc()) {
         ?>
-            <div class="container-modal mdl-<?=$count?>">
+            <div class="container-modal mdl-<?= $count ?>">
                 <div class="modal-comentarios anim">
-                    <form action="./php/comentarios_feed.php?id=<?=$dados['CD_POST']?>" method="post">
+                    <form action="./php/comentarios_feed.php?id=<?= $dados['CD_POST'] ?>" method="post">
                         <div class="contents">
                             <h1>Faça um comentário</h1>
                             <textarea name="comentario" id="" maxlength="512"></textarea>
                             <div class="modal-btns">
                                 <button type="submit" id="btn-modal-avancar">Enviar</button>
-                                <button type="button" id="btn-modal-cancel" onclick="modalClose(<?=$count?>)">Cancelar</button>
+                                <button type="button" id="btn-modal-cancel" onclick="modalClose(<?= $count ?>)">Cancelar</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="div-nome">
-                <img onclick="location.href='PerfilOngs.php?id=<?=$dados['CD_ONG']?>'" src="data:image/jpeg;base64,<?= base64_encode($dados['PIC']) ?>">
+                <img onclick="location.href='PerfilOngs.php?id=<?= $dados['CD_ONG'] ?>'" src="data:image/jpeg;base64,<?= base64_encode($dados['PIC']) ?>">
                 <h1>
                     <?= $dados['NM_ONG']  ?>
                 </h1>
@@ -111,25 +132,33 @@ function post($conexao)
                     <div class="post-coments cmts-<?= $count ?>">
                         <h1>Comentários</h1>
                         <?php
-                                echo '<div class="feed-comentarios">';
-                                echo '<div class="feed-top-comets-content">';
-                                echo '<img src="data:image/jpeg;base64,' . base64_encode($dados['FOTO']) . '" class="img-perfil-ong" width="250px">';
-                                echo '<h1>';
-                                echo "{$dados['NM_DOADOR']}";
-                                echo '</h1>';
-                                echo '</div>';
-                                echo '<div class="comentario-text">';
-                                echo '<p>';
-                                echo "{$dados['TEXTO_COMMENT']}";
-                                echo '</p>';
-                                echo '</div>';
-                                echo '<div class="reactions-button-group">';
-                                echo '<button id="like-Button">';
-                                echo '</button>';
-                                echo '</div>';
-                                echo '</div>';
+                        mysqli_data_seek($comentarios, 0);
+                        $query = "SELECT TB_COMMENT_FEED.CD_COMMENT, TB_COMMENT_FEED.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_DOADOR.FOTO, TB_COMMENT_FEED.TEXTO_COMMENT, TB_POST.CD_POST
+                        FROM TB_COMMENT_FEED
+                        JOIN TB_DOADOR ON TB_COMMENT_FEED.CD_DOADOR = TB_DOADOR.CD_DOADOR
+                        JOIN TB_POST ON TB_COMMENT_FEED.CD_POST = TB_POST.CD_POST WHERE TB_POST.CD_POST = {$dados['CD_POST']}";
+                        $result = mysqli_query($conexao, $query);
+                        while ($comments = mysqli_fetch_assoc($result)) {
+                            echo '<div class="feed-comentarios">';
+                            echo '<div class="feed-top-comets-content">';
+                            echo '<img src="data:image/jpeg;base64,' . base64_encode($comments['FOTO']) . '" class="img-perfil-ong" width="250px">';
+                            echo '<h1>';
+                            echo "{$comments['NM_DOADOR']}";
+                            echo '</h1>';
+                            echo '</div>';
+                            echo '<div class="comentario-text">';
+                            echo '<p>';
+                            echo "{$comments['TEXTO_COMMENT']}";
+                            echo '</p>';
+                            echo '</div>';
+                            echo '<div class="reactions-button-group">';
+                            echo '<button id="like-Button">';
+                            echo '</button>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
                         ?>
-                        
+
                     </div>
                     <button class='btn-toggle btn-id-descricao ver-<?= $count ?>' onclick='Vercomments(<?= $count ?>)'>
                         Ver Comentários
@@ -138,7 +167,7 @@ function post($conexao)
             </div>
             <div class="div-add-postcoments">
                 <div id="btn-postcoments">
-                    <button id="btn-comment" onclick="modalShow(<?=$count?>)">
+                    <button id="btn-comment" onclick="modalShow(<?= $count ?>)">
                         <i class="fa-regular fa-comment"></i>
                     </button>
                     <button id="btn-comment">
