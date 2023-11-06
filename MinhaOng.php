@@ -284,7 +284,7 @@ while ($dados = $users->fetch_assoc()) {
                 <?php
                 while ($dados = $post->fetch_assoc()) {
                 ?>
-                    <div class="posts">
+                    <div class="posts"  onclick='location.href="feed.php"'>
                         <img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>" width="200px">
                         <h2><?= $dados['TITULO'] ?></h2>
                     </div>

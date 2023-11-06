@@ -2,7 +2,10 @@
 include "banco.php";
 
 session_start();
-
+if (!isset($_SESSION["id_doador"])) {
+    header("location: ../logindoador.php");
+    exit;
+}
 function gravar($conexao)
 {
     $sql = "insert into tb_comment

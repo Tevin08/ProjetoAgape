@@ -72,9 +72,12 @@ function Vercomments(id) {
 }
 
 function Verdescricao(id) {
+  
   const toggleBtn = document.querySelector(`.ver-${id}`);
   const containercomments = document.querySelector(`.cmts-${id}`);
   const containerdescrpt = document.querySelector(`.ds-${id}`);
+
+  
 
   toggleBtn.textContent = "Ver Comentários";
 

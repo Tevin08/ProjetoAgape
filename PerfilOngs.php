@@ -223,7 +223,7 @@ $_SESSION['cd_ong'] = $row['CD_ONG'];
         <?php
         while ($dados = $post->fetch_assoc()) {
         ?>
-          <div class="posts">
+          <div class="posts" onclick='location.href="feed.php"'>
             <img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>" width="100px">
 
             <div class="conteudo">

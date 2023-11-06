@@ -302,15 +302,14 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 10px;
 }
 
-.conteudo {
-  text-align: center;
-  margin-bottom: -60px;
-}
 
-.conteudo p {
+
+.conteudo + .posts , h2 {
   text-align: center;
   word-break: break-all;
-  width: 190px;
+  width: 195px;
+  text-align: center;
+  
 }
 
 /* comentário-content */

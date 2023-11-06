@@ -124,8 +124,8 @@ function comentarios($conexao)
                 <div class="div-coments-description">
                     <div class="div-toggle-parts">
                     </div>
-                    <div class="post-descricao ds-<?= $count ?>">
-                        <p>
+                    <div class=" post-descricao ds-<?= $count ?>">
+                        <p class='anim'>
                             <?= $dados['TEXTO_POST'] ?>
                         </p>
                     </div>
@@ -139,8 +139,8 @@ function comentarios($conexao)
                         JOIN TB_POST ON TB_COMMENT_FEED.CD_POST = TB_POST.CD_POST WHERE TB_POST.CD_POST = {$dados['CD_POST']}";
                         $result = mysqli_query($conexao, $query);
                         while ($comments = mysqli_fetch_assoc($result)) {
-                            echo '<div class="feed-comentarios">';
-                            echo '<div class="feed-top-comets-content">';
+                            echo '<div class="feed-comentarios anim">';
+                            echo '<div class="feed-top-comets-content anim">';
                             echo '<img src="data:image/jpeg;base64,' . base64_encode($comments['FOTO']) . '" class="img-perfil-ong" width="250px">';
                             echo '<h1>';
                             echo "{$comments['NM_DOADOR']}";
@@ -160,7 +160,7 @@ function comentarios($conexao)
                         ?>
 
                     </div>
-                    <button class='btn-toggle btn-id-descricao ver-<?= $count ?>' onclick='Vercomments(<?= $count ?>)'>
+                    <button  class='anim btn-toggle btn-id-descricao ver-<?= $count ?>' onclick='Vercomments(<?= $count ?>)'>
                         Ver Comentários
                     </button>
                 </div>
