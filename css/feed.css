@@ -53,6 +53,10 @@
   max-width: 460px;
 }
 
+.post-content p {
+  font-size: 1.2rem;
+}
+
 .fa-heart {
   color: #fff;
   -webkit-text-stroke: 2px #c79dff; /* width and color */

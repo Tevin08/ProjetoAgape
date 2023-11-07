@@ -13,9 +13,9 @@ $comentarios = comentarios($conexao);
 function comentarios($conexao)
 {
     $sqlBusca = "SELECT TB_COMMENT.CD_COMMENT, TB_COMMENT.CD_DOADOR, TB_DOADOR.CD_DOADOR, TB_DOADOR.NM_DOADOR, TB_COMMENT.TEXTO_COMMENT, TB_DOADOR.FOTO
-  FROM TB_COMMENT
-  JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR WHERE TB_COMMENT.CD_ONG = {$_SESSION['id_ong']}
-  ";
+    FROM TB_COMMENT
+    JOIN TB_DOADOR ON TB_COMMENT.CD_DOADOR = TB_DOADOR.CD_DOADOR WHERE TB_COMMENT.CD_ONG = {$_SESSION['id_ong']};
+    ";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }

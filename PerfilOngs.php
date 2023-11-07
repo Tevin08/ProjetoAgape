@@ -75,12 +75,12 @@ $_SESSION['cd_ong'] = $row['CD_ONG'];
 
 <body>
 
-  <div class="anim modal-add-comment">
-    <form action="./php/comentarios.php?id=<?= $_SESSION['cd_ong'] ?>" method="post">
+  <div class="modal-add-comment">
+    <form action="./php/comentarios.php?id=<?= $_SESSION['cd_ong'] ?>" class="anim" method="post">
       <i onclick="closeComment(event)" class="fa-solid fa-close"></i>
-      <label>Adicionar comentário</label>
+      <label>Adicionar avaliação</label>
       <textarea placeholder="Adicione um comentário aqui" name="comentario" cols="30" rows="10"></textarea>
-      <button>Comentar</button>
+      <button>Avaliar</button>
     </form>
   </div>
   <nav id="nav-ongs">
@@ -217,24 +217,20 @@ $_SESSION['cd_ong'] = $row['CD_ONG'];
       <h1>Postagens</h1>
     </div>
     <div class="section-center">
-
-
       <div class="container-posts">
         <?php
         while ($dados = $post->fetch_assoc()) {
         ?>
-          <div class="posts" onclick='location.href="feed.php"'>
+          <div class="posts">
             <img src="data:image/jpeg;base64,<?= base64_encode($dados['IMAGEM_POST']) ?>" width="100px">
-
-            <div class="conteudo">
               <h2><?= $dados['TITULO'] ?></h2>
-            </div>
           </div>
         <?php
         }
         ?>
       </div>
     </div>
+  </section>
   </section>
   <section class="section-doados">
     <div class="titulo font">
