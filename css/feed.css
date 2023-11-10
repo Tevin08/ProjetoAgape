@@ -58,15 +58,12 @@
 }
 
 .fa-heart {
-  color: #fff;
-  -webkit-text-stroke: 2px #c79dff; /* width and color */
+  color: #c79dff;
+  -webkit-text-stroke: 2px #fff; /* width and color */
   font-size: 2em;
 }
 
-.fa-heart2 {
 
-  -webkit-text-stroke: #fff;
-}
 
 .div-nome img {
   width: 4em;
@@ -204,7 +201,15 @@
 #btn-comment {
   border: none;
   background-color: #c79dff;
+  display: flex;
+  gap: 0.5em;
 }
+
+#btn-comment p {
+font-size: 1.4em;
+color: #fff;
+}
+
 .like-Button,
 #dislike-button {
   border: none;

@@ -134,6 +134,22 @@ while ($dados = $users->fetch_assoc()) {
                                 <label for="name">Editar Email</label>
                                 <input type="text" placeholder="Email" value="<?php echo $_SESSION['email_ong'] ?>" name='email' id='input-edit-name'>
                             </div>
+                            <div class="contatos-modal">
+
+                                <H2>Contatos</H2>
+                                <div class="input-edit-perfil">
+                                    <label for="wpp">Whatsapp</label>
+                                    <input type="text" placeholder="Whatsapp" value="<?php echo $_SESSION['Wpp_ong'] ?>" name='wpp' id='input-edit-name'>
+                                </div>
+                                <div class="input-edit-perfil">
+                                    <label for="Insta">Instagram</label>
+                                    <input type="text" placeholder="instagram" value="<?php echo $_SESSION['Insta_ong'] ?>" name='insta' id='input-edit-name'>
+                                </div>
+                                <div class="input-edit-perfil">
+                                    <label for="twitter">X</label>
+                                    <input type="text" placeholder="X" value="<?php echo $_SESSION['twitter_ong'] ?>" name='twitter' id='input-edit-name'>
+                                </div>
+                            </div>
 
                         </div>
                         <button id="btn-doadorC" type="submit">Confirmar</button>

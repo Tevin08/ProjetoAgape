@@ -493,10 +493,8 @@ body::-webkit-scrollbar-thumb {
   }
 } */
 
-.cad-edit {
-  padding: 2em 1em;
-  margin-top: -2em;
-}
+
+
 
 .cad-edit h2 {
   font-size: 2.2rem;
@@ -555,9 +553,15 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 2em 1em;
+  margin-top: -2em;
 }
 
 .cad-edit h1 {
   text-align: center;
+}
+
+.cadas{
+  overflow-y: scroll;
 }
  

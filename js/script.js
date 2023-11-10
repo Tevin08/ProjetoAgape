@@ -57,6 +57,28 @@ function unlikeBtn(id) {
   countLike.textContent = 0;
   likeBtn.setAttribute("onclick", `likeBtn(${id})`);
 }
+function likeBtnfeed(id) {
+  count = 0;
+  count++;
+  let likeBtn = document.querySelector(`.likeBtn-${id}`);
+  let like = document.querySelector(`.like-${id}`);
+  let countLike = document.querySelector(`.count-like-${id}`);
+  like.style.transition = "all 150ms ease";
+  like.style.color = "#FFF";
+  countLike.textContent = count;
+  likeBtn.setAttribute("onclick", `unlikeBtnfeed(${id})`);
+}
+
+function unlikeBtnfeed(id) {
+  count--;
+  let likeBtn = document.querySelector(`.likeBtn-${id}`);
+  let like = document.querySelector(`.like-${id}`);
+  let countLike = document.querySelector(`.count-like-${id}`);
+  like.style.transition = "all 150ms ease";
+  like.style.color = "#c79dff";
+  countLike.textContent = 0;
+  likeBtn.setAttribute("onclick", `likeBtnfeed(${id})`);
+}
 
 function Vercomments(id) {
   const toggleBtn = document.querySelector(`.ver-${id}`);

@@ -171,7 +171,11 @@ function comentarios($conexao)
                         <i class="fa-regular fa-comment"></i>
                     </button>
                     <button id="btn-comment">
-                        <i class="fa-regular  fa-heart fa-heart2" style="color:#fff" onclick="love()"></i>
+                    <i onclick="likeBtnfeed(<?= $count ?>)" class='fa-solid fa-heart fa-heart2 like-<?= $count ?> likeBtn-<?= $count ?>'></i>
+                    <p class="like-<?= $count ?>"></p>
+                    <p class="count-like-<?= $count ?>"></p>
+
+                    
                     </button>
                 </div>
             </div>
