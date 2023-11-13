@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 
 <?php
+require 'mailer/PHPMailerAutoload.php';
 session_start();
 
 if (isset($_SESSION['id_user'])) {
   header('location: verOngs.php');
   exit();
+}
+
+$mail = new PHPMailer();
+$mail->isSMTP();
+$mail->Host = 'smtp.gmail.com';
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = 'tls';
+$mail->Username = 'GalaxiaZern14@gmail.com';
+$mail->Password = 'nuggets0809';
+$mail->Port = 587;
+
+$mail->setFrom('GalaxiaZern14@gmail.com');
+$mail->addReplyTo('GalaxiaZern114@gmail.com');
+$mail->addAddress('estevaopsg08@gmail.com', 'DÓRIA' );
+$mail->addAddress('estevaopsg08@gmail.com', 'BAtata');
+$mail->addCC('estevaopsg08@gmail.com', 'Cópia');
+$mail->addBCC('estevaopsg08@gmail.com', 'Cópia Oculta');
+0
+$mail->isHTML(true);
+$mail->Subject = 'Assunto do email';
+$mail->Body    = 'Quem ta lendo come o <b>Dória</b>';
+$mail->AltBody = 'garganta';
+$mail->addAttachment('./imagens/icon-coracao.png', 'coração.png');
+
+if(!$mail->send()) {
+    echo 'Não foi possível enviar a mensagem.<br>';
+    echo 'Erro: ' . $mail->ErrorInfo;
+} else {
+    echo 'Mensagem enviada.';
 }
 ?>
 <html lang="pt">
