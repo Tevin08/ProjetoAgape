@@ -24,7 +24,7 @@ $mail->addAddress('estevaopsg08@gmail.com', 'DÓRIA' );
 $mail->addAddress('estevaopsg08@gmail.com', 'BAtata');
 $mail->addCC('estevaopsg08@gmail.com', 'Cópia');
 $mail->addBCC('estevaopsg08@gmail.com', 'Cópia Oculta');
-0
+
 $mail->isHTML(true);
 $mail->Subject = 'Assunto do email';
 $mail->Body    = 'Quem ta lendo come o <b>Dória</b>';
