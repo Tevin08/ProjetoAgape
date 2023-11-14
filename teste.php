@@ -11,12 +11,14 @@
 
   <h1>Olá</h1>
 <?php
-ini_set();
-$to = '';
-$assunto = ''; 
-$headers = 'From: webmaster@example.com' . "\r\n" .
-    'Reply-To: webmaster@example.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+
+ini_set("SMTP", "localhost");
+ini_set("smtp_port", "55");
+// Rest of your code
+$to = 'estevaopsg08@gmail.com';
+$assunto = 'Roubaram a minha paçoca';
+$headers = "From: webmaster@example.com" . "\r\n" .
+"CC: somebodyelse@example.com";
 // The message
 $message = "Barras e Barras\r\ncê pensa que meu freestyle é uma diss\r\nQuando eu parei você era um murica agora que voltei o puto de paris? ";
 
@@ -27,7 +29,7 @@ $message = wordwrap($message, 70, "\r\n");
 
 mail($to, $assunto, $message, $headers);
 ?>
-  
+
   </body>
 </html>
 

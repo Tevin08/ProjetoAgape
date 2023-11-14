@@ -6,7 +6,10 @@
         $sql = "update tb_ong
         set 
         email = '{$_POST['email']}',
-        nm_ong = '{$_POST['name']}'
+        nm_ong = '{$_POST['name']}',
+        twitter = '{$_POST['twitter']}',
+        insta = '{$_POST['insta']}',
+        wpp = '{$_POST['wpp']}'
         where CD_ONG = '{$_SESSION['id_ong']}'";
         return mysqli_query($conexao, $sql);
     }

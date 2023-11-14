@@ -28,6 +28,7 @@ function post($conexao)
     $resultado = mysqli_query($conexao, $sqlBusca);
     return $resultado;
 }
+
 $users = usuarios($conexao);
 function usuarios($conexao)
 {
@@ -139,15 +140,15 @@ while ($dados = $users->fetch_assoc()) {
                                 <H2>Contatos</H2>
                                 <div class="input-edit-perfil">
                                     <label for="wpp">Whatsapp</label>
-                                    <input type="text" placeholder="Whatsapp" value="<?php echo $_SESSION['Wpp_ong'] ?>" name='wpp' id='input-edit-name'>
+                                    <input type="text" placeholder="Whatsapp" value="<?php echo $_SESSION['wpp'] ?>" name='wpp' id='input-edit-name'>
                                 </div>
                                 <div class="input-edit-perfil">
                                     <label for="Insta">Instagram</label>
-                                    <input type="text" placeholder="instagram" value="<?php echo $_SESSION['Insta_ong'] ?>" name='insta' id='input-edit-name'>
+                                    <input type="text" placeholder="instagram" value="<?php echo $_SESSION['insta'] ?>" name='insta' id='input-edit-name'>
                                 </div>
                                 <div class="input-edit-perfil">
                                     <label for="twitter">X</label>
-                                    <input type="text" placeholder="X" value="<?php echo $_SESSION['twitter_ong'] ?>" name='twitter' id='input-edit-name'>
+                                    <input type="text" placeholder="X" value="<?php echo $_SESSION['x'] ?>" name='twitter' id='input-edit-name'>
                                 </div>
                             </div>
 
