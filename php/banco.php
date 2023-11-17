@@ -1,7 +1,7 @@
 <?php
     $server = "127.0.0.1";
     $user = "root";
-    $senha = "";
+    $senha = "root";
     $port = "3306";
     $banco = "agape_db";
     $conexao = mysqli_connect(

@@ -485,3 +485,37 @@ textarea {
     transform: scale(1);
   }
 }
+
+
+aside{
+  align-self: flex-end;
+  animation: btnup-appear 4s cubic-bezier(0.07, 1.32, 0.75, 0.72);
+  animation-timeline: view();
+  animation-range: cover 30% cover 80% ;
+  animation-delay: 2s; 
+  
+}
+
+aside i{
+  color: #c79dff;
+ 
+  font-size: 3rem;
+}
+
+aside button{
+  background-color: rgb(253, 245, 255);
+ border: none;
+  outline: none;
+}
+
+@keyframes btnup-appear {
+  from{
+    opacity: 0;    
+    
+  }
+
+to{
+    opacity: 1;    
+  }
+
+}
